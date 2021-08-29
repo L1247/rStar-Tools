@@ -18,22 +18,25 @@ namespace rStarTools.Scripts.Main
         // [ValueDropdown("@NameListSo.SkillNameArray")]
         [ValueDropdown("SkillNames")]
         [InlineButton("ShowSkillName")]
-        [LabelWidth(60)]
-        // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
+        [LabelWidth(80)]
+        [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
         private string skillName;
 
         [Dropdown("SkillNames")]
         [InlineButton("ShowStringValue")]
         [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
+        [LabelWidth(80)]
         public string stringValue;
 
         [SerializeField]
         [InlineButton("ShowEnum")]
+        [LabelWidth(80)]
         private CustomName customName;
 
         [ValueDropdown("@ActorDataOverview.GetActorNames()")]
         [InlineButton("ShowName")]
         [SerializeField]
+        [LabelWidth(80)]
         private string Name;
 
         private static string[] SkillNames = new string[]
@@ -46,10 +49,10 @@ namespace rStarTools.Scripts.Main
         {
             var list     = SkillNames.ToList();
             var contains = list.Contains(value);
-            if (contains == false)
-            {
-                skillName = SkillNames[SkillNames.Length - 1];
-            }
+            // if (contains == false)
+            // {
+            //     skillName = SkillNames[SkillNames.Length - 1];
+            // }
 
             return contains;
         }
