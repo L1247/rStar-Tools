@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using EditorUtilities;
 using NaughtyAttributes;
+using ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,19 +14,27 @@ namespace rStarTools.Scripts.Main
     public class Character : MonoBehaviour
     {
         [SerializeField]
+        // [ValueDropdown("@NameListSo.SkillNames")]
+        // [ValueDropdown("@NameListSo.SkillNameArray")]
         [ValueDropdown("SkillNames")]
         [InlineButton("ShowSkillName")]
         [LabelWidth(60)]
-        [Sirenix.OdinInspector.ValidateInput("ValueValidation",ContinuousValidationCheck = true)]
+        // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
         private string skillName;
 
         [Dropdown("SkillNames")]
         [InlineButton("ShowStringValue")]
-        [Sirenix.OdinInspector.ValidateInput("ValueValidation",ContinuousValidationCheck = true)]
+        [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
         public string stringValue;
 
         [SerializeField]
+        [InlineButton("ShowEnum")]
         private CustomName customName;
+
+        [ValueDropdown("@ActorDataOverview.GetActorNames()")]
+        [InlineButton("ShowName")]
+        [SerializeField]
+        private string Name;
 
         private static string[] SkillNames = new string[]
         {
@@ -34,12 +44,13 @@ namespace rStarTools.Scripts.Main
 
         private bool ValueValidation(string value)
         {
-            var list            = SkillNames.ToList();
+            var list     = SkillNames.ToList();
             var contains = list.Contains(value);
-            if (contains==false)
+            if (contains == false)
             {
                 skillName = SkillNames[SkillNames.Length - 1];
             }
+
             return contains;
         }
 
@@ -52,10 +63,15 @@ namespace rStarTools.Scripts.Main
         {
             Debug.Log($"stringValue: {stringValue}");
         }
-    }
 
-    public enum CustomName
-    {
-        C , B , A ,
+        private void ShowEnum()
+        {
+            Debug.Log($"customName: {customName}");
+        }
+
+        private void ShowName()
+        {
+            Debug.Log($"Name: {Name}");
+        }
     }
 }

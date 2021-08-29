@@ -11,11 +11,11 @@ namespace ScriptableObjects
         [SerializeField]
         private List<string> SkillName;
 
-        public static string[] SkillNames = new string[] { "4" , "5" };
-        // public static IEnumerable SkillNames = new ValueDropdownList<string>()
-        // {
-            // { "1/122" , "3" } ,
-            // { "2/125" , "5" },
-        // };
+        public static string[] SkillNameArray = new string[] { "4" , "5" };
+        public static IEnumerable SkillNames = new ValueDropdownList<string>()
+        {
+            { "1/122" , "3" } ,
+            { "2/125" , "5" },
+        };
     }
 }

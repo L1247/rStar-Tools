@@ -162,9 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d143d6f08f444fa7d2e043d5fe2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: dnfvn
+  skillName: 3
   stringValue: dnfvn
-  customName: 0
+  customName: 3
+  Name: Pikachu
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
