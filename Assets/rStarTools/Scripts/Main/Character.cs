@@ -39,6 +39,11 @@ namespace rStarTools.Scripts.Main
         [LabelWidth(80)]
         private string Name;
 
+
+        [ValueDropdown("@ActorDataOverview.GetActorNames()")]
+        [SerializeField]
+        private List<string> Names;
+
         private static string[] SkillNames = new string[]
         {
             // "sd" ,

@@ -166,6 +166,9 @@ MonoBehaviour:
   stringValue: dnfvn
   customName: 3
   Name: Pikachu
+  Names:
+  - Eevee
+  - Pikachu
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
