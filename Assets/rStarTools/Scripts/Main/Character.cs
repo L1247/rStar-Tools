@@ -37,6 +37,7 @@ namespace rStarTools.Scripts.Main
         [InlineButton("ShowName")]
         [SerializeField]
         [LabelWidth(80)]
+        [Sirenix.OdinInspector.ValidateInput("@ActorDataOverview.IsStringContains(Name)",ContinuousValidationCheck = true)]
         private string Name;
 
 
