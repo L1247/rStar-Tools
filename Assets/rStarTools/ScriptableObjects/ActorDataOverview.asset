@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: ActorDataOverview
   m_EditorClassIdentifier: 
   actorDatas:
-  - {fileID: 11400000, guid: c5e34e25f49590f4380a58aa749e6750, type: 2}
   - {fileID: 11400000, guid: 86e335737c3e46b4d902d4675ac8097f, type: 2}
   - {fileID: 11400000, guid: 11f1c58dfcebb3f40b05487a52224b65, type: 2}

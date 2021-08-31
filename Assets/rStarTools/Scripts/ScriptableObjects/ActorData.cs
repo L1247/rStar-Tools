@@ -26,14 +26,26 @@ namespace ScriptableObjects
     public struct ActorName
     {
         [ValueDropdown("@ActorDataOverview.GetActorNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
-        [Sirenix.OdinInspector.ValidateInput("@ActorDataOverview.IsStringContains(Name)" ,
+        [Sirenix.OdinInspector.ValidateInput("@ActorDataOverview.IsStringContains(Id)" ,
                                              ContinuousValidationCheck = true)]
-        [InlineButton("ShowName")]
-        public string Name;
+        [InlineButton("ShowId")]
+        [LabelWidth(50)]
+        [SerializeField]
+        private string Name;
 
-        private void ShowName()
+        public string Id => Name;
+
+        private void ShowId()
         {
             Debug.Log($"Name: {Name}");
+        }
+
+        internal class ActorNameValueDrawer : OdinValueDrawer<ActorName>
+        {
+            protected override void DrawPropertyLayout(GUIContent label)
+            {
+                this.Property.Children[0].Draw();
+            }
         }
     }
 
