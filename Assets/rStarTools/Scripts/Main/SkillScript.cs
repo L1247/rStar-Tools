@@ -9,23 +9,23 @@ namespace rStarTools.Scripts.Main
     public class SkillScript : MonoBehaviour
     {
         [SerializeField]
-        // [ValueDropdown("@NameListSo.SkillNames")]
-        [ValueDropdown("SkillNames")]
+        [ValueDropdown("@NameListSo.SkillNames")]
+        // [ValueDropdown("SkillNames")]
         [InlineButton("ShowSkillName")]
         [LabelWidth(120)]
-        // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
+        // [Sirenix.OdinInspector.ValidateInput("ValueValidation" ,"Value No Exists")]
         private string skillName;
 
-        [Dropdown("SkillNames")]
-        [InlineButton("ShowStringValue")]
-        // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
-        [LabelWidth(120)]
-        public string NaughtyStringValue;
+        // [Dropdown("SkillNames")]
+        // [InlineButton("ShowStringValue")]
+        // // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
+        // [LabelWidth(120)]
+        // public string NaughtyStringValue;
 
         private static string[] SkillNames = new string[]
         {
             "sd" ,
-            "dnfvn" ,
+            "nfvn" ,
         };
 
         private bool ValueValidation(string value)
@@ -45,9 +45,9 @@ namespace rStarTools.Scripts.Main
             Debug.Log($"skillName {skillName}");
         }
 
-        private void ShowStringValue()
-        {
-            Debug.Log($"NaughtyStringValue: {NaughtyStringValue}");
-        }
+        // private void ShowStringValue()
+        // {
+        //     Debug.Log($"NaughtyStringValue: {NaughtyStringValue}");
+        // }
     }
 }

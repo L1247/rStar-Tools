@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
@@ -9,7 +10,7 @@ namespace ScriptableObjects
     public class NameListSo : ScriptableObject
     {
         [SerializeField]
-        private List<string> SkillName;
+        private List<string> skillName;
 
         public static string[] SkillNameArray = new string[] { "4" , "5" };
         public static IEnumerable SkillNames = new ValueDropdownList<string>()

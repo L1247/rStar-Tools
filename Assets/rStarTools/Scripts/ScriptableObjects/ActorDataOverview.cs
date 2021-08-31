@@ -39,7 +39,7 @@ namespace ScriptableObjects
             return valueContains;
         }
 
-        private ActorData FindActorData(string value)
+        public ActorData FindActorData(string value)
         {
             var actorData = ActorDatas.Find(data => data.Name == value);
             return actorData;
