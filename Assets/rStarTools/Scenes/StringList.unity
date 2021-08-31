@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392911733}
   - component: {fileID: 392911734}
+  - component: {fileID: 392911735}
   m_Layer: 0
   m_Name: SampleObj
   m_TagString: Untagged
@@ -166,12 +167,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d143d6f08f444fa7d2e043d5fe2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Pikachu
-  Names:
-  - 16254
-  - Eevee
-  - Pikachu
+  actorName:
+    Name: 7b81cecb-fb93-474b-b303-64de52f64fe7
+  actorNames:
+  - Name: 7b81cecb-fb93-474b-b303-64de52f64fe7
+  - Name: d3afe3ac-03ae-42f2-b3d8-77ec5e77539f
+  - Name: 6a9eabca-5504-4691-a919-a91099e53ce2
   actorDataOverview: {fileID: 11400000, guid: b6a1130ee3888754eb1d7911eab5cad7, type: 2}
+--- !u!114 &392911735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392911732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d0f883cb1b40288997548f74d65b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorName:
+    Name: 6a9eabca-5504-4691-a919-a91099e53ce2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,19 @@ using System.Linq;
 using EditorUtilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ActorDataOverview" , menuName = "rStar/ActorDataOverview" , order = 0)]
     public class ActorDataOverview : ScriptableObject
     {
-        public List<ActorData> ActorDatas = new List<ActorData>();
+        [FormerlySerializedAs("ActorDatas")]
+        [ListDrawerSettings(HideAddButton = true)]
+        [InlineButton("Update")]
+        [SerializeField]
+        [Searchable]
+        private List<ActorData> actorDatas = new List<ActorData>();
 
         public static IEnumerable SkillNames = new ValueDropdownList<string>()
         {
@@ -22,11 +28,11 @@ namespace ScriptableObjects
         {
             var actorDataOverview = CustomEditorUtility.GetScriptableObject<ActorDataOverview>();
             var valueDropdownItems = actorDataOverview
-                                     .ActorDatas
+                                     .actorDatas
                                      .Select(data => new ValueDropdownItem
                                      {
                                          Text  = data.DisplayName ,
-                                         Value = data.Name ,
+                                         Value = data.DataId ,
                                      });
             return valueDropdownItems;
         }
@@ -39,9 +45,14 @@ namespace ScriptableObjects
             return valueContains;
         }
 
+        private void Update()
+        {
+            actorDatas = CustomEditorUtility.GetScriptableObjects<ActorData>();
+        }
+
         public ActorData FindActorData(string value)
         {
-            var actorData = ActorDatas.Find(data => data.Name == value);
+            var actorData = actorDatas.Find(data => data.DataId == value);
             return actorData;
         }
     }
