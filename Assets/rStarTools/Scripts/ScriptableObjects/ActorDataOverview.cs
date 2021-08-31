@@ -26,7 +26,7 @@ namespace ScriptableObjects
                                      .Select(data => new ValueDropdownItem
                                      {
                                          Text  = data.DisplayName ,
-                                         Value = data.Name ,
+                                         Value = data.DataId ,
                                      });
             return valueDropdownItems;
         }
@@ -41,7 +41,7 @@ namespace ScriptableObjects
 
         public ActorData FindActorData(string value)
         {
-            var actorData = ActorDatas.Find(data => data.Name == value);
+            var actorData = ActorDatas.Find(data => data.DataId == value);
             return actorData;
         }
     }
