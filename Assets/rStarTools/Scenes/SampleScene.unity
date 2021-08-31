@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420034}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -162,9 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d143d6f08f444fa7d2e043d5fe2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: 3
-  stringValue: dnfvn
-  customName: 3
   Name: Pikachu
   Names:
   - Eevee
@@ -226,3 +225,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287670fd844a139a4d40c1fc1a46ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: 
+  NaughtyStringValue: sd
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8669b83f9a41f9a3f2c0c98c634b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: 0
