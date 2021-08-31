@@ -26,7 +26,15 @@ namespace ScriptableObjects
     public struct ActorName
     {
         [ValueDropdown("@ActorDataOverview.GetActorNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
+        [Sirenix.OdinInspector.ValidateInput("@ActorDataOverview.IsStringContains(Name)" ,
+                                             ContinuousValidationCheck = true)]
+        [InlineButton("ShowName")]
         public string Name;
+
+        private void ShowName()
+        {
+            Debug.Log($"Name: {Name}");
+        }
     }
 
     [Serializable]
