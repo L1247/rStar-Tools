@@ -29,7 +29,7 @@ namespace ScriptableObjects
         [Sirenix.OdinInspector.ValidateInput("@ActorDataOverview.IsStringContains(Id)" ,
                                              ContinuousValidationCheck = true)]
         [InlineButton("ShowId")]
-        [LabelWidth(50)]
+        [LabelWidth(40)]
         [SerializeField]
         private string Name;
 
