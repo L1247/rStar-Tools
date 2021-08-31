@@ -9,11 +9,11 @@ namespace rStarTools.Scripts.Main
 {
     public class Character : MonoBehaviour
     {
-        [ValueDropdown("@ActorDataOverview.GetActorNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
         [InlineButton("ShowName")]
         [InlineButton("ShowHp")]
         [SerializeField]
         [LabelWidth(80)]
+        [ValueDropdown("@ActorDataOverview.GetActorNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
         [Sirenix.OdinInspector.ValidateInput("@ActorDataOverview.IsStringContains(Name)" ,
                                              ContinuousValidationCheck = true)]
         private string Name;

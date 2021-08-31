@@ -10,7 +10,7 @@ scopes = {
 	"last_search.83F126EB" = "acov.as"
 	"InspectorPreview.83F126EB" = "0"
 	"currentGroup.83F126EB" = "all"
-	"last_search.785D90A9" = "actor"
+	"last_search.785D90A9" = "actordo"
 	"InspectorPreview.785D90A9" = "1"
 	"currentGroup.785D90A9" = "menu"
 }
@@ -77,6 +77,7 @@ providers = {
 	}
 }
 recentSearches = [
+	"actordo"
 	"actor"
 	"validator"
 	"acdaov"
