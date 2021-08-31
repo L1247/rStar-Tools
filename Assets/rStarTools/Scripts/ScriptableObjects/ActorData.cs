@@ -7,5 +7,6 @@ namespace ScriptableObjects
     {
         public string Name;
         public string DisplayName;
+        public int    HP;
     }
 }

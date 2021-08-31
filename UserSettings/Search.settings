@@ -10,9 +10,9 @@ scopes = {
 	"last_search.83F126EB" = "acov.as"
 	"InspectorPreview.83F126EB" = "0"
 	"currentGroup.83F126EB" = "all"
-	"last_search.785D90A9" = "ao.ass"
+	"last_search.785D90A9" = "validator"
 	"InspectorPreview.785D90A9" = "1"
-	"currentGroup.785D90A9" = "all"
+	"currentGroup.785D90A9" = "menu"
 }
 providers = {
 	asset = {
@@ -77,6 +77,9 @@ providers = {
 	}
 }
 recentSearches = [
+	"validator"
+	"acdaov"
+	"sam"
 	"ao.ass"
 	"acov.as"
 ]

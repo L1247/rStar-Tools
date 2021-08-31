@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01c8f1dd894f40788b766631fe25be16, type: 3}
-  m_Name: ActorData_2
+  m_Name: ActorData_3
   m_EditorClassIdentifier: 
-  Name: Eevee
-  DisplayName: "\u4F0A\u5E03"
-  HP: 100
+  Name: 16254
+  DisplayName: dadqwe
+  HP: 0

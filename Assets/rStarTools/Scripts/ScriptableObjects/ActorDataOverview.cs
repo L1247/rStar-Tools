@@ -30,5 +30,19 @@ namespace ScriptableObjects
                                      });
             return valueDropdownItems;
         }
+
+        public static bool IsStringContains(string value)
+        {
+            var actorDataOverview = CustomEditorUtility.GetScriptableObject<ActorDataOverview>();
+            var actorData         = actorDataOverview.FindActorData(value);
+            var valueContains                 = actorData != null;
+            return valueContains;
+        }
+
+        public ActorData FindActorData(string value)
+        {
+            var actorData = ActorDatas.Find(data => data.Name == value);
+            return actorData;
+        }
     }
 }
