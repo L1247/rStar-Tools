@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
+    [Serializable]
     public abstract class NameBase
     {
         [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
@@ -31,6 +32,6 @@ namespace ScriptableObjects
         }
 
         protected abstract IEnumerable GetNames();
-        protected         abstract bool        ValidateId(string value);
+        protected abstract bool        ValidateId(string value);
     }
 }
