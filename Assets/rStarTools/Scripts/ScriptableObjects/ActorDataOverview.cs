@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ActorDataOverview" , menuName = "rStar/ActorDataOverview" , order = 0)]
-    public class ActorDataOverview : ScriptableObject
+    public class ActorDataOverview : SingletonScriptableObject<ActorDataOverview>
     {
         [FormerlySerializedAs("ActorDatas")]
         [ListDrawerSettings(HideAddButton = true , OnTitleBarGUI = "ActorDatasTitleBarGUI" , ShowItemCount = true)]
@@ -24,10 +24,10 @@ namespace ScriptableObjects
             { "2/125" , "5" } ,
         };
 
+
         public static IEnumerable GetActorNames()
         {
-            var actorDataOverview = CustomEditorUtility.GetScriptableObject<ActorDataOverview>();
-            var valueDropdownItems = actorDataOverview
+            var valueDropdownItems = Instance
                                      .actorDatas
                                      .Select(data => new ValueDropdownItem
                                      {
@@ -39,9 +39,8 @@ namespace ScriptableObjects
 
         public static bool IsStringContains(string value)
         {
-            var actorDataOverview = CustomEditorUtility.GetScriptableObject<ActorDataOverview>();
-            var actorData         = actorDataOverview.FindActorData(value);
-            var valueContains     = actorData != null;
+            var actorData     = Instance.FindActorData(value);
+            var valueContains = actorData != null;
             return valueContains;
         }
 
