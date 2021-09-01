@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using EditorUtilities;
+using ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     public class DataOverviewBase<T , D> : SingletonScriptableObject<T> where D : SODataBase where T : ScriptableObject
     {

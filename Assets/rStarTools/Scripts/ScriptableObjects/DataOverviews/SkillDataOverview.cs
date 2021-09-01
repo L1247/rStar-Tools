@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
+using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.Datas;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
 {
     [CreateAssetMenu(fileName = "SkillDataOverview" , menuName = "rStar/SkillDataOverview" , order = 0)]
     public class SkillDataOverview : DataOverviewBase<SkillDataOverview , SkillData> { }

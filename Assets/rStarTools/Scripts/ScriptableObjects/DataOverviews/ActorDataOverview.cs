@@ -1,8 +1,8 @@
-using Sirenix.Utilities.Editor;
+using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.Datas;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
 {
     [CreateAssetMenu(fileName = "ActorDataOverview" , menuName = "rStar/ActorDataOverview" , order = 0)]
     public class ActorDataOverview : DataOverviewBase<ActorDataOverview , ActorData> { }

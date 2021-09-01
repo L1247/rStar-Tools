@@ -1,8 +1,7 @@
-using System.Collections.Generic;
+using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.Datas
 {
     [CreateAssetMenu(fileName = "ActorData" , menuName = "rStar/ActorData" , order = 0)]
     public class ActorData : SODataBase

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
     public class UniqueId

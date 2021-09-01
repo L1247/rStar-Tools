@@ -1,3 +1,4 @@
+using rStarTools.Scripts.ScriptableObjects.Names;
 using ScriptableObjects;
 using UnityEngine;
 

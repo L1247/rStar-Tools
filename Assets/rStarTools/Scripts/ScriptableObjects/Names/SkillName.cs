@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
+using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.DataOverviews;
+using ScriptableObjects;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.Names
 {
     [Serializable]
     public class SkillName : NameBase

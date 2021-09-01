@@ -1,7 +1,7 @@
 using EditorUtilities;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     public class SingletonScriptableObject<T> : ScriptableObject where T: ScriptableObject
     {

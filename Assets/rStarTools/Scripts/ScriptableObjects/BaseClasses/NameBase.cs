@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
     public abstract class NameBase

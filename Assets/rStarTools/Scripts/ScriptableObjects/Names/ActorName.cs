@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
-using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
-using UnityEngine;
+using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.DataOverviews;
+using ScriptableObjects;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Names
 {
     [Serializable]
     public class ActorName : NameBase
