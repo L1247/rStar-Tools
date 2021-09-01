@@ -1,17 +1,19 @@
+using System;
 using System.Collections;
 
 namespace ScriptableObjects
 {
+    [Serializable]
     public class SkillName : NameBase
     {
         protected override IEnumerable GetNames()
         {
-            yield break;
+            return SkillDataOverview.Instance.GetNames();
         }
 
         protected override bool ValidateId(string value)
         {
-            return false;
+            return SkillDataOverview.Instance.IsStringContains(value);
         }
     }
 }

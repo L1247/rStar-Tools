@@ -7,7 +7,6 @@ namespace rStarTools.Scripts.Main
 {
     public class Actor : MonoBehaviour
     {
-        [FormerlySerializedAs("name")]
         [SerializeField]
         private ActorName actorName;
     }
