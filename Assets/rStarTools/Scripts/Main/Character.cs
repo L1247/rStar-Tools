@@ -38,7 +38,7 @@ namespace rStarTools.Scripts.Main
 
         private void ShowHp()
         {
-            var actorData = actorDataOverview.FindActorData(actorName.Id);
+            var actorData = actorDataOverview.FindData<ActorData>(actorName.Id);
             Debug.Log($"Hp: {actorData.HP}");
         }
     }

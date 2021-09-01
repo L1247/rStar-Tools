@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    public class SingletonScriptableObject<T> : ScriptableObject where T : ScriptableObject
+    public class SingletonScriptableObject<T> : ScriptableObject where T: ScriptableObject
     {
         private static T instance;
 
