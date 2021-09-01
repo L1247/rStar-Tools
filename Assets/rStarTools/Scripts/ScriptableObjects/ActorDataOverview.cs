@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EditorUtilities;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities.Editor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,10 +13,9 @@ namespace ScriptableObjects
     public class ActorDataOverview : ScriptableObject
     {
         [FormerlySerializedAs("ActorDatas")]
-        [ListDrawerSettings(HideAddButton = true)]
-        [InlineButton("Update")]
+        [ListDrawerSettings(HideAddButton = true , OnTitleBarGUI = "ActorDatasTitleBarGUI" , ShowItemCount = true)]
         [SerializeField]
-        [Searchable]
+        // [Searchable]
         private List<ActorData> actorDatas = new List<ActorData>();
 
         public static IEnumerable SkillNames = new ValueDropdownList<string>()
@@ -41,11 +41,20 @@ namespace ScriptableObjects
         {
             var actorDataOverview = CustomEditorUtility.GetScriptableObject<ActorDataOverview>();
             var actorData         = actorDataOverview.FindActorData(value);
-            var valueContains                 = actorData != null;
+            var valueContains     = actorData != null;
             return valueContains;
         }
 
-        private void Update()
+
+        private void ActorDatasTitleBarGUI()
+        {
+            if (GUILayout.Button("UpdateActorDatas"))
+            {
+                UpdateActorDatas();
+            }
+        }
+
+        private void UpdateActorDatas()
         {
             actorDatas = CustomEditorUtility.GetScriptableObjects<ActorData>();
         }
