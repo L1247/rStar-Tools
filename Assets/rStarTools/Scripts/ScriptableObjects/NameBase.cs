@@ -8,7 +8,7 @@ namespace ScriptableObjects
     public abstract class NameBase
     {
         [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
-        [Sirenix.OdinInspector.ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
+        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
         [InlineButton("ShowId")]
         [LabelWidth(40)]
         [SerializeField]
@@ -21,7 +21,7 @@ namespace ScriptableObjects
             Debug.Log($"Name: {Name}");
         }
 
-        internal class ActorNameValueDrawer : OdinValueDrawer<ActorName>
+        internal class NameBaseValueDrawer<T> : OdinValueDrawer<T> where T : NameBase
         {
             protected override void DrawPropertyLayout(GUIContent label)
             {

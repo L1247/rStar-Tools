@@ -12,10 +12,8 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "ActorDataOverview" , menuName = "rStar/ActorDataOverview" , order = 0)]
     public class ActorDataOverview : SingletonScriptableObject<ActorDataOverview>
     {
-        [FormerlySerializedAs("ActorDatas")]
         [ListDrawerSettings(HideAddButton = true , OnTitleBarGUI = "ActorDatasTitleBarGUI" , ShowItemCount = true)]
         [SerializeField]
-        // [Searchable]
         private List<ActorData> actorDatas = new List<ActorData>();
 
         public static IEnumerable SkillNames = new ValueDropdownList<string>()
