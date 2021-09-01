@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.dbrizov.naughtyattributes": {
-      "version": "2.1.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
     "com.unity.2d.animation": {
       "version": "6.0.4",
       "depth": 0,
