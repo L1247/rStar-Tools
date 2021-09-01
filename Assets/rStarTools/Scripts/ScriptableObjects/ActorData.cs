@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
-    public class ActorDataBase : ScriptableObject
+    public class SODataBase : ScriptableObject
     {
         [SerializeField]
         [HideLabel]
@@ -17,7 +17,7 @@ namespace ScriptableObjects
     }
 
     [CreateAssetMenu(fileName = "ActorData" , menuName = "rStar/ActorData" , order = 0)]
-    public class ActorData : ActorDataBase
+    public class ActorData : SODataBase
     {
         public int HP;
     }
