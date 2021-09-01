@@ -1,12 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
-using NaughtyAttributes;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.ScriptableObjects.Datas;
-using rStarTools.Scripts.ScriptableObjects.Names;
-using ScriptableObjects;
 using ScriptableObjects.Names;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
