@@ -4,6 +4,7 @@ using NaughtyAttributes;
 using ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace rStarTools.Scripts.Main
 {
@@ -18,6 +19,7 @@ namespace rStarTools.Scripts.Main
         //                                      ContinuousValidationCheck = true)]
         // private string Name;
 
+        [FormerlySerializedAs("name")]
         [SerializeField]
         private ActorName actorName;
 
@@ -36,7 +38,7 @@ namespace rStarTools.Scripts.Main
 
         private void ShowHp()
         {
-            var actorData = actorDataOverview.FindActorData(actorName.Id);
+            var actorData = actorDataOverview.FindData<ActorData>(actorName.Id);
             Debug.Log($"Hp: {actorData.HP}");
         }
     }
