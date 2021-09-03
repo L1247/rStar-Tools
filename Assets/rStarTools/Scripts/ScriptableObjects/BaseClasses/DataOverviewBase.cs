@@ -19,7 +19,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             if (GUILayout.Button("UpdateDatas")) UpdateDatas();
         }
 
-        protected virtual void UpdateDatas() => datas = CustomEditorUtility.GetScriptableObjects<D>();
+        protected virtual void UpdateDatas()
+        {
+            datas = CustomEditorUtility.GetScriptableObjects<D>();
+            CustomEditorUtility.SetDirty(this);
+            CustomEditorUtility.SaveAssets();
+        }
 
         public virtual D FindData<D>(string value) where D : class
         {
