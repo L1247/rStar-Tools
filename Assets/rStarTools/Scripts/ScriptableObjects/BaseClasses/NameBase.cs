@@ -12,9 +12,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
         [InlineButton("ShowId")]
-        [LabelWidth(40)]
+        [LabelWidth(50)]
         [SerializeField]
+        [LabelText("@labelText")]
         private string Name;
+
+        protected virtual string labelText => "";
 
         public string Id => Name;
 

@@ -9,6 +9,7 @@ namespace ScriptableObjects.Names
     [Serializable]
     public class ActorName : NameBase
     {
+        protected override string      labelText                => "角色名稱";
         protected override IEnumerable GetNames()               => ActorDataOverview.Instance.GetNames();
         protected override bool        ValidateId(string value) => ActorDataOverview.Instance.IsStringContains(value);
     }
