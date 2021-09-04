@@ -5,11 +5,19 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     public class SODataBase : ScriptableObject
     {
+    #region Public Variables
+
+        public virtual string DataId      => uniqueId.DataId;
+        public virtual string DisplayName => uniqueId.DisplayName;
+
+    #endregion
+
+    #region Private Variables
+
         [SerializeField]
         [HideLabel]
         private UniqueId uniqueId;
 
-        public string DataId      => uniqueId.DataId;
-        public string DisplayName => uniqueId.DisplayName;
+    #endregion
     }
 }
