@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.ScriptableObjects.Datas;
-using ScriptableObjects;
 
 namespace rStarTools.Scripts.ScriptableObjects.Names
 {

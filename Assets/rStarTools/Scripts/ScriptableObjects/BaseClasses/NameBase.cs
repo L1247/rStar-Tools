@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using rStarTools.Scripts.ScriptableObjects.DataOverviews;
-using rStarTools.Scripts.ScriptableObjects.Datas;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEngine;
