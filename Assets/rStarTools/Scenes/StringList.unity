@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 392911733}
   - component: {fileID: 392911734}
-  - component: {fileID: 392911735}
   - component: {fileID: 392911736}
+  - component: {fileID: 392911735}
   m_Layer: 0
   m_Name: SampleObj
   m_TagString: Untagged
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorName:
-    Name: 6a9eabca-5504-4691-a919-a91099e53ce2
+    Name: 7b81cecb-fb93-474b-b303-64de52f64fe7
 --- !u!114 &392911736
 MonoBehaviour:
   m_ObjectHideFlags: 0

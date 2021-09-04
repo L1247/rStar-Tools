@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEngine;
@@ -38,10 +39,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
         [InlineButton("ShowId")]
-        [LabelWidth(50)]
+        [LabelWidthString("@Width")]
         [SerializeField]
         [LabelText("@LabelText")]
         private string Name;
+
+        protected virtual float Width => LabelText.Length * 12.5f;
 
     #endregion
 
