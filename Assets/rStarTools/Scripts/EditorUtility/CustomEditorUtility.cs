@@ -1,4 +1,5 @@
 // using Sirenix.Utilities;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -280,6 +281,12 @@ namespace EditorUtilities
         {
         #if UNITY_EDITOR
             EditorGUIUtility.PingObject(instance);
+        #endif
+        }
+
+        public static void SelectObject(Object instance)
+        {
+        #if UNITY_EDITOR
             InternalSetSelectionActiveObject(instance);
         #endif
         }

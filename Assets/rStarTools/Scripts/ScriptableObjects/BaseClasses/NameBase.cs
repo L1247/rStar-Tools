@@ -4,7 +4,7 @@ using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEngine;
-using UnityEngine.Serialization;
+using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
@@ -42,6 +42,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
         [InlineButton("ShowId")]
+        [InlineButton("Ping")]
         [LabelWidthString("@Width")]
         [SerializeField]
         [LabelText("@LabelText")]
@@ -62,7 +63,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         private void ShowId()
         {
-            Debug.Log($"Name: {id}");
+            Debug.Log($"<b><color=#ff7c60>[Id]</color></b> <color=#8BFF60>{Id}</color>");
+        }
+
+        private void Ping()
+        {
+            var soDataBase = GetDataOverview().FindData<SODataBase>(Id);
+            CustomEditorUtility.PingObject(soDataBase);
+            CustomEditorUtility.SelectObject(soDataBase);
         }
 
     #endregion

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.ScriptableObjects.Datas;
 using ScriptableObjects.Names;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,7 +19,6 @@ namespace rStarTools.Scripts.Main
         //                                      ContinuousValidationCheck = true)]
         // private string Name;
 
-        [FormerlySerializedAs("name")]
         [SerializeField]
         private ActorName actorName;
 
@@ -35,6 +35,7 @@ namespace rStarTools.Scripts.Main
         private ActorDataOverview actorDataOverview;
 
 
+        [Button]
         private void ShowHp()
         {
             var actorData = actorDataOverview.FindData<ActorData>(actorName.Id);
