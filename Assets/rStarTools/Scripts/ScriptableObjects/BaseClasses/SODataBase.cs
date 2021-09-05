@@ -1,5 +1,9 @@
+#region
+
 using Sirenix.OdinInspector;
 using UnityEngine;
+
+#endregion
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
@@ -16,6 +20,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         [SerializeField]
         [HideLabel]
+        [BoxGroup]
         private UniqueId uniqueId;
 
     #endregion
