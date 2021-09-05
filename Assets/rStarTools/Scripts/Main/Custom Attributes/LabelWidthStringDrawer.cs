@@ -1,26 +1,27 @@
+#region
+
+using UnityEngine;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
 using Sirenix.OdinInspector.Editor.ValueResolvers;
 using Sirenix.Utilities.Editor;
-using UnityEngine;
+#endif
+
+#endregion
 
 namespace rStarTools.Scripts.Main.Custom_Attributes
 {
+#if UNITY_EDITOR
     [DrawerPriority(DrawerPriorityLevel.SuperPriority)]
     public class LabelWidthStringDrawer : OdinAttributeDrawer<LabelWidthStringAttribute>
     {
-    #region Overrides of OdinAttributeDrawer<LabelWidthStringAttribute>
+    #region Private Variables
 
         private ValueResolver<float> widthResolver;
 
-    #region Overrides of OdinDrawer
-
-        protected override void Initialize()
-        {
-            base.Initialize();
-            this.widthResolver = ValueResolver.Get<float>(this.Property , this.Attribute.Width);
-        }
-
     #endregion
+
+    #region Protected Methods
 
         protected override void DrawPropertyLayout(GUIContent label)
         {
@@ -34,6 +35,13 @@ namespace rStarTools.Scripts.Main.Custom_Attributes
             GUIHelper.PopLabelWidth();
         }
 
+        protected override void Initialize()
+        {
+            base.Initialize();
+            this.widthResolver = ValueResolver.Get<float>(this.Property , this.Attribute.Width);
+        }
+
     #endregion
     }
+#endif
 }
