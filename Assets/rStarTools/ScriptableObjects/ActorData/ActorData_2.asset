@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01c8f1dd894f40788b766631fe25be16, type: 3}
-  m_Name: ActorData 2
+  m_Name: ActorData_2
   m_EditorClassIdentifier: 
   uniqueId:
-    DataId: d3afe3ac-03ae-42f2-b3d8-77ec5e77539f
-    DisplayName: "\u5C0F\u706B\u9F8D"
-  HP: 500
+    DataId: 7b81cecb-fb93-474b-b303-64de52f64fe7
+    DisplayName: "\u4F0A\u5E03"
+  HP: 100
