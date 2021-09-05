@@ -4,6 +4,7 @@ using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
@@ -12,11 +13,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     {
     #region Public Variables
 
-        public string Id => Name;
+        public string Id => id;
 
     #endregion
 
     #region Protected Variables
+
+        protected virtual float Width => LabelText.Length * 12.5f;
 
         protected virtual string LabelText => "Name";
 
@@ -42,9 +45,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [LabelWidthString("@Width")]
         [SerializeField]
         [LabelText("@LabelText")]
-        private string Name;
-
-        protected virtual float Width => LabelText.Length * 12.5f;
+        private string id;
 
     #endregion
 
@@ -61,7 +62,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         private void ShowId()
         {
-            Debug.Log($"Name: {Name}");
+            Debug.Log($"Name: {id}");
         }
 
     #endregion

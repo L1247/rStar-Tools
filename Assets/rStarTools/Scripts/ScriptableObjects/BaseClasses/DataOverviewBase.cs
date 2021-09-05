@@ -11,7 +11,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     {
         [ListDrawerSettings(HideAddButton = true , OnTitleBarGUI = "DatasTitleBarGUI" , ShowItemCount = true)]
         [SerializeField]
-        public List<D> datas = new List<D>();
+        protected List<D> datas = new List<D>();
+
+        public List<D> GetAllData() => datas;
 
         private void DatasTitleBarGUI()
         {
