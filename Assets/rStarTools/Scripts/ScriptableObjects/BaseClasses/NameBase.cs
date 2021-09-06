@@ -76,7 +76,6 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Private Methods
 
-        CustomEditorUtility
 
         private void Ping()
         {
