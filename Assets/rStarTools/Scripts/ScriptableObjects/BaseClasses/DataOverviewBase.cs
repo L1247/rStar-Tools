@@ -34,6 +34,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return datas;
         }
 
+        public virtual void AddNewData(D newData)
+        {
+            datas.Add(newData);
+            CustomEditorUtility.SetDirty(this);
+            CustomEditorUtility.SaveAssets();
+        }
+
         public virtual IEnumerable GetNames()
         {
             var valueDropdownItems = datas
