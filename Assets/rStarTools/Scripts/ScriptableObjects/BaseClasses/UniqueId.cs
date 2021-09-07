@@ -1,6 +1,7 @@
 #region
 
 using System;
+using System.Reflection;
 using Main.GameDataStructure;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     }
 
     [Serializable]
-    public class ActorTypeUniqueId
+    public class ActorTypeUniqueId<D> where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -40,11 +41,11 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public string DataId;
 
         [LabelWidth(140)]
-        [ValidateInput("@ValidateAll()" , DefaultMessage = "@ValidateErrorMessage" , ContinuousValidationCheck = true)]
+        [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
         public string DisplayName;
 
         [HideInInspector]
-        public string ValidateErrorMessage;
+        public string validateErrorMessage;
 
     #endregion
 
@@ -61,7 +62,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         protected virtual bool ValidateAll()
         {
-            return ActorTypeOverview.Instance.ValidateAll(DataId);
+            var type         = typeof(SingletonScriptableObject<D>);
+            var instance     = type.GetProperty("Instance" , BindingFlags.Public | BindingFlags.Static);
+            var singleton    = instance.GetValue(null , null);
+            var dataOverview = singleton as IDataOverview;
+            var validateAll  = dataOverview.ValidateAll(DataId);
+            return validateAll;
         }
 
     #endregion

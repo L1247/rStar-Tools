@@ -11,18 +11,18 @@ using UnityEngine;
 
 namespace Main.GameDataStructure
 {
-    public class ActorTypeOverview : SingletonScriptableObject<ActorTypeOverview>
+    public class ActorTypeOverview : SingletonScriptableObject<ActorTypeOverview> , IDataOverview
     {
     #region Private Variables
 
         [SerializeField]
-        private List<ActorTypeUniqueId> typeNames = new List<ActorTypeUniqueId>();
+        private List<ActorTypeUniqueId<ActorTypeOverview>> typeNames = new List<ActorTypeUniqueId<ActorTypeOverview>>();
 
     #endregion
 
     #region Public Methods
 
-        public ActorTypeUniqueId FindUniqueId(string id)
+        public ActorTypeUniqueId<ActorTypeOverview> FindUniqueId(string id)
         {
             return typeNames.Find(uniqueId => uniqueId.DataId == id);
         }
@@ -50,12 +50,12 @@ namespace Main.GameDataStructure
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {
-                uniqueId.ValidateErrorMessage = "DisplayName is empty.";
+                uniqueId.validateErrorMessage = "DisplayName is empty.";
                 return false;
             }
 
             var isDisplayNameSame = Instance.typeNames.FindAll(_ => _.DisplayName == displayName).Count < 2;
-            if (isDisplayNameSame == false) uniqueId.ValidateErrorMessage = $"Has same DisplayName: {displayName}";
+            if (isDisplayNameSame == false) uniqueId.validateErrorMessage = $"Has same DisplayName: {displayName}";
             return isDisplayNameSame;
         }
 
