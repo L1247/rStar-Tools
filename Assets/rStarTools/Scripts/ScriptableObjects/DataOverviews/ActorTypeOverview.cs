@@ -27,7 +27,7 @@ namespace Main.GameDataStructure
             return typeNames.Find(uniqueId => uniqueId.DataId == id);
         }
 
-        public static IEnumerable GetNames()
+        public IEnumerable GetNames()
         {
             var valueDropdownItems = Instance.typeNames
                                              .Select(element => new ValueDropdownItem
@@ -38,7 +38,7 @@ namespace Main.GameDataStructure
             return valueDropdownItems;
         }
 
-        public static bool Validate(string id)
+        public bool Validate(string id)
         {
             var containsId = Instance.FindUniqueId(id) != null;
             return containsId;

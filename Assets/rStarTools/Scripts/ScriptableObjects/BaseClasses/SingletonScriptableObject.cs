@@ -1,11 +1,15 @@
+#region
+
 using EditorUtilities;
 using UnityEngine;
 
+#endregion
+
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class SingletonScriptableObject<T> : ScriptableObject where T: ScriptableObject
+    public class SingletonScriptableObject<T> : ScriptableObject where T : ScriptableObject
     {
-        private static T instance;
+    #region Public Variables
 
         public static T Instance
         {
@@ -15,5 +19,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 return instance;
             }
         }
+
+    #endregion
+
+    #region Private Variables
+
+        private static T instance;
+
+    #endregion
     }
 }

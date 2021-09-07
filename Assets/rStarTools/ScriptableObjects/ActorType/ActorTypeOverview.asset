@@ -15,7 +15,10 @@ MonoBehaviour:
   typeNames:
   - DataId: f598c403-5628-405e-b77a-304da61e6ca2
     DisplayName: Soldier
-    ValidateErrorMessage: DisplayName is empty.
+    validateErrorMessage: 
   - DataId: 7213251f-75c8-42b3-87c2-96d339321a2b
     DisplayName: Enemy
-    ValidateErrorMessage: DisplayName is empty.
+    validateErrorMessage: 'Has same DisplayName: Enemy'
+  - DataId: a5555cbc-9bc4-4b54-a1c2-10ecb7126b82
+    DisplayName: Enemy
+    validateErrorMessage: 'Has same DisplayName: Enemy'

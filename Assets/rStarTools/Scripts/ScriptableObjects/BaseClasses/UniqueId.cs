@@ -1,8 +1,6 @@
 #region
 
 using System;
-using System.Reflection;
-using Main.GameDataStructure;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -62,10 +60,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         protected virtual bool ValidateAll()
         {
-            var type         = typeof(SingletonScriptableObject<D>);
-            var instance     = type.GetProperty("Instance" , BindingFlags.Public | BindingFlags.Static);
-            var singleton    = instance.GetValue(null , null);
-            var dataOverview = singleton as IDataOverview;
+            var dataOverview = Utility.GetDataOverview<D>();
             var validateAll  = dataOverview.ValidateAll(DataId);
             return validateAll;
         }

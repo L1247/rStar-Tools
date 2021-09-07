@@ -2,20 +2,19 @@
 
 using System;
 using System.Collections;
+using JetBrains.Annotations;
 using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
-#if UNITY_EDITOR
-using Sirenix.OdinInspector.Editor;
-#endif
 
 #endregion
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
-    public abstract class NameBase<DO , D> where DO : DataOverviewBase<DO , D> where D : SODataBase
+    public class NameBase2<D> where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -25,6 +24,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Protected Variables
 
+        [UsedImplicitly]
         protected virtual float LabelWidth => LabelText.Length * 12.5f;
 
         protected virtual string LabelText => "Name";
@@ -34,7 +34,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Private Variables
 
     #if UNITY_EDITOR
-        internal class NameBaseValueDrawer<N> : OdinValueDrawer<N> where N : NameBase<DO , D>
+        [UsedImplicitly]
+        internal class NameBase2ValueDrawer<N> : OdinValueDrawer<N> where N : NameBase2<D>
         {
         #region Protected Methods
 
@@ -47,20 +48,22 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         }
     #endif
 
-        [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
-        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
-        [InlineButton("ShowId")]
-        [InlineButton("Ping")]
+
         [SerializeField]
         [LabelWidthString("@LabelWidth")]
         [LabelText("@LabelText")]
+        [ValueDropdown("@GetNames()")]
+        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
         private string id;
 
     #endregion
 
     #region Protected Methods
 
-        protected abstract DO GetDataOverview();
+        protected virtual D GetDataOverview()
+        {
+            return Utility.GetDataOverview<D>() as D;
+        }
 
         protected virtual IEnumerable GetNames()
         {
@@ -76,16 +79,11 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Private Methods
 
-        private void Ping()
+        private void P()
         {
-            var soDataBase = GetDataOverview().FindData<SODataBase>(Id);
-            CustomEditorUtility.PingObject(soDataBase);
-            CustomEditorUtility.SelectObject(soDataBase);
-        }
-
-        private void ShowId()
-        {
-            Debug.Log($"<b><color=#ff7c60>[Id]</color></b> <color=#8BFF60>{Id}</color>");
+            var dataOverview = GetDataOverview();
+            CustomEditorUtility.PingObject(dataOverview);
+            CustomEditorUtility.SelectObject(dataOverview);
         }
 
     #endregion
