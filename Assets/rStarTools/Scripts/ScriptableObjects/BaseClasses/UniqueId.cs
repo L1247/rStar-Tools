@@ -38,7 +38,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [HideInInspector]
         public string DataId;
 
-        [LabelWidth(140)]
+        [LabelWidth(90)]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
         public string DisplayName;
 

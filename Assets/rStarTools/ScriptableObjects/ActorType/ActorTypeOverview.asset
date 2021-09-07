@@ -19,6 +19,3 @@ MonoBehaviour:
   - DataId: 7213251f-75c8-42b3-87c2-96d339321a2b
     DisplayName: Enemy
     validateErrorMessage: 'Has same DisplayName: Enemy'
-  - DataId: a5555cbc-9bc4-4b54-a1c2-10ecb7126b82
-    DisplayName: Enemy
-    validateErrorMessage: 'Has same DisplayName: Enemy'

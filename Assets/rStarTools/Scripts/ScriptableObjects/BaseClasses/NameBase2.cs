@@ -6,6 +6,8 @@ using JetBrains.Annotations;
 using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities;
+using Sirenix.Utilities.Editor;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
 
@@ -54,6 +56,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [LabelText("@LabelText")]
         [ValueDropdown("@GetNames()")]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
+        [InlineButton("P")]
         private string id;
 
     #endregion
@@ -82,8 +85,21 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         private void P()
         {
             var dataOverview = GetDataOverview();
-            CustomEditorUtility.PingObject(dataOverview);
-            CustomEditorUtility.SelectObject(dataOverview);
+            var window       = OdinEditorWindow.InspectObject(dataOverview);
+            window.position     = GUIHelper.GetEditorWindowRect().AlignCenter(400 , 600);
+            window.titleContent = new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
+            // window.OnClose      += () => Debug.Log("Window Closed");
+            // window.OnBeginGUI   += () => GUILayout.Label("-----------");
+            window.OnEndGUI += () =>
+            {
+                if (GUILayout.Button("Ping And Select"))
+                {
+                    CustomEditorUtility.PingObject(dataOverview);
+                    CustomEditorUtility.SelectObject(dataOverview);
+                }
+
+                if (GUILayout.Button("Close")) window.Close();
+            };
         }
 
     #endregion
