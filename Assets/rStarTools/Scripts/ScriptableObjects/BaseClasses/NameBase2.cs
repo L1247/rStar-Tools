@@ -56,7 +56,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [LabelText("@LabelText")]
         [ValueDropdown("@GetNames()")]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
-        [InlineButton("P")]
+        [OnInspectorGUI("IdGUIBefore" , "IdGUIAfter")]
         private string id;
 
     #endregion
@@ -73,6 +73,29 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return GetDataOverview().GetNames();
         }
 
+        protected virtual void NameButton()
+        {
+            if (SirenixEditorGUI.ToolbarButton(EditorIcons.Stretch))
+            {
+                var dataOverview = GetDataOverview();
+                var window       = OdinEditorWindow.InspectObject(dataOverview);
+                window.position     = GUIHelper.GetEditorWindowRect().AlignCenter(400 , 600);
+                window.titleContent = new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
+                // window.OnClose      += () => Debug.Log("Window Closed");
+                // window.OnBeginGUI   += () => GUILayout.Label("-----------");
+                window.OnEndGUI += () =>
+                {
+                    if (GUILayout.Button("Ping And Select"))
+                    {
+                        CustomEditorUtility.PingObject(dataOverview);
+                        CustomEditorUtility.SelectObject(dataOverview);
+                    }
+
+                    if (GUILayout.Button("Close")) window.Close();
+                };
+            }
+        }
+
         protected virtual bool ValidateId(string value)
         {
             return GetDataOverview().Validate(value);
@@ -82,24 +105,15 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Private Methods
 
-        private void P()
+        private void IdGUIAfter()
         {
-            var dataOverview = GetDataOverview();
-            var window       = OdinEditorWindow.InspectObject(dataOverview);
-            window.position     = GUIHelper.GetEditorWindowRect().AlignCenter(400 , 600);
-            window.titleContent = new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
-            // window.OnClose      += () => Debug.Log("Window Closed");
-            // window.OnBeginGUI   += () => GUILayout.Label("-----------");
-            window.OnEndGUI += () =>
-            {
-                if (GUILayout.Button("Ping And Select"))
-                {
-                    CustomEditorUtility.PingObject(dataOverview);
-                    CustomEditorUtility.SelectObject(dataOverview);
-                }
+            NameButton();
+            GUILayout.EndHorizontal();
+        }
 
-                if (GUILayout.Button("Close")) window.Close();
-            };
+        private void IdGUIBefore()
+        {
+            GUILayout.BeginHorizontal();
         }
 
     #endregion
