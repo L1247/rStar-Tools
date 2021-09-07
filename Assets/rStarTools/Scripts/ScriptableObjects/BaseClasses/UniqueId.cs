@@ -33,7 +33,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     }
 
     [Serializable]
-    public class ActorTypeUniqueId<D> where D : ScriptableObject , IDataOverview
+    public class UniqueId<D> where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -51,7 +51,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Constructor
 
-        public ActorTypeUniqueId()
+        public UniqueId()
         {
             DataId = Guid.NewGuid().ToString();
         }

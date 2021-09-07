@@ -16,13 +16,13 @@ namespace Main.GameDataStructure
     #region Private Variables
 
         [SerializeField]
-        private List<ActorTypeUniqueId<ActorTypeOverview>> typeNames = new List<ActorTypeUniqueId<ActorTypeOverview>>();
+        private List<UniqueId<ActorTypeOverview>> typeNames = new List<UniqueId<ActorTypeOverview>>();
 
     #endregion
 
     #region Public Methods
 
-        public ActorTypeUniqueId<ActorTypeOverview> FindUniqueId(string id)
+        public UniqueId<ActorTypeOverview> FindUniqueId(string id)
         {
             return typeNames.Find(uniqueId => uniqueId.DataId == id);
         }
