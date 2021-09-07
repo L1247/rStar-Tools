@@ -169,13 +169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d143d6f08f444fa7d2e043d5fe2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actorDataOverview: {fileID: 11400000, guid: b6a1130ee3888754eb1d7911eab5cad7, type: 2}
   actorName:
     id: 7b81cecb-fb93-474b-b303-64de52f64fe7
   actorNames:
   - id: 7b81cecb-fb93-474b-b303-64de52f64fe7
   - id: d3afe3ac-03ae-42f2-b3d8-77ec5e77539f
   - id: 6a9eabca-5504-4691-a919-a91099e53ce2
-  actorDataOverview: {fileID: 11400000, guid: b6a1130ee3888754eb1d7911eab5cad7, type: 2}
+  actorTypeNames:
+    id: 7213251f-75c8-42b3-87c2-96d339321a2b
 --- !u!114 &392911735
 MonoBehaviour:
   m_ObjectHideFlags: 0

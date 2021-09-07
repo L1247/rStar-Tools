@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d04dd882e94c178b2d0a601b092279, type: 3}
+  m_Name: ActorTypeOverview
+  m_EditorClassIdentifier: 
+  typeNames:
+  - DataId: f598c403-5628-405e-b77a-304da61e6ca2
+    DisplayName: 123
+    ValidateErrorMessage: DisplayName is empty.
+  - DataId: 7213251f-75c8-42b3-87c2-96d339321a2b
+    DisplayName: 456
+    ValidateErrorMessage: DisplayName is empty.
