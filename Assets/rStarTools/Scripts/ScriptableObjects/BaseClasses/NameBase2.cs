@@ -74,6 +74,17 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return GetDataOverview().GetNames();
         }
 
+        protected void IdGUIAfter()
+        {
+            NameButton();
+            GUILayout.EndHorizontal();
+        }
+
+        protected void IdGUIBefore()
+        {
+            GUILayout.BeginHorizontal();
+        }
+
         protected virtual void NameButton()
         {
             var windowExist = window != null;
@@ -116,7 +127,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                         case EventType.KeyDown :
                         {
                             if (Event.current.keyCode == KeyCode.Escape)
-                                window.Close();
+                                OnCloseKeyDown();
                             break;
                         }
                     }
@@ -124,24 +135,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             }
         }
 
+        protected virtual void OnCloseKeyDown()
+        {
+            window.Close();
+        }
+
         protected virtual bool ValidateId(string value)
         {
             return GetDataOverview().Validate(value);
-        }
-
-    #endregion
-
-    #region Private Methods
-
-        private void IdGUIAfter()
-        {
-            NameButton();
-            GUILayout.EndHorizontal();
-        }
-
-        private void IdGUIBefore()
-        {
-            GUILayout.BeginHorizontal();
         }
 
     #endregion
