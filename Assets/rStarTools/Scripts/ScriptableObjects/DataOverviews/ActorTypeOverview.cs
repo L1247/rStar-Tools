@@ -16,7 +16,8 @@ namespace Main.GameDataStructure
     #region Private Variables
 
         [SerializeField]
-        private List<UniqueId<ActorTypeOverview>> typeNames = new List<UniqueId<ActorTypeOverview>>();
+        [LabelText("Names")]
+        private List<UniqueId<ActorTypeOverview>> ids = new List<UniqueId<ActorTypeOverview>>();
 
     #endregion
 
@@ -24,29 +25,29 @@ namespace Main.GameDataStructure
 
         public UniqueId<ActorTypeOverview> FindUniqueId(string id)
         {
-            return typeNames.Find(uniqueId => uniqueId.DataId == id);
+            return ids.Find(uniqueId => uniqueId.DataId == id);
         }
 
         public IEnumerable GetNames()
         {
-            var valueDropdownItems = Instance.typeNames
-                                             .Select(element => new ValueDropdownItem
-                                             {
-                                                 Text  = element.DisplayName ,
-                                                 Value = element.DataId
-                                             });
+            var valueDropdownItems = ids
+                .Select(element => new ValueDropdownItem
+                {
+                    Text  = element.DisplayName ,
+                    Value = element.DataId
+                });
             return valueDropdownItems;
         }
 
         public bool Validate(string id)
         {
-            var containsId = Instance.FindUniqueId(id) != null;
+            var containsId = FindUniqueId(id) != null;
             return containsId;
         }
 
         public bool ValidateAll(string id)
         {
-            var uniqueId    = Instance.FindUniqueId(id);
+            var uniqueId    = FindUniqueId(id);
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {
@@ -54,7 +55,7 @@ namespace Main.GameDataStructure
                 return false;
             }
 
-            var isDisplayNameSame = Instance.typeNames.FindAll(_ => _.DisplayName == displayName).Count < 2;
+            var isDisplayNameSame = ids.FindAll(_ => _.DisplayName == displayName).Count < 2;
             if (isDisplayNameSame == false) uniqueId.validateErrorMessage = $"Has same DisplayName: {displayName}";
             return isDisplayNameSame;
         }
