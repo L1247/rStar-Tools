@@ -6,7 +6,6 @@ using JetBrains.Annotations;
 using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
-using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
@@ -50,6 +49,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         }
     #endif
 
+        private OdinEditorWindow window;
+
 
         [SerializeField]
         [LabelWidthString("@LabelWidth")]
@@ -75,12 +76,29 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         protected virtual void NameButton()
         {
-            if (SirenixEditorGUI.ToolbarButton(EditorIcons.Stretch))
+            var windowExist = window != null;
+            var icon        = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
+            if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
             {
+                if (windowExist)
+                {
+                    window.Close();
+                    window = null;
+                    return;
+                }
+
+                var width        = 400;
+                var height       = 600;
                 var dataOverview = GetDataOverview();
-                var window       = OdinEditorWindow.InspectObject(dataOverview);
-                window.position     = GUIHelper.GetEditorWindowRect().AlignCenter(400 , 600);
-                window.titleContent = new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
+                var btnRect      = GUIHelper.GetCurrentLayoutRect();
+                window = OdinEditorWindow.InspectObject(dataOverview);
+                var btnRectPosition = GUIUtility.GUIToScreenPoint(btnRect.position);
+                btnRectPosition.x   -= width + 30;
+                btnRect.position    =  btnRectPosition;
+                btnRect.width       =  width;
+                btnRect.height      =  height;
+                window.position     =  btnRect;
+                window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
                 // window.OnClose      += () => Debug.Log("Window Closed");
                 // window.OnBeginGUI   += () => GUILayout.Label("-----------");
                 window.OnEndGUI += () =>
