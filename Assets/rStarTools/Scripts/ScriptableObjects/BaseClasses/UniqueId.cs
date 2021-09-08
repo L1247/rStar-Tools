@@ -9,29 +9,7 @@ using UnityEngine;
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
-    public class UniqueId
-    {
-    #region Public Variables
-
-        [ReadOnly]
-        public string DataId;
-
-        public string DisplayName;
-
-    #endregion
-
-    #region Constructor
-
-        public UniqueId()
-        {
-            DataId = Guid.NewGuid().ToString();
-        }
-
-    #endregion
-    }
-
-    [Serializable]
-    public class UniqueId<D> where D : ScriptableObject , IDataOverview
+    public class UniqueId<DO> where DO : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -60,7 +38,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         protected virtual bool ValidateAll()
         {
-            var dataOverview = Utility.GetDataOverview<D>();
+            var dataOverview = Utility.GetDataOverview<DO>();
             var validateAll  = dataOverview.ValidateAll(DataId);
             return validateAll;
         }
