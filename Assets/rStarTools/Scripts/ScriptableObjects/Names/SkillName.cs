@@ -1,17 +1,19 @@
+#region
+
 using System;
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
-using rStarTools.Scripts.ScriptableObjects.Datas;
+
+#endregion
 
 namespace rStarTools.Scripts.ScriptableObjects.Names
 {
     [Serializable]
-    public class SkillName : NameBase<SkillDataOverview , SkillData>
+    public class SkillName : NameBase<SkillDataOverview>
     {
-    #region Overrides of NameBase<SkillDataOverview,SkillData>
+    #region Protected Variables
 
-        protected override string            LabelText         => "技能名稱:";
-        protected override SkillDataOverview GetDataOverview() => SkillDataOverview.Instance;
+        protected override string LabelText => "技能名稱:";
 
     #endregion
     }

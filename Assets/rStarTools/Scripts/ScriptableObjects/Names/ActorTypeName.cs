@@ -8,7 +8,7 @@ using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 namespace Main.GameDataStructure
 {
     [Serializable]
-    public class ActorTypeNames : NameBase2<ActorTypeDataOverview>
+    public class ActorTypeNames : NameBase<ActorTypeDataOverview>
     {
     #region Protected Variables
 
