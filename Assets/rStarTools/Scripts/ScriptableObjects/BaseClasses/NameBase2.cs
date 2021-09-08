@@ -110,6 +110,16 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                     }
 
                     if (GUILayout.Button("Close")) window.Close();
+                    var e = Event.current;
+                    switch (e.type)
+                    {
+                        case EventType.KeyDown :
+                        {
+                            if (Event.current.keyCode == KeyCode.Escape)
+                                window.Close();
+                            break;
+                        }
+                    }
                 };
             }
         }
