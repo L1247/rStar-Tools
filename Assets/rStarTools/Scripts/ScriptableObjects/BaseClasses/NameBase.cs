@@ -104,8 +104,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 var btnRect      = GUIHelper.GetCurrentLayoutRect();
                 window = OdinEditorWindow.InspectObject(dataOverview);
                 var btnRectPosition = GUIUtility.GUIToScreenPoint(btnRect.position);
-                Debug.Log($"btnRect {btnRectPosition}");
                 btnRectPosition.x   -= width + 30;
+                btnRectPosition.y   =  Mathf.Min(btnRectPosition.y , 550);
                 btnRect.position    =  btnRectPosition;
                 btnRect.width       =  width;
                 btnRect.height      =  height;
