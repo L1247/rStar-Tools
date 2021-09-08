@@ -1,6 +1,7 @@
 #region
 
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.Datas
 {
-    public class ItemData : SODataBase
+    public class ItemData : SODataBase<ItemDataOverview>
     {
     #region Public Variables
 

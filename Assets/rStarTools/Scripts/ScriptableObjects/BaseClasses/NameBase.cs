@@ -15,7 +15,7 @@ using Sirenix.OdinInspector.Editor;
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
-    public abstract class NameBase<DO , D> where DO : DataOverviewBase<DO , D> where D : SODataBase
+    public abstract class NameBase<DO , D> where DO : DataOverviewBase<DO , D> where D : SODataBase<DO>
     {
     #region Public Variables
 
@@ -78,7 +78,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         private void Ping()
         {
-            var soDataBase = GetDataOverview().FindData<SODataBase>(Id);
+            var soDataBase = GetDataOverview().FindData<SODataBase<DO>>(Id);
             CustomEditorUtility.PingObject(soDataBase);
             CustomEditorUtility.SelectObject(soDataBase);
         }

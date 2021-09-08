@@ -11,7 +11,9 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class DataOverviewBase<T , D> : SingletonScriptableObject<T> where D : SODataBase where T : ScriptableObject
+    public class DataOverviewBase<T , D> : SingletonScriptableObject<T> , IDataOverview
+    where T : ScriptableObject , IDataOverview
+    where D : SODataBase<T>
     {
     #region Protected Variables
 
@@ -23,7 +25,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Public Methods
 
-        public virtual D FindData<D>(string value) where D : class
+        public void AddNewData(D newData)
+        {
+            datas.Add(newData);
+            CustomEditorUtility.SetDirty(this);
+            CustomEditorUtility.SaveAssets();
+        }
+
+        public D FindData<D>(string value) where D : class
         {
             var data = datas.Find(data => data.DataId == value) as D;
             return data;
@@ -32,13 +41,6 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public List<D> GetAllData()
         {
             return datas;
-        }
-
-        public virtual void AddNewData(D newData)
-        {
-            datas.Add(newData);
-            CustomEditorUtility.SetDirty(this);
-            CustomEditorUtility.SaveAssets();
         }
 
         public virtual IEnumerable GetNames()
@@ -57,6 +59,11 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             var data          = FindData<D>(value);
             var valueContains = data != null;
             return valueContains;
+        }
+
+        public bool ValidateAll(string id)
+        {
+            return true;
         }
 
     #endregion

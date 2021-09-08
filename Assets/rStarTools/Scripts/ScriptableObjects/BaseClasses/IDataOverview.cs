@@ -11,9 +11,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Public Methods
 
         IEnumerable GetNames();
-        bool        Validate(string id);
-
-        bool ValidateAll(string id);
+        bool        Validate(string    id);
+        bool        ValidateAll(string id);
 
     #endregion
     }

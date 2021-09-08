@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections;
 using System.Linq;
@@ -6,14 +8,21 @@ using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.ScriptableObjects.Datas;
 using Sirenix.OdinInspector;
 
+#endregion
+
 namespace ScriptableObjects.Names
 {
     [Serializable]
     public class ActorName : NameBase<ActorDataOverview , ActorData>
     {
-    #region Overrides of NameBase<ActorDataOverview,ActorData>
+    #region Protected Variables
 
-        protected override string            LabelText         => "角色名稱:";
+        protected override string LabelText => "角色名稱:";
+
+    #endregion
+
+    #region Protected Methods
+
         protected override ActorDataOverview GetDataOverview() => ActorDataOverview.Instance;
 
         protected override IEnumerable GetNames()

@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class SODataBase : ScriptableObject
+    public class SODataBase<D> : ScriptableObject where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
-        public virtual string DataId      => uniqueId.DataId;
-        public virtual string DisplayName => uniqueId.DisplayName;
+        public string DataId      => uniqueId.DataId;
+        public string DisplayName => uniqueId.DisplayName;
 
     #endregion
 
@@ -21,7 +21,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [SerializeField]
         [HideLabel]
         [BoxGroup]
-        private UniqueId uniqueId;
+        private UniqueId<D> uniqueId;
 
     #endregion
     }

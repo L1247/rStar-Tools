@@ -3,32 +3,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 #endregion
 
-namespace Main.GameDataStructure
+namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class ActorTypeOverview : SingletonScriptableObject<ActorTypeOverview> , IDataOverview
+    public class DataOverviewBase2<D> : SingletonScriptableObject<D> , IDataOverview
+    where D : ScriptableObject , IDataOverview
     {
-    #region Private Variables
+    #region Protected Variables
 
         [SerializeField]
         [LabelText("Names")]
-        private List<UniqueId<ActorTypeOverview>> ids = new List<UniqueId<ActorTypeOverview>>();
+        protected List<UniqueId<D>> ids = new List<UniqueId<D>>();
 
     #endregion
 
     #region Public Methods
 
-        public UniqueId<ActorTypeOverview> FindUniqueId(string id)
+        public UniqueId<D> FindUniqueId(string id)
         {
             return ids.Find(uniqueId => uniqueId.DataId == id);
         }
 
-        public IEnumerable GetNames()
+        public virtual IEnumerable GetNames()
         {
             var valueDropdownItems = ids
                 .Select(element => new ValueDropdownItem
