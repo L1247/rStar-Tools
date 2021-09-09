@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ActorDataOverview
   m_EditorClassIdentifier: 
   ids:
-  - DataId: f1330a84-172c-4389-bf2f-79f950909470
-    DisplayName: "\u8D85\u5F37\u7684\u76AE\u5361\u4E18"
+  - dataId: f1330a84-172c-4389-bf2f-79f950909470
+    displayName: "\u8D85\u5F37\u7684\u76AE\u5361\u4E18"
     Deactivate: 0
     HP: 5
-  - DataId: ad39f3b7-081c-44fd-a555-246c168c54a6
-    DisplayName: "\u4F0A\u5E03"
+  - dataId: ad39f3b7-081c-44fd-a555-246c168c54a6
+    displayName: "\u4F0A\u5E03"
     Deactivate: 0
     HP: 0

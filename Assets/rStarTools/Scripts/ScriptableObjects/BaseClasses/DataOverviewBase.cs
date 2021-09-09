@@ -18,6 +18,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         [SerializeField]
         [LabelText("資料陣列")]
+        [TableList(ShowIndexLabels = true)]
         protected List<U> ids = new List<U>();
 
     #endregion

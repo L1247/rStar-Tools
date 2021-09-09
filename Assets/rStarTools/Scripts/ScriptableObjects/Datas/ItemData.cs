@@ -13,7 +13,10 @@ namespace rStarTools.Scripts.ScriptableObjects.Datas
     {
     #region Public Variables
 
-        [LabelText("是否棄用")]
+        [LabelText("是否棄用:")]
+        [LabelWidth(55)]
+        [PropertyOrder(-1)]
+        [TableColumnWidth(5)]
         public bool Deactivate;
 
     #endregion
@@ -21,7 +24,6 @@ namespace rStarTools.Scripts.ScriptableObjects.Datas
     #region Private Variables
 
         [SerializeField]
-        [BoxGroup("ItemData")]
         private int sellPrice;
 
     #endregion

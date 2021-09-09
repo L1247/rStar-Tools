@@ -20,7 +20,6 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         [SerializeField]
         [HideLabel]
-        [BoxGroup]
         private UniqueId<D> uniqueId;
 
     #endregion
