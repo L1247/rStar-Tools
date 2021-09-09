@@ -8,5 +8,11 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public string DisplayName { get; }
 
     #endregion
+
+    #region Public Methods
+
+        public void SetErrorMessage(string message);
+
+    #endregion
     }
 }

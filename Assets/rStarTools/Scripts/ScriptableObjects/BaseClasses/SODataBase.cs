@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class SODataBase<D> : ScriptableObject where D : ScriptableObject , IDataOverview
+    public class SODataBase<D> : ScriptableObject , IUniqueId where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -22,6 +22,15 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [HideLabel]
         [BoxGroup]
         private UniqueId<D> uniqueId;
+
+    #endregion
+
+    #region Public Methods
+
+        public void SetErrorMessage(string message)
+        {
+            uniqueId.SetErrorMessage(message);
+        }
 
     #endregion
     }

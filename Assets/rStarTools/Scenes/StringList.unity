@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName:
-    id: c58dc554-a093-4660-829e-433f7e915148
+    id: c3a8eac9-12e2-4404-a862-1475356523ad
 --- !u!114 &392911737
 MonoBehaviour:
   m_ObjectHideFlags: 0

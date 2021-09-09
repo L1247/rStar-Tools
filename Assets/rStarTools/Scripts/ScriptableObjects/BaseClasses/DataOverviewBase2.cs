@@ -12,7 +12,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     public class DataOverviewBase2<DO , U> : SingletonScriptableObject<DO> , IDataOverview
     where DO : ScriptableObject , IDataOverview
-    where U : UniqueId<DO>
+    where U : IUniqueId
     {
     #region Protected Variables
 
