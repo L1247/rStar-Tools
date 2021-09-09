@@ -26,7 +26,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Protected Variables
 
         [UsedImplicitly]
-        protected virtual float LabelWidth => LabelText.Length * 12.5f;
+        protected virtual float LabelWidth => LabelText.Length * 11f;
 
         protected virtual string LabelText => "Name";
 
@@ -51,12 +51,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         private OdinEditorWindow window;
 
+        private readonly string errorMessage = "此筆資料不存在於資料陣列內";
+
 
         [SerializeField]
         [LabelWidthString("@LabelWidth")]
         [LabelText("@LabelText")]
         [ValueDropdown("@GetNames()")]
-        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
+        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true , DefaultMessage = "@errorMessage")]
         [OnInspectorGUI("IdGUIBefore" , "IdGUIAfter")]
         private string id;
 

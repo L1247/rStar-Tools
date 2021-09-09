@@ -31,11 +31,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public virtual IEnumerable GetNames()
         {
             var valueDropdownItems = ids
-                .Select(element => new ValueDropdownItem
-                {
-                    Text  = element.DisplayName ,
-                    Value = element.DataId
-                });
+                                     .Where(id => string.IsNullOrEmpty(id.DisplayName) == false)
+                                     .Select(element => new ValueDropdownItem
+                                     {
+                                         Text  = element.DisplayName ,
+                                         Value = element.DataId
+                                     });
             return valueDropdownItems;
         }
 
@@ -51,7 +52,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {
-                uniqueId.validateErrorMessage = "DisplayName is empty.";
+                // uniqueId.validateErrorMessage = "DisplayName is empty.";
+                uniqueId.validateErrorMessage = "顯示名稱不能為空";
                 return false;
             }
 

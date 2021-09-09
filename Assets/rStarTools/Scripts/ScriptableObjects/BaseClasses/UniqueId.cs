@@ -16,7 +16,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [HideInInspector]
         public string DataId;
 
-        [LabelWidth(90)]
+        [LabelWidth(55f)]
+        [LabelText("顯示名稱:")]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
         public string DisplayName;
 
