@@ -19,7 +19,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public string DataId;
 
         [LabelWidthString("@LabelWidth")]
-        [LabelText("顯示名稱:")]
+        [LabelText("@LabelText")]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
         public string DisplayName;
 
@@ -28,7 +28,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Protected Variables
 
         [UsedImplicitly]
-        protected virtual float LabelWidth => Utility.GetFlexibleWidth(DisplayName);
+        protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
+
+        protected virtual string LabelText => "顯示名稱:";
 
     #endregion
 
