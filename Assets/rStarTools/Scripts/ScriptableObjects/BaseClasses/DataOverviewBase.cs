@@ -3,7 +3,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using EditorUtilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,79 +10,67 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class DataOverviewBase<T , D> : SingletonScriptableObject<T> , IDataOverview
-    where T : ScriptableObject , IDataOverview
-    where D : SODataBase<T>
+    public class DataOverviewBase<DO , U> : SingletonScriptableObject<DO> , IDataOverview
+    where DO : ScriptableObject , IDataOverview
+    where U : IUniqueId
     {
     #region Protected Variables
 
-        [ListDrawerSettings(HideAddButton = true , OnTitleBarGUI = "DatasTitleBarGUI" , ShowItemCount = true)]
         [SerializeField]
-        protected List<D> datas = new List<D>();
+        [LabelText("資料陣列")]
+        protected List<U> ids = new List<U>();
 
     #endregion
 
     #region Public Methods
 
-        public void AddNewData(D newData)
+        public D FindData<D>(string id) where D : UniqueId<DO>
         {
-            datas.Add(newData);
-            CustomEditorUtility.SetDirty(this);
-            CustomEditorUtility.SaveAssets();
-        }
-
-        public D FindData<D>(string value) where D : class
-        {
-            var data = datas.Find(data => data.DataId == value) as D;
+            var data = GetAllData().Find(_ => _.DataId == id) as D;
             return data;
         }
 
-        public List<D> GetAllData()
+        public U FindUniqueId(string id)
         {
-            return datas;
+            return ids.Find(uniqueId => uniqueId.DataId == id);
+        }
+
+        public List<U> GetAllData()
+        {
+            return ids;
         }
 
         public virtual IEnumerable GetNames()
         {
-            var valueDropdownItems = datas
-                .Select(data => new ValueDropdownItem
-                {
-                    Text  = data.DisplayName ,
-                    Value = data.DataId ,
-                });
+            var valueDropdownItems = ids
+                                     .Where(id => string.IsNullOrEmpty(id.DisplayName) == false)
+                                     .Select(element => new ValueDropdownItem
+                                     {
+                                         Text  = element.DisplayName ,
+                                         Value = element.DataId
+                                     });
             return valueDropdownItems;
         }
 
-        public virtual bool Validate(string value)
+        public virtual bool Validate(string id)
         {
-            var data          = FindData<D>(value);
-            var valueContains = data != null;
-            return valueContains;
+            var containsId = FindUniqueId(id) != null;
+            return containsId;
         }
 
         public bool ValidateAll(string id)
         {
-            return true;
-        }
+            var uniqueId    = FindUniqueId(id);
+            var displayName = uniqueId.DisplayName;
+            if (string.IsNullOrEmpty(displayName))
+            {
+                uniqueId.SetErrorMessage("顯示名稱不能為空");
+                return false;
+            }
 
-    #endregion
-
-    #region Protected Methods
-
-        protected virtual void UpdateDatas()
-        {
-            datas = CustomEditorUtility.GetScriptableObjects<D>();
-            CustomEditorUtility.SetDirty(this);
-            CustomEditorUtility.SaveAssets();
-        }
-
-    #endregion
-
-    #region Private Methods
-
-        private void DatasTitleBarGUI()
-        {
-            if (GUILayout.Button("UpdateDatas")) UpdateDatas();
+            var isDisplayNameSame = ids.FindAll(_ => _.DisplayName == displayName).Count < 2;
+            if (isDisplayNameSame == false) uniqueId.SetErrorMessage($"檢查到有相同顯示名稱: {displayName}");
+            return isDisplayNameSame;
         }
 
     #endregion

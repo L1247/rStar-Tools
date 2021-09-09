@@ -7,5 +7,5 @@ using rStarTools.Scripts.ScriptableObjects.Datas;
 
 namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
 {
-    public class SkillDataOverview : DataOverviewBase2<SkillDataOverview , SkillData> { }
+    public class SkillDataOverview : DataOverviewBase<SkillDataOverview , SkillData> { }
 }

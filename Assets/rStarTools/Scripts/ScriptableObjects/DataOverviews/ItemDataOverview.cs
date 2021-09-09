@@ -7,7 +7,7 @@ using rStarTools.Scripts.ScriptableObjects.Datas;
 
 namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
 {
-    public class ItemDataOverview : DataOverviewBase2<ItemDataOverview , ItemData>
+    public class ItemDataOverview : DataOverviewBase<ItemDataOverview , ItemData>
     {
     #region Public Methods
 
