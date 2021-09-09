@@ -1,9 +1,25 @@
+#region
+
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.Datas;
-using UnityEngine;
+
+#endregion
 
 namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
 {
-    [CreateAssetMenu(fileName = "ActorDataOverview" , menuName = "rStar/ActorDataOverview" , order = 0)]
-    public class ActorDataOverview : DataOverviewBase<ActorDataOverview , ActorData> { }
+    public class ActorDataOverview : DataOverviewBase2<ActorDataOverview , ActorData>
+    {
+    #region Public Methods
+
+        public override bool Validate(string id)
+        {
+            var containId = base.Validate(id);
+            if (containId == false) return false;
+            var uniqueId = FindUniqueId(id);
+            if (uniqueId.Deactivate) return false;
+            return true;
+        }
+
+    #endregion
+    }
 }

@@ -10,22 +10,34 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class DataOverviewBase2<D> : SingletonScriptableObject<D> , IDataOverview
-    where D : ScriptableObject , IDataOverview
+    public class DataOverviewBase2<DO , U> : SingletonScriptableObject<DO> , IDataOverview
+    where DO : ScriptableObject , IDataOverview
+    where U : UniqueId<DO>
     {
     #region Protected Variables
 
         [SerializeField]
         [LabelText("資料陣列")]
-        protected List<UniqueId<D>> ids = new List<UniqueId<D>>();
+        protected List<U> ids = new List<U>();
 
     #endregion
 
     #region Public Methods
 
-        public UniqueId<D> FindUniqueId(string id)
+        public D FindData<D>(string id) where D : UniqueId<DO>
+        {
+            var data = GetAllData().Find(_ => _.DataId == id) as D;
+            return data;
+        }
+
+        public U FindUniqueId(string id)
         {
             return ids.Find(uniqueId => uniqueId.DataId == id);
+        }
+
+        public List<U> GetAllData()
+        {
+            return ids;
         }
 
         public virtual IEnumerable GetNames()
@@ -40,7 +52,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return valueDropdownItems;
         }
 
-        public bool Validate(string id)
+        public virtual bool Validate(string id)
         {
             var containsId = FindUniqueId(id) != null;
             return containsId;

@@ -171,11 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorDataOverview: {fileID: 11400000, guid: b6a1130ee3888754eb1d7911eab5cad7, type: 2}
   actorName:
-    id: 7b81cecb-fb93-474b-b303-64de52f64fe7
+    id: f1330a84-172c-4389-bf2f-79f950909470
   actorNames:
-  - id: 7b81cecb-fb93-474b-b303-64de52f64fe7
-  - id: d3afe3ac-03ae-42f2-b3d8-77ec5e77539f
-  - id: 6a9eabca-5504-4691-a919-a91099e53ce2
+  - id: f1330a84-172c-4389-bf2f-79f950909470
+  - id: ad39f3b7-081c-44fd-a555-246c168c54a6
+  - id: f1330a84-172c-4389-bf2f-79f950909470
   actorTypeNames:
     id: 0b29362d-9671-4715-95d5-d4ba5f7601e5
 --- !u!114 &392911735
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorName:
-    id: 7b81cecb-fb93-474b-b303-64de52f64fe7
+    id: ad39f3b7-081c-44fd-a555-246c168c54a6
 --- !u!114 &392911736
 MonoBehaviour:
   m_ObjectHideFlags: 0

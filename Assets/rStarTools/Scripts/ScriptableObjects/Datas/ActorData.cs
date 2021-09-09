@@ -1,5 +1,6 @@
 #region
 
+using System;
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using Sirenix.OdinInspector;
@@ -8,13 +9,18 @@ using Sirenix.OdinInspector;
 
 namespace rStarTools.Scripts.ScriptableObjects.Datas
 {
-    public class ActorData : SODataBase<ActorDataOverview>
+    [Serializable]
+    public class ActorData : UniqueId<ActorDataOverview>
     {
     #region Public Variables
 
-        [LabelText("資料棄用")]
+        [LabelText("資料棄用:")]
+        [HorizontalGroup("UniqueId")]
+        [LabelWidth(55)]
         public bool Deactivate;
 
+        [HorizontalGroup("UniqueId")]
+        [LabelWidth(22)]
         public int HP;
 
     #endregion

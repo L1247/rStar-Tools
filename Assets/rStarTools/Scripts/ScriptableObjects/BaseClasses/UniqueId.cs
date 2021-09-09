@@ -21,6 +21,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [LabelWidthString("@LabelWidth")]
         [LabelText("@LabelText")]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
+        [HorizontalGroup("UniqueId")]
         public string DisplayName;
 
     #endregion
