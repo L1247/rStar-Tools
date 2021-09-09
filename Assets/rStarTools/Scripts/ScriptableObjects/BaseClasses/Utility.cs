@@ -20,6 +20,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return dataOverview;
         }
 
+        public static float GetFlexibleWidth(string text)
+        {
+            const int flexibleSpace = 11;
+            var       width         = text.Length * flexibleSpace;
+            return width;
+        }
+
     #endregion
     }
 }

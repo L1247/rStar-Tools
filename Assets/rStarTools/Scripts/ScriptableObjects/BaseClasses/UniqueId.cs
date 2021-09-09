@@ -1,6 +1,8 @@
 #region
 
 using System;
+using JetBrains.Annotations;
+using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -16,13 +18,24 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [HideInInspector]
         public string DataId;
 
-        [LabelWidth(55f)]
+        [LabelWidthString("@LabelWidth")]
         [LabelText("顯示名稱:")]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
         public string DisplayName;
 
-        [HideInInspector]
-        public string validateErrorMessage;
+    #endregion
+
+    #region Protected Variables
+
+        [UsedImplicitly]
+        protected virtual float LabelWidth => Utility.GetFlexibleWidth(DisplayName);
+
+    #endregion
+
+    #region Private Variables
+
+        [UsedImplicitly]
+        private string validateErrorMessage;
 
     #endregion
 
@@ -31,6 +44,18 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public UniqueId()
         {
             DataId = Guid.NewGuid().ToString();
+        }
+
+    #endregion
+
+    #region Public Methods
+
+        public void SetErrorMessage(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(errorMessage))
+                errorMessage = "Something going wrong";
+
+            validateErrorMessage = errorMessage;
         }
 
     #endregion

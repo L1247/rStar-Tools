@@ -26,7 +26,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Protected Variables
 
         [UsedImplicitly]
-        protected virtual float LabelWidth => LabelText.Length * 11f;
+        protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
 
         protected virtual string LabelText => "Name";
 

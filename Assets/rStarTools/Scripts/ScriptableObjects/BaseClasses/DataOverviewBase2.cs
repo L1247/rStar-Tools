@@ -52,13 +52,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {
-                // uniqueId.validateErrorMessage = "DisplayName is empty.";
-                uniqueId.validateErrorMessage = "顯示名稱不能為空";
+                uniqueId.SetErrorMessage("顯示名稱不能為空");
                 return false;
             }
 
             var isDisplayNameSame = ids.FindAll(_ => _.DisplayName == displayName).Count < 2;
-            if (isDisplayNameSame == false) uniqueId.validateErrorMessage = $"Has same DisplayName: {displayName}";
+            if (isDisplayNameSame == false) uniqueId.SetErrorMessage($"檢查到有相同顯示名稱: {displayName}");
             return isDisplayNameSame;
         }
 
