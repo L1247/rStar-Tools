@@ -11,18 +11,12 @@ using UnityEngine;
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
-    public class UniqueId<DO> where DO : ScriptableObject , IDataOverview
+    public class UniqueId<DO> : IUniqueId where DO : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
-        [HideInInspector]
-        public string DataId;
-
-        [LabelWidthString("@LabelWidth")]
-        [LabelText("@LabelText")]
-        [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
-        [HorizontalGroup("UniqueId")]
-        public string DisplayName;
+        public string DataId      => dataId;
+        public string DisplayName => displayName;
 
     #endregion
 
@@ -40,13 +34,24 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [UsedImplicitly]
         private string validateErrorMessage;
 
+        [HideInInspector]
+        [SerializeField]
+        private string dataId;
+
+        [LabelWidthString("@LabelWidth")]
+        [LabelText("@LabelText")]
+        [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
+        [HorizontalGroup("UniqueId")]
+        [SerializeField]
+        private string displayName;
+
     #endregion
 
     #region Constructor
 
         public UniqueId()
         {
-            DataId = Guid.NewGuid().ToString();
+            dataId = Guid.NewGuid().ToString();
         }
 
     #endregion
@@ -68,7 +73,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         protected virtual bool ValidateAll()
         {
             var dataOverview = Utility.GetDataOverview<DO>();
-            var validateAll  = dataOverview.ValidateAll(DataId);
+            var validateAll  = dataOverview.ValidateAll(dataId);
             return validateAll;
         }
 
