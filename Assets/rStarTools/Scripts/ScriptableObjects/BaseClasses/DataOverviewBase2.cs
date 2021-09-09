@@ -16,7 +16,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Protected Variables
 
         [SerializeField]
-        [LabelText("Names")]
+        [LabelText("資料陣列")]
         protected List<UniqueId<D>> ids = new List<UniqueId<D>>();
 
     #endregion
