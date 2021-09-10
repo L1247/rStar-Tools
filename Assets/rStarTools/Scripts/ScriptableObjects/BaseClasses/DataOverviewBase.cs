@@ -3,8 +3,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
+#if UNITY_EDITOR
+using Sirenix.Utilities.Editor;
+#endif
 
 #endregion
 
@@ -21,6 +25,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [LabelText("資料陣列")]
         [TableList(ShowIndexLabels = true)]
         [Searchable]
+        [ListDrawerSettings(OnBeginListElementGUI = "BeginListElementGUI" , OnEndListElementGUI = "EndListElementGUI")]
         protected List<U> ids = new List<U>();
 
     #endregion
@@ -86,6 +91,29 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return true;
         }
 
+        protected virtual string GetElementBoxText(int index)
+        {
+            var text = $"Index: {index}";
+            return text;
+        }
+
     #endregion
+
+    #if UNITY_EDITOR
+        [UsedImplicitly]
+        private void BeginListElementGUI(int index)
+        {
+            GUILayout.BeginHorizontal();
+            SirenixEditorGUI.BeginBox(GetElementBoxText(index));
+        }
+
+
+        [UsedImplicitly]
+        private void EndListElementGUI(int index)
+        {
+            SirenixEditorGUI.EndBox();
+            GUILayout.EndHorizontal();
+        }
+    #endif
     }
 }

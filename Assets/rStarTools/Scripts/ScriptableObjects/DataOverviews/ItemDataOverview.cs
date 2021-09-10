@@ -29,6 +29,14 @@ namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
             return data.Deactivate == false;
         }
 
+        protected override string GetElementBoxText(int index)
+        {
+            var elementBoxText = base.GetElementBoxText(index);
+            var itemData       = GetAllData()[index];
+            var text           = $"{elementBoxText} - {itemData.DisplayName}";
+            return text;
+        }
+
     #endregion
     }
 }
