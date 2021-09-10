@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ActorTypeOverview
   m_EditorClassIdentifier: 
   ids:
-  - DataId: 0b29362d-9671-4715-95d5-d4ba5f7601e5
-    DisplayName: "\u6211\u65B9"
-  - DataId: f60456da-f5d9-4177-b174-23337daab389
-    DisplayName: "\u6575\u4EBA"
+  - dataId: 568ca112-e9e7-4add-8390-787b272c67db
+    displayName: "\u6211\u65B9"
+  - dataId: 70f75d94-a815-44fe-9113-65a898194a85
+    displayName: "\u6575\u65B9"

@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
+    [Searchable]
     public class DataOverviewBase<DO , U> : SingletonScriptableObject<DO> , IDataOverview
     where DO : ScriptableObject , IDataOverview
     where U : IUniqueId
