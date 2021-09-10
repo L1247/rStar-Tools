@@ -15,5 +15,5 @@ MonoBehaviour:
   uniqueId:
     dataId: 89b39165-f329-4dd8-aeee-96d3df345a34
     displayName: "\u56DE\u5FA9\u9B54\u529B\u85E5\u6C34"
-  Deactivate: 1
+  Deactivate: 0
   sellPrice: 5

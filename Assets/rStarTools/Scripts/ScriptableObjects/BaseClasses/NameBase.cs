@@ -68,6 +68,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [ValueDropdown("@GetNames()")]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true , DefaultMessage = "@errorMessage")]
         [OnInspectorGUI("IdGUIBefore" , "IdGUIAfter")]
+        [OnValueChanged("OnIdChanged")]
         private string id;
 
     #endregion
@@ -120,8 +121,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 btnRect.height      =  overviewHeight;
                 window.position     =  btnRect;
                 window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
-                // window.OnClose      += () => Debug.Log("Window Closed");
+                window.OnClose      += () => dataOverview.SetTarget(null);
                 // window.OnBeginGUI   += () => GUILayout.Label("-----------");
+                dataOverview.SetTarget(Id);
                 window.OnEndGUI += () =>
                 {
                     if (GUILayout.Button("Ping And Select"))
@@ -156,6 +158,16 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         protected virtual bool ValidateId(string value)
         {
             return GetDataOverview().Validate(value);
+        }
+
+    #endregion
+
+    #region Private Methods
+
+        private void OnIdChanged()
+        {
+            var dataOverview = GetDataOverview();
+            dataOverview.SetTarget(id);
         }
 
     #endregion

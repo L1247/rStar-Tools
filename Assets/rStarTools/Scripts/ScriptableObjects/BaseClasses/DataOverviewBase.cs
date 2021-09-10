@@ -30,7 +30,19 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #endregion
 
+    #region Private Variables
+
+        private int currentSelectElementIndex;
+
+    #endregion
+
     #region Public Methods
+
+        public bool ContainsId(string id)
+        {
+            var containsId = FindUniqueId(id) != null;
+            return containsId;
+        }
 
         public D FindData<D>(string id) where D : UniqueId<DO>
         {
@@ -61,10 +73,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return valueDropdownItems;
         }
 
+        public void SetTarget(string id)
+        {
+            currentSelectElementIndex = FindIndex(id);
+        }
+
         public virtual bool Validate(string id)
         {
-            var containsId = FindUniqueId(id) != null;
-            return containsId;
+            return ContainsId(id);
         }
 
         public bool ValidateAll(string id)
@@ -99,13 +115,44 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #endregion
 
+    #region Private Methods
+
+        private int FindIndex(string id)
+        {
+            var index = -1;
+            for (var i = 0 ; i < ids.Count ; i++)
+            {
+                var uniqueId = ids[i];
+                var idEquals = uniqueId.DataId == id;
+                if (idEquals)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
+        }
+
+    #endregion
+
     #if UNITY_EDITOR
         [UsedImplicitly]
         private void BeginListElementGUI(int index)
         {
-            GUI.contentColor = Color.cyan;
             GUILayout.BeginHorizontal();
-            SirenixEditorGUI.BeginBox(GetElementBoxText(index));
+            var elementBoxText = GetElementBoxText(index);
+            var guiContent     = new GUIContent(elementBoxText);
+            var contentColor   = Color.cyan;
+            if (index == currentSelectElementIndex)
+            {
+                guiContent   = new GUIContent(elementBoxText , EditorIcons.Tag.Raw);
+                contentColor = Color.yellow;
+            }
+
+            GUI.contentColor = contentColor;
+            SirenixEditorGUI.BeginBox(guiContent);
+
             GUI.contentColor = Color.white;
         }
 

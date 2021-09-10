@@ -10,7 +10,10 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     {
     #region Public Methods
 
+        bool ContainsId(string id);
+
         IEnumerable GetNames();
+        void        SetTarget(string   id);
         bool        Validate(string    id);
         bool        ValidateAll(string id);
 
