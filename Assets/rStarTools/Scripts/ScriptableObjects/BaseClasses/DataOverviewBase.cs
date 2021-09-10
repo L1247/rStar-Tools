@@ -103,8 +103,10 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [UsedImplicitly]
         private void BeginListElementGUI(int index)
         {
+            GUI.contentColor = Color.cyan;
             GUILayout.BeginHorizontal();
             SirenixEditorGUI.BeginBox(GetElementBoxText(index));
+            GUI.contentColor = Color.white;
         }
 
 
