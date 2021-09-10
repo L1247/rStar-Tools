@@ -27,6 +27,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Protected Variables
 
+        protected virtual bool useOverviewWrapper => true;
+
         [UsedImplicitly]
         protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
 
@@ -55,14 +57,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         }
     #endif
 
-        private static OverviewWrapper overviewWrapper;
+        private OverviewWrapper overviewWrapper;
 
     #if UNITY_EDITOR
         private OdinEditorWindow window;
     #endif
 
         private readonly string errorMessage = "此筆資料不存在於資料陣列內";
-
 
         [SerializeField]
         [LabelWidthString("@LabelWidth")]
@@ -102,20 +103,29 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         {
         #if UNITY_EDITOR
             var windowExist = IsWindowExist();
-            var icon        = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
+            // Debug.Log($" {GetType()} , {windowExist}");
+            var icon = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
             if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
             {
                 if (windowExist)
                 {
-                    window.Close();
-                    window = null;
+                    CloseWindow();
                     return;
                 }
 
                 var dataOverview = GetDataOverview();
                 var btnRect      = GUIHelper.GetCurrentLayoutRect();
-                overviewWrapper = new OverviewWrapper(dataOverview);
-                window          = OdinEditorWindow.InspectObject(overviewWrapper);
+                if (useOverviewWrapper)
+                {
+                    overviewWrapper = new OverviewWrapper(dataOverview);
+                    window          = OdinEditorWindow.InspectObject(overviewWrapper);
+                    overviewWrapper.SetSelect(id);
+                }
+                else
+                {
+                    window = OdinEditorWindow.InspectObject(dataOverview);
+                }
+
                 var btnRectPosition = GUIUtility.GUIToScreenPoint(btnRect.position);
                 btnRectPosition.x   -= overviewWidth + 30;
                 btnRectPosition.y   =  Mathf.Min(btnRectPosition.y , 550);
@@ -125,7 +135,6 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 window.position     =  btnRect;
                 window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
                 window.OnClose      += () => { };
-                overviewWrapper.SetSelect(id);
                 // window.OnBeginGUI   += () => GUILayout.Label("-----------");
                 window.OnEndGUI += () =>
                 {
@@ -135,7 +144,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                         CustomEditorUtility.SelectObject(dataOverview);
                     }
 
-                    if (GUILayout.Button("Close")) window.Close();
+                    if (GUILayout.Button("Close")) CloseWindow();
                     var e = Event.current;
                     switch (e.type)
                     {
@@ -153,9 +162,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         protected virtual void OnCloseKeyDown()
         {
-        #if UNITY_EDITOR
-            window.Close();
-        #endif
+            CloseWindow();
         }
 
         protected virtual bool ValidateId(string value)
@@ -166,6 +173,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #endregion
 
     #region Private Methods
+
+        private void CloseWindow()
+        {
+        #if UNITY_EDITOR
+            window.Close();
+        #endif
+            window = null;
+        }
 
         private bool IsWindowExist()
         {
@@ -179,7 +194,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         private void OnIdChanged()
         {
         #if UNITY_EDITOR
-            if (IsWindowExist()) overviewWrapper.SetSelect(Id);
+            if (IsWindowExist() && useOverviewWrapper)
+                overviewWrapper.SetSelect(Id);
         #endif
         }
 

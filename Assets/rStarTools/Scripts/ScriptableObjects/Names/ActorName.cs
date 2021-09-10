@@ -13,6 +13,8 @@ namespace ScriptableObjects.Names
     {
     #region Protected Variables
 
+        protected override bool useOverviewWrapper => false;
+
         protected override string LabelText => "角色名稱:";
 
     #endregion
