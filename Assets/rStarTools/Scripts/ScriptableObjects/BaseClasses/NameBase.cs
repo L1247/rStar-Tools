@@ -191,8 +191,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Private Variables
 
         [ShowInInspector]
-        [ShowIf("showCurrentSelect")]
-        [BoxGroup("Current Select Data")]
+        [BoxGroup("@labelText")]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
         private object currentData;
 
@@ -201,7 +200,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [InlineEditor(InlineEditorObjectFieldModes.Hidden)]
         private IDataOverview dataOverview;
 
-        private bool showCurrentSelect;
+        private string labelText;
 
     #endregion
 
@@ -218,12 +217,10 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         public void SetSelect(string id)
         {
-            var index            = dataOverview.FindIndex(id);
-            var data             = dataOverview.GetData(index);
-            var scriptableObject = data as ScriptableObject;
+            var index = dataOverview.FindIndex(id);
+            var data  = dataOverview.GetData(index);
             currentData = data;
-            // showCurrentSelect = currentData != null;
-            showCurrentSelect = true;
+            labelText   = $"Current Select Data - [Index {index}]";
         }
 
     #endregion
