@@ -47,6 +47,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         {
             var valueDropdownItems = ids
                                      .Where(id => string.IsNullOrEmpty(id.DisplayName) == false)
+                                     .Where(data => ExtraCondition(data))
                                      .Select(element => new ValueDropdownItem
                                      {
                                          Text  = element.DisplayName ,
@@ -74,6 +75,15 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             var isDisplayNameSame = ids.FindAll(_ => _.DisplayName == displayName).Count < 2;
             if (isDisplayNameSame == false) uniqueId.SetErrorMessage($"檢查到有相同顯示名稱: {displayName}");
             return isDisplayNameSame;
+        }
+
+    #endregion
+
+    #region Protected Methods
+
+        protected virtual bool ExtraCondition(U data)
+        {
+            return true;
         }
 
     #endregion

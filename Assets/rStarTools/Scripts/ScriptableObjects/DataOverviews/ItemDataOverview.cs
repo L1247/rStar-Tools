@@ -21,5 +21,14 @@ namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
         }
 
     #endregion
+
+    #region Protected Methods
+
+        protected override bool ExtraCondition(ItemData data)
+        {
+            return data.Deactivate == false;
+        }
+
+    #endregion
     }
 }
