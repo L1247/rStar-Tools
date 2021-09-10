@@ -176,8 +176,10 @@ MonoBehaviour:
   - id: f1330a84-172c-4389-bf2f-79f950909470
   - id: ad39f3b7-081c-44fd-a555-246c168c54a6
   - id: f1330a84-172c-4389-bf2f-79f950909470
-  actorTypeNames:
+  actorTypeName:
     id: 568ca112-e9e7-4add-8390-787b272c67db
+  itemName:
+    id: 2711a05d-8ee7-4f43-893c-933c45286147
 --- !u!114 &392911735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName:
-    id: 2711a05d-8ee7-4f43-893c-933c45286147
+    id: 89b39165-f329-4dd8-aeee-96d3df345a34
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

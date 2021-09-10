@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using Main.GameDataStructure;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.ScriptableObjects.Datas;
+using rStarTools.Scripts.ScriptableObjects.Names;
 using ScriptableObjects.Names;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 #endregion
 
@@ -25,8 +27,12 @@ namespace rStarTools.Scripts.Main
         [SerializeField]
         private List<ActorName> actorNames;
 
+        [FormerlySerializedAs("actorTypeNames")]
         [SerializeField]
-        private ActorTypeNames actorTypeNames;
+        private ActorTypeName actorTypeName;
+
+        [SerializeField]
+        private ItemName itemName;
 
     #endregion
 
