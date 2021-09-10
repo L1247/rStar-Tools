@@ -27,8 +27,6 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Protected Variables
 
-        protected virtual bool useOverviewWrapper => true;
-
         [UsedImplicitly]
         protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
 
@@ -179,8 +177,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         private void OnIdChanged()
         {
         #if UNITY_EDITOR
-            if (IsWindowExist() && useOverviewWrapper)
-                overviewWrapper.SetSelect(Id);
+            if (IsWindowExist()) overviewWrapper.SetSelect(Id);
         #endif
         }
 
@@ -194,16 +191,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             var dataOverview  = GetDataOverview();
             var lastRectExist = lastRect != default;
             var rect          = lastRectExist ? lastRect : GUIHelper.GetCurrentLayoutRect();
-            if (useOverviewWrapper)
-            {
-                overviewWrapper = new OverviewWrapper(dataOverview);
-                window          = OdinEditorWindow.InspectObject(overviewWrapper);
-                overviewWrapper.SetSelect(id);
-            }
-            else
-            {
-                window = OdinEditorWindow.InspectObject(dataOverview);
-            }
+            overviewWrapper = new OverviewWrapper(dataOverview);
+            window          = OdinEditorWindow.InspectObject(overviewWrapper);
+            overviewWrapper.SetSelect(id);
 
             if (lastRectExist == false)
             {
