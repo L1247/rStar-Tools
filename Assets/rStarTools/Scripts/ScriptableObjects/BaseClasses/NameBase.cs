@@ -192,7 +192,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         [ShowInInspector]
         // [BoxGroup("@labelText")]
-        [ColoredBoxGroup("@labelText" , .23f , .76f , .64f , 1f ,
+        [ColoredBoxGroup("@labelText" , .43f , .96f , .64f , 1f ,
                          BoldLabel = true)]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
         private object currentData;
