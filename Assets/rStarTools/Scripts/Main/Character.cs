@@ -19,9 +19,11 @@ namespace rStarTools.Scripts.Main
     #region Private Variables
 
         [SerializeField]
+        [Required]
         private ActorDataOverview actorDataOverview;
 
         [SerializeField]
+        [BoxGroup("ActorName")]
         private ActorName actorName;
 
         [SerializeField]
@@ -39,6 +41,7 @@ namespace rStarTools.Scripts.Main
     #region Private Methods
 
         [Button]
+        [BoxGroup("ActorName")]
         private void ShowHp()
         {
             var actorData = actorDataOverview.FindData<ActorData>(actorName.Id);
