@@ -1,6 +1,7 @@
 #region
 
 using System.Collections;
+using System.Collections.Generic;
 
 #endregion
 
@@ -12,10 +13,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         bool ContainsId(string id);
 
-        IEnumerable GetNames();
-        void        SetTarget(string   id);
-        bool        Validate(string    id);
-        bool        ValidateAll(string id);
+        int FindIndex(string id);
+
+        public List<IUniqueId> GetAllData();
+        IUniqueId              GetData(int index);
+        IEnumerable            GetNames();
+        bool                   Validate(string    id);
+        bool                   ValidateAll(string id);
 
     #endregion
     }

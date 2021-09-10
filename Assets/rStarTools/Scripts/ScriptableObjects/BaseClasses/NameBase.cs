@@ -55,6 +55,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         }
     #endif
 
+        private static OverviewWrapper overviewWrapper;
+
     #if UNITY_EDITOR
         private OdinEditorWindow window;
     #endif
@@ -99,7 +101,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         protected virtual void NameButton()
         {
         #if UNITY_EDITOR
-            var windowExist = window != null;
+            var windowExist = IsWindowExist();
             var icon        = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
             if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
             {
@@ -112,7 +114,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
                 var dataOverview = GetDataOverview();
                 var btnRect      = GUIHelper.GetCurrentLayoutRect();
-                window = OdinEditorWindow.InspectObject(dataOverview);
+                overviewWrapper = new OverviewWrapper(dataOverview);
+                window          = OdinEditorWindow.InspectObject(overviewWrapper);
                 var btnRectPosition = GUIUtility.GUIToScreenPoint(btnRect.position);
                 btnRectPosition.x   -= overviewWidth + 30;
                 btnRectPosition.y   =  Mathf.Min(btnRectPosition.y , 550);
@@ -121,9 +124,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 btnRect.height      =  overviewHeight;
                 window.position     =  btnRect;
                 window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
-                window.OnClose      += () => dataOverview.SetTarget(null);
+                window.OnClose      += () => { };
+                overviewWrapper.SetSelect(id);
                 // window.OnBeginGUI   += () => GUILayout.Label("-----------");
-                dataOverview.SetTarget(Id);
                 window.OnEndGUI += () =>
                 {
                     if (GUILayout.Button("Ping And Select"))
@@ -164,10 +167,63 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Private Methods
 
+        private bool IsWindowExist()
+        {
+            bool windowExist;
+        #if UNITY_EDITOR
+            windowExist = window != null;
+        #endif
+            return windowExist;
+        }
+
         private void OnIdChanged()
         {
-            var dataOverview = GetDataOverview();
-            dataOverview.SetTarget(id);
+        #if UNITY_EDITOR
+            if (IsWindowExist()) overviewWrapper.SetSelect(Id);
+        #endif
+        }
+
+    #endregion
+    }
+
+    public class OverviewWrapper
+    {
+    #region Private Variables
+
+        [ShowInInspector]
+        [ShowIf("showCurrentSelect")]
+        [BoxGroup("Current Select Data")]
+        [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
+        private object currentData;
+
+        [ShowInInspector]
+        [PropertySpace(SpaceBefore = 15)]
+        [InlineEditor(InlineEditorObjectFieldModes.Hidden)]
+        private IDataOverview dataOverview;
+
+        private bool showCurrentSelect;
+
+    #endregion
+
+    #region Constructor
+
+        public OverviewWrapper(ScriptableObject dataOverview)
+        {
+            this.dataOverview = (IDataOverview)dataOverview;
+        }
+
+    #endregion
+
+    #region Public Methods
+
+        public void SetSelect(string id)
+        {
+            var index            = dataOverview.FindIndex(id);
+            var data             = dataOverview.GetData(index);
+            var scriptableObject = data as ScriptableObject;
+            currentData = data;
+            // showCurrentSelect = currentData != null;
+            showCurrentSelect = true;
         }
 
     #endregion
