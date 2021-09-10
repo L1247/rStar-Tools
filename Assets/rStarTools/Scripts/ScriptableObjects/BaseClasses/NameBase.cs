@@ -191,7 +191,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Private Variables
 
         [ShowInInspector]
-        [BoxGroup("@labelText")]
+        // [BoxGroup("@labelText")]
+        [ColoredBoxGroup("@labelText" , .23f , .76f , .64f , 1f ,
+                         BoldLabel = true)]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
         private object currentData;
 
