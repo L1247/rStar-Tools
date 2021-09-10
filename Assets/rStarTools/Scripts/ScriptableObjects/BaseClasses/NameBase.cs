@@ -65,6 +65,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         private readonly string errorMessage = "此筆資料不存在於資料陣列內";
 
+        private Rect lastRect;
+
         [SerializeField]
         [LabelWidthString("@LabelWidth")]
         [LabelText("@LabelText")]
@@ -103,59 +105,21 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         {
         #if UNITY_EDITOR
             var windowExist = IsWindowExist();
-            // Debug.Log($" {GetType()} , {windowExist}");
+            if (windowExist)
+            {
+                var overviewWrapperExist = overviewWrapper == null;
+                if (overviewWrapperExist)
+                {
+                    CloseWindow();
+                    OpenNewWindow();
+                }
+            }
+
             var icon = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
             if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
             {
-                if (windowExist)
-                {
-                    CloseWindow();
-                    return;
-                }
-
-                var dataOverview = GetDataOverview();
-                var btnRect      = GUIHelper.GetCurrentLayoutRect();
-                if (useOverviewWrapper)
-                {
-                    overviewWrapper = new OverviewWrapper(dataOverview);
-                    window          = OdinEditorWindow.InspectObject(overviewWrapper);
-                    overviewWrapper.SetSelect(id);
-                }
-                else
-                {
-                    window = OdinEditorWindow.InspectObject(dataOverview);
-                }
-
-                var btnRectPosition = GUIUtility.GUIToScreenPoint(btnRect.position);
-                btnRectPosition.x   -= overviewWidth + 30;
-                btnRectPosition.y   =  Mathf.Min(btnRectPosition.y , 550);
-                btnRect.position    =  btnRectPosition;
-                btnRect.width       =  overviewWidth;
-                btnRect.height      =  overviewHeight;
-                window.position     =  btnRect;
-                window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
-                window.OnClose      += () => { };
-                // window.OnBeginGUI   += () => GUILayout.Label("-----------");
-                window.OnEndGUI += () =>
-                {
-                    if (GUILayout.Button("Ping And Select"))
-                    {
-                        CustomEditorUtility.PingObject(dataOverview);
-                        CustomEditorUtility.SelectObject(dataOverview);
-                    }
-
-                    if (GUILayout.Button("Close")) CloseWindow();
-                    var e = Event.current;
-                    switch (e.type)
-                    {
-                        case EventType.KeyDown :
-                        {
-                            if (Event.current.keyCode == KeyCode.Escape)
-                                OnCloseKeyDown();
-                            break;
-                        }
-                    }
-                };
+                if (windowExist) CloseWindow();
+                else OpenNewWindow();
             }
         #endif
         }
@@ -191,12 +155,71 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return windowExist;
         }
 
+        private void OnEndGUI(D dataOverview)
+        {
+            if (GUILayout.Button("Ping And Select"))
+            {
+                CustomEditorUtility.PingObject(dataOverview);
+                CustomEditorUtility.SelectObject(dataOverview);
+            }
+
+            if (GUILayout.Button("Close")) CloseWindow();
+            var e = Event.current;
+            switch (e.type)
+            {
+                case EventType.KeyDown :
+                {
+                    if (Event.current.keyCode == KeyCode.Escape)
+                        OnCloseKeyDown();
+                    break;
+                }
+            }
+        }
+
         private void OnIdChanged()
         {
         #if UNITY_EDITOR
             if (IsWindowExist() && useOverviewWrapper)
                 overviewWrapper.SetSelect(Id);
         #endif
+        }
+
+        private void OnWindowClose()
+        {
+            lastRect = window.position;
+        }
+
+        private void OpenNewWindow()
+        {
+            var dataOverview  = GetDataOverview();
+            var lastRectExist = lastRect != default;
+            var rect          = lastRectExist ? lastRect : GUIHelper.GetCurrentLayoutRect();
+            if (useOverviewWrapper)
+            {
+                overviewWrapper = new OverviewWrapper(dataOverview);
+                window          = OdinEditorWindow.InspectObject(overviewWrapper);
+                overviewWrapper.SetSelect(id);
+            }
+            else
+            {
+                window = OdinEditorWindow.InspectObject(dataOverview);
+            }
+
+            if (lastRectExist == false)
+            {
+                var btnRectPosition = GUIUtility.GUIToScreenPoint(rect.position);
+                btnRectPosition.x -= overviewWidth + 30;
+                btnRectPosition.y =  Mathf.Min(btnRectPosition.y , 550);
+                rect.position     =  btnRectPosition;
+                rect.width        =  overviewWidth;
+                rect.height       =  overviewHeight;
+            }
+
+            window.position     =  rect;
+            window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
+            window.OnClose      += OnWindowClose;
+            // window.OnBeginGUI   += () => GUILayout.Label("-----------");
+            window.OnEndGUI += () => OnEndGUI(dataOverview);
         }
 
     #endregion
