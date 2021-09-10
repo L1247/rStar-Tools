@@ -5,10 +5,12 @@ using System.Collections;
 using JetBrains.Annotations;
 using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
-using Sirenix.Utilities.Editor;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
+#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
+#endif
 
 #endregion
 
@@ -53,7 +55,9 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         }
     #endif
 
+    #if UNITY_EDITOR
         private OdinEditorWindow window;
+    #endif
 
         private readonly string errorMessage = "此筆資料不存在於資料陣列內";
 
@@ -93,6 +97,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         protected virtual void NameButton()
         {
+        #if UNITY_EDITOR
             var windowExist = window != null;
             var icon        = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
             if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
@@ -138,11 +143,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                     }
                 };
             }
+        #endif
         }
 
         protected virtual void OnCloseKeyDown()
         {
+        #if UNITY_EDITOR
             window.Close();
+        #endif
         }
 
         protected virtual bool ValidateId(string value)
