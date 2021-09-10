@@ -13,6 +13,8 @@ namespace rStarTools.Scripts.ScriptableObjects.Names
     {
     #region Protected Variables
 
+        protected override int overviewWidth => 600;
+
         protected override string LabelText => "道具名稱:";
 
     #endregion

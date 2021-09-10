@@ -43,6 +43,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
         [HorizontalGroup("UniqueId")]
         [SerializeField]
+        [TableColumnWidth(200)]
         private string displayName;
 
     #endregion

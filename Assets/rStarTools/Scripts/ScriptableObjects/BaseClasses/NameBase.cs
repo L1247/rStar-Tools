@@ -28,6 +28,10 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [UsedImplicitly]
         protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
 
+        protected virtual int overviewHeight => 400;
+
+        protected virtual int overviewWidth => 400;
+
         protected virtual string LabelText => "Name";
 
     #endregion
@@ -100,17 +104,15 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                     return;
                 }
 
-                var width        = 400;
-                var height       = 400;
                 var dataOverview = GetDataOverview();
                 var btnRect      = GUIHelper.GetCurrentLayoutRect();
                 window = OdinEditorWindow.InspectObject(dataOverview);
                 var btnRectPosition = GUIUtility.GUIToScreenPoint(btnRect.position);
-                btnRectPosition.x   -= width + 30;
+                btnRectPosition.x   -= overviewWidth + 30;
                 btnRectPosition.y   =  Mathf.Min(btnRectPosition.y , 550);
                 btnRect.position    =  btnRectPosition;
-                btnRect.width       =  width;
-                btnRect.height      =  height;
+                btnRect.width       =  overviewWidth;
+                btnRect.height      =  overviewHeight;
                 window.position     =  btnRect;
                 window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
                 // window.OnClose      += () => Debug.Log("Window Closed");
