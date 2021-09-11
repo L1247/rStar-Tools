@@ -45,6 +45,9 @@ public class ColoredBoxGroupDrawer : OdinGroupDrawer<ColoredBoxGroupAttribute>
             // GUIHelper.PopColor();
             if (Attribute.ShowLabel)
             {
+                if (Attribute.ShowIcon)
+                    GUILayout.Label(EditorIcons.Tag.Raw , GUILayout.Width(20) , GUILayout.MaxHeight(20));
+
                 if (Attribute.CenterLabel)
                     SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Center , false , Attribute.BoldLabel);
                 else
