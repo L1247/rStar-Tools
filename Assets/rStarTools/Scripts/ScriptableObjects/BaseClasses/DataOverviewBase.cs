@@ -38,7 +38,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
             return containsId;
         }
 
-        public D FindData<D>(string id) where D : UniqueId<DO>
+        public D FindData<D>(string id) where D : class , IUniqueId
         {
             var data = GetAllData().Find(_ => _.DataId == id) as D;
             return data;
