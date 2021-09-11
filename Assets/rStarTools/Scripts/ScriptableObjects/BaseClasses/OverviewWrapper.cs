@@ -23,6 +23,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         private IDataOverview dataOverview;
 
         private string labelText;
+        private string id;
 
     #endregion
 
@@ -35,21 +36,47 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #endregion
 
+    #region Unity events
+
+        public void Update()
+        {
+            if (IsCurrentDataExist() == false) ClearCurrentData();
+        }
+
+    #endregion
+
     #region Public Methods
 
         public void SetSelect(string id)
         {
-            var index = dataOverview.FindIndex(id);
-            if (index < 0)
+            this.id = id;
+            if (IsCurrentDataExist())
             {
-                currentData = null;
-                return;
+                var index = dataOverview.FindIndex(id);
+                var data  = dataOverview.GetData(index);
+                currentData = data;
+                var displayName = data.DisplayName;
+                labelText = $"Current Select Data - [{index}] {displayName}";
             }
+            else
+            {
+                ClearCurrentData();
+            }
+        }
 
-            var data = dataOverview.GetData(index);
-            currentData = data;
-            var displayName = data.DisplayName;
-            labelText = $"Current Select Data - [{index}] {displayName}";
+    #endregion
+
+    #region Private Methods
+
+        private void ClearCurrentData()
+        {
+            currentData = null;
+            labelText   = string.Empty;
+        }
+
+        private bool IsCurrentDataExist()
+        {
+            return dataOverview.FindIndex(id) >= 0;
         }
 
     #endregion

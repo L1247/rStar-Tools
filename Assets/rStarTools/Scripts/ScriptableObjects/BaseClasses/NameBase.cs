@@ -155,13 +155,14 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         private void OnEndGUI(D dataOverview)
         {
-            if (GUILayout.Button("Ping And Select"))
+            overviewWrapper.Update();
+            if (GUILayout.Button("Ping And Select DataOverview"))
             {
                 CustomEditorUtility.PingObject(dataOverview);
                 CustomEditorUtility.SelectObject(dataOverview);
             }
 
-            if (GUILayout.Button("Close")) CloseWindow();
+            if (GUILayout.Button("Close Window")) CloseWindow();
             var e = Event.current;
             switch (e.type)
             {
