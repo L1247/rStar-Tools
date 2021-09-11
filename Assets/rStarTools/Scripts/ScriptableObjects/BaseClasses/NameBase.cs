@@ -108,6 +108,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 var overviewWrapperExist = overviewWrapper == null;
                 if (overviewWrapperExist)
                 {
+                    OnWindowClose();
                     CloseWindow();
                     OpenNewWindow();
                 }
