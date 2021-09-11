@@ -98,7 +98,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
         public bool ValidateAll(string id)
         {
-            var uniqueId    = FindUniqueId(id);
+            var uniqueId = FindUniqueId(id);
+            if (uniqueId == null) return false;
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {

@@ -12,7 +12,6 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Private Variables
 
         [ShowInInspector]
-        // [BoxGroup("@labelText")]
         [ColoredBoxGroup(                                      "@labelText" , .43f , .96f , .64f , 1f ,
                                             BoldLabel = true , ShowIcon = true)]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
@@ -41,7 +40,13 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public void SetSelect(string id)
         {
             var index = dataOverview.FindIndex(id);
-            var data  = dataOverview.GetData(index);
+            if (index < 0)
+            {
+                currentData = null;
+                return;
+            }
+
+            var data = dataOverview.GetData(index);
             currentData = data;
             var displayName = data.DisplayName;
             labelText = $"Current Select Data - [{index}] {displayName}";

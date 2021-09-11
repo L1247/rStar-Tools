@@ -42,7 +42,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #if UNITY_EDITOR
         [UsedImplicitly]
-        internal class NameBase2ValueDrawer<N> : OdinValueDrawer<N> where N : NameBase<D>
+        internal class NameBaseValueDrawer<N> : OdinValueDrawer<N> where N : NameBase<D>
         {
         #region Protected Methods
 
