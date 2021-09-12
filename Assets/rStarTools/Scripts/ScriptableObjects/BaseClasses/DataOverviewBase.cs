@@ -81,6 +81,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         public virtual IEnumerable GetNames()
         {
             var valueDropdownItems = ids
+                                     .Where(id => id != null)
                                      .Where(id => string.IsNullOrEmpty(id.DisplayName) == false)
                                      .Where(data => ExtraCondition(data))
                                      .Select(element => new ValueDropdownItem
