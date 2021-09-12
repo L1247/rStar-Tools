@@ -107,7 +107,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 return false;
             }
 
-            var isDisplayNameSame = ids.FindAll(_ => _.DisplayName == displayName).Count < 2;
+            var isDisplayNameSame = ids.FindAll(_ =>
+            {
+                if (_ == null) return false;
+                var sameDisplayName = _.DisplayName == displayName;
+                return sameDisplayName;
+            }).Count < 2;
             if (isDisplayNameSame == false) uniqueId.SetErrorMessage($"檢查到有相同顯示名稱: {displayName}");
             return isDisplayNameSame;
         }
