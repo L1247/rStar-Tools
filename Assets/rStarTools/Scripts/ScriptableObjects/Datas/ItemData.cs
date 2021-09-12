@@ -1,27 +1,28 @@
 #region
 
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using Sirenix.OdinInspector;
-using UnityEngine;
+using UnityEngine.Serialization;
 
 #endregion
 
 namespace rStarTools.Scripts.ScriptableObjects.Datas
 {
-    public class ItemData : SODataBase
+    public class ItemData : SODataBase<ItemDataOverview>
     {
     #region Public Variables
 
-        [LabelText("是否棄用")]
+        [LabelText("是否棄用:")]
+        [LabelWidth(55)]
+        [PropertyOrder(-1)]
+        [TableColumnWidth(5)]
         public bool Deactivate;
 
-    #endregion
-
-    #region Private Variables
-
-        [SerializeField]
-        [BoxGroup("ItemData")]
-        private int sellPrice;
+        [LabelText("賣出價格:")]
+        [LabelWidth(55)]
+        [FormerlySerializedAs("sellPrice")]
+        public int SellPrice;
 
     #endregion
     }

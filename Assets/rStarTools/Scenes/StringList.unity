@@ -169,13 +169,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d143d6f08f444fa7d2e043d5fe2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName:
-    id: 7b81cecb-fb93-474b-b303-64de52f64fe7
-  actorNames:
-  - id: 7b81cecb-fb93-474b-b303-64de52f64fe7
-  - id: d3afe3ac-03ae-42f2-b3d8-77ec5e77539f
-  - id: 6a9eabca-5504-4691-a919-a91099e53ce2
   actorDataOverview: {fileID: 11400000, guid: b6a1130ee3888754eb1d7911eab5cad7, type: 2}
+  actorName:
+    id: ab18e296-3b17-400f-81f0-f12168936e36
+  actorNames:
+  - id: ab18e296-3b17-400f-81f0-f12168936e36
+  - id: dc66728f-85f5-4aae-8f94-fb6a2f3d53ae
+  - id: ab18e296-3b17-400f-81f0-f12168936e36
+  actorTypeName:
+    id: 568ca112-e9e7-4add-8390-787b272c67db
+  itemName:
+    id: 89b39165-f329-4dd8-aeee-96d3df345a34
 --- !u!114 &392911735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorName:
-    id: 7b81cecb-fb93-474b-b303-64de52f64fe7
+    id: dc66728f-85f5-4aae-8f94-fb6a2f3d53ae
 --- !u!114 &392911736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName:
-    id: c58dc554-a093-4660-829e-433f7e915148
+    id: c3a8eac9-12e2-4404-a862-1475356523ad
 --- !u!114 &392911737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName:
-    id: 07c058c9-bf82-4e03-852d-f819a858eef3
+    id: 89b39165-f329-4dd8-aeee-96d3df345a34
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

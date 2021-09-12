@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemData_2
   m_EditorClassIdentifier: 
   uniqueId:
-    DataId: cfd766c7-bf2f-4f3f-9575-aa6b2ee55ae0
-    DisplayName: "\u76FE\u724C"
-  sellPrice: 0
-  Deactivate: 1
+    dataId: 89b39165-f329-4dd8-aeee-96d3df345a34
+    displayName: "\u56DE\u5FA9\u9B54\u529B\u85E5\u6C34"
+  Deactivate: 0
+  SellPrice: 5

@@ -1,14 +1,28 @@
+#region
+
+using System;
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using Sirenix.OdinInspector;
-using UnityEngine;
+
+#endregion
 
 namespace rStarTools.Scripts.ScriptableObjects.Datas
 {
-    [CreateAssetMenu(fileName = "ActorData" , menuName = "rStar/ActorData" , order = 0)]
-    public class ActorData : SODataBase
+    [Serializable]
+    public class ActorData : DataBase<ActorDataOverview>
     {
-        public int  HP;
-        [LabelText("資料棄用")]
+    #region Public Variables
+
+        [LabelText("資料棄用:")]
+        [HorizontalGroup("ActorData")]
+        [LabelWidth(55)]
         public bool Deactivate;
+
+        [HorizontalGroup("ActorData")]
+        [LabelWidth(22)]
+        public int HP;
+
+    #endregion
     }
 }

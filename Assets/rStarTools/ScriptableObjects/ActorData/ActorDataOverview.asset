@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7f5e7491c5462dbf1c3376107caea9, type: 3}
   m_Name: ActorDataOverview
   m_EditorClassIdentifier: 
-  datas:
-  - {fileID: 11400000, guid: c5e34e25f49590f4380a58aa749e6750, type: 2}
-  - {fileID: 11400000, guid: 86e335737c3e46b4d902d4675ac8097f, type: 2}
-  - {fileID: 11400000, guid: 11f1c58dfcebb3f40b05487a52224b65, type: 2}
+  ids:
+  - uniqueId:
+      dataId: ab18e296-3b17-400f-81f0-f12168936e36
+      displayName: "\u8D85\u5F37\u7684\u76AE\u5361\u4E18"
+    Deactivate: 0
+    HP: 148
+  - uniqueId:
+      dataId: dc66728f-85f5-4aae-8f94-fb6a2f3d53ae
+      displayName: "\u4F0A\u5E03"
+    Deactivate: 0
+    HP: 82

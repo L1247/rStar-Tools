@@ -1,5 +1,6 @@
 #region
 
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ using UnityEngine;
 
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
-    public class SODataBase<D> : ScriptableObject , IUniqueId where D : ScriptableObject , IDataOverview
+    [Serializable]
+    public class DataBase<D> : IUniqueId where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -18,8 +20,8 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Private Variables
 
-        [SerializeField]
         [HideLabel]
+        [SerializeField]
         private UniqueId<D> uniqueId;
 
     #endregion

@@ -1,10 +1,7 @@
 #region
 
-using System.Collections;
-using System.Linq;
 using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.Datas;
-using Sirenix.OdinInspector;
 
 #endregion
 
@@ -14,25 +11,30 @@ namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
     {
     #region Public Methods
 
-        public override IEnumerable GetNames()
+        public override bool Validate(string id)
         {
-            var valueDropdownItems = datas
-                                     .Where(data => data.Deactivate == false)
-                                     .Select(data => new ValueDropdownItem
-                                     {
-                                         Text  = data.DisplayName ,
-                                         Value = data.DataId
-                                     });
-            return valueDropdownItems;
+            var containId = base.Validate(id);
+            if (containId == false) return false;
+            var uniqueId = FindUniqueId(id);
+            if (uniqueId.Deactivate) return false;
+            return true;
         }
 
-        public override bool Validate(string value)
+    #endregion
+
+    #region Protected Methods
+
+        protected override bool ExtraCondition(ItemData data)
         {
-            var data          = FindData<ItemData>(value);
-            var dataNotNull   = data != null;
-            var activate      = data.Deactivate == false;
-            var valueContains = dataNotNull && activate;
-            return valueContains;
+            return data.Deactivate == false;
+        }
+
+        protected override string GetElementBoxText(int index)
+        {
+            var elementBoxText = base.GetElementBoxText(index);
+            var itemData       = GetAllData()[index];
+            var text           = $"{elementBoxText} - {itemData.DisplayName}";
+            return text;
         }
 
     #endregion

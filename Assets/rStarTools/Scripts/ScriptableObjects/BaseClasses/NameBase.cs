@@ -2,12 +2,14 @@
 
 using System;
 using System.Collections;
+using JetBrains.Annotations;
 using rStarTools.Scripts.Main.Custom_Attributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
 #if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
 #endif
 
 #endregion
@@ -15,7 +17,7 @@ using Sirenix.OdinInspector.Editor;
 namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 {
     [Serializable]
-    public abstract class NameBase<DO , D> where DO : DataOverviewBase<DO , D> where D : SODataBase
+    public class NameBase<D> where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
 
@@ -25,7 +27,12 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Protected Variables
 
-        protected virtual float LabelWidth => LabelText.Length * 12.5f;
+        [UsedImplicitly]
+        protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
+
+        protected virtual int overviewHeight => 400;
+
+        protected virtual int overviewWidth => 400;
 
         protected virtual string LabelText => "Name";
 
@@ -34,37 +41,91 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
     #region Private Variables
 
     #if UNITY_EDITOR
-        internal class NameBaseValueDrawer<N> : OdinValueDrawer<N> where N : NameBase<DO , D>
+        [UsedImplicitly]
+        internal class NameBaseValueDrawer<N> : OdinValueDrawer<N> where N : NameBase<D>
         {
         #region Protected Methods
 
             protected override void DrawPropertyLayout(GUIContent label)
             {
-                this.Property.Children[0].Draw();
+                Property.Children[0].Draw();
             }
 
         #endregion
         }
     #endif
 
-        [ValueDropdown("@GetNames()" , NumberOfItemsBeforeEnablingSearch = 2)]
-        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true)]
-        [InlineButton("ShowId")]
-        [InlineButton("Ping")]
-        [LabelWidthString("@LabelWidth")]
+        private OverviewWrapper overviewWrapper;
+
+    #if UNITY_EDITOR
+        private OdinEditorWindow window;
+    #endif
+
+        private readonly string errorMessage = "此筆資料不存在於資料陣列內";
+
+        private Rect lastRect;
+
         [SerializeField]
+        [LabelWidthString("@LabelWidth")]
         [LabelText("@LabelText")]
+        [ValueDropdown("@GetNames()")]
+        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true , DefaultMessage = "@errorMessage")]
+        [OnInspectorGUI("IdGUIBefore" , "IdGUIAfter")]
+        [OnValueChanged("OnIdChanged")]
         private string id;
 
     #endregion
 
     #region Protected Methods
 
-        protected abstract DO GetDataOverview();
+        protected virtual D GetDataOverview()
+        {
+            return Utility.GetDataOverview<D>() as D;
+        }
 
         protected virtual IEnumerable GetNames()
         {
             return GetDataOverview().GetNames();
+        }
+
+        protected void IdGUIAfter()
+        {
+            NameButton();
+            GUILayout.EndHorizontal();
+        }
+
+        protected void IdGUIBefore()
+        {
+            GUILayout.BeginHorizontal();
+        }
+
+        protected virtual void NameButton()
+        {
+        #if UNITY_EDITOR
+            var windowExist = IsWindowExist();
+            if (windowExist)
+            {
+                var overviewWrapperExist = overviewWrapper == null;
+                if (overviewWrapperExist)
+                {
+                    OnWindowClose();
+                    CloseWindow();
+                    OpenNewWindow();
+                }
+            }
+
+            var icon = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
+            if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
+            {
+                if (windowExist) CloseWindow();
+                else OpenNewWindow();
+            }
+        #endif
+        }
+
+        protected virtual void OnCloseKeyDown()
+        {
+            CloseWindow();
         }
 
         protected virtual bool ValidateId(string value)
@@ -76,17 +137,81 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
 
     #region Private Methods
 
-
-        private void Ping()
+        private void CloseWindow()
         {
-            var soDataBase = GetDataOverview().FindData<SODataBase>(Id);
-            CustomEditorUtility.PingObject(soDataBase);
-            CustomEditorUtility.SelectObject(soDataBase);
+        #if UNITY_EDITOR
+            window.Close();
+        #endif
+            window = null;
         }
 
-        private void ShowId()
+        private bool IsWindowExist()
         {
-            Debug.Log($"<b><color=#ff7c60>[Id]</color></b> <color=#8BFF60>{Id}</color>");
+            bool windowExist;
+        #if UNITY_EDITOR
+            windowExist = window != null;
+        #endif
+            return windowExist;
+        }
+
+        private void OnEndGUI(D dataOverview)
+        {
+            overviewWrapper.Update();
+            if (GUILayout.Button("Ping And Select DataOverview"))
+            {
+                CustomEditorUtility.PingObject(dataOverview);
+                CustomEditorUtility.SelectObject(dataOverview);
+            }
+
+            if (GUILayout.Button("Close Window (Esc)")) CloseWindow();
+            var e = Event.current;
+            switch (e.type)
+            {
+                case EventType.KeyDown :
+                {
+                    if (Event.current.keyCode == KeyCode.Escape)
+                        OnCloseKeyDown();
+                    break;
+                }
+            }
+        }
+
+        private void OnIdChanged()
+        {
+        #if UNITY_EDITOR
+            if (IsWindowExist()) overviewWrapper.SetSelect(Id);
+        #endif
+        }
+
+        private void OnWindowClose()
+        {
+            lastRect = window.position;
+        }
+
+        private void OpenNewWindow()
+        {
+            var dataOverview  = GetDataOverview();
+            var lastRectExist = lastRect != default;
+            var rect          = lastRectExist ? lastRect : GUIHelper.GetCurrentLayoutRect();
+            overviewWrapper = new OverviewWrapper(dataOverview);
+            window          = OdinEditorWindow.InspectObject(overviewWrapper);
+            overviewWrapper.SetSelect(id);
+
+            if (lastRectExist == false)
+            {
+                var btnRectPosition = GUIUtility.GUIToScreenPoint(rect.position);
+                btnRectPosition.x -= overviewWidth + 30;
+                btnRectPosition.y =  Mathf.Min(btnRectPosition.y , 550);
+                rect.position     =  btnRectPosition;
+                rect.width        =  overviewWidth;
+                rect.height       =  overviewHeight;
+            }
+
+            window.position     =  rect;
+            window.titleContent =  new GUIContent($"{dataOverview.name}" , EditorIcons.StarPointer.Active);
+            window.OnClose      += OnWindowClose;
+            // window.OnBeginGUI   += () => GUILayout.Label("-----------");
+            window.OnEndGUI += () => OnEndGUI(dataOverview);
         }
 
     #endregion

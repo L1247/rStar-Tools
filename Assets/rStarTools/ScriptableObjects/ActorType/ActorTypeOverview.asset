@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3869c715341447597972e53a52f671a, type: 3}
-  m_Name: SkillData_3
+  m_Script: {fileID: 11500000, guid: 65d04dd882e94c178b2d0a601b092279, type: 3}
+  m_Name: ActorTypeOverview
   m_EditorClassIdentifier: 
-  uniqueId:
-    DataId: c58dc554-a093-4660-829e-433f7e915148
-    DisplayName: "\u96F7\u64CA\u8853"
+  ids:
+  - dataId: 568ca112-e9e7-4add-8390-787b272c67db
+    displayName: "\u6211\u65B9"
+  - dataId: 70f75d94-a815-44fe-9113-65a898194a85
+    displayName: "\u6575\u65B9"
