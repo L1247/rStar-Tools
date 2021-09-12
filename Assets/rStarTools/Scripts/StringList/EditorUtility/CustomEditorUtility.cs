@@ -1,5 +1,7 @@
 // using Sirenix.Utilities;
 
+#region
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ using Object = UnityEngine.Object;
 using UnityEditor.Animations;
 
 #endif
+
+#endregion
 
 namespace EditorUtilities
 {
@@ -284,16 +288,16 @@ namespace EditorUtilities
         #endif
         }
 
+        public static void SaveAssets()
+        {
+            InternalSaveAsset();
+        }
+
         public static void SelectObject(Object instance)
         {
         #if UNITY_EDITOR
             InternalSetSelectionActiveObject(instance);
         #endif
-        }
-
-        public static void SaveAssets()
-        {
-            InternalSaveAsset();
         }
 
         public static void SetDirty(Object data)

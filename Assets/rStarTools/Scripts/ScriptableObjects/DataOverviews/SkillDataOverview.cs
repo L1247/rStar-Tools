@@ -1,8 +1,8 @@
 #region
 
 using EditorUtilities;
-using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.Datas;
+using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
 
 #endregion

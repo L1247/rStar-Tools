@@ -1,16 +1,18 @@
 #region
 
-using Sirenix.OdinInspector.Editor;
-using Sirenix.Utilities.Editor;
 using UnityEngine;
+#if UNITY_EDITOR
 #if ODIN_INSPECTOR_3
+using Sirenix.Utilities.Editor;
+using Sirenix.OdinInspector.Editor;
 using Sirenix.OdinInspector.Editor.ValueResolvers;
+#endif
+
 #endif
 
 #endregion
 
-#pragma warning disable
-
+#if UNITY_EDITOR
 public class ColoredBoxGroupDrawer : OdinGroupDrawer<ColoredBoxGroupAttribute>
 {
 #region Protected Methods
@@ -79,3 +81,4 @@ public class ColoredBoxGroupDrawer : OdinGroupDrawer<ColoredBoxGroupAttribute>
     }
 #endif
 }
+#endif

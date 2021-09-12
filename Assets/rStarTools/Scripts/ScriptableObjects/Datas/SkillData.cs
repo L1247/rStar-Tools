@@ -1,7 +1,7 @@
 #region
 
-using rStarTools.Scripts.ScriptableObjects.BaseClasses;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
+using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

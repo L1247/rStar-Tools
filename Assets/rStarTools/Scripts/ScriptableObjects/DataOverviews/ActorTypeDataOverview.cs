@@ -1,6 +1,6 @@
 #region
 
-using rStarTools.Scripts.ScriptableObjects.BaseClasses;
+using rStarTools.Scripts.StringList;
 
 #endregion
 
