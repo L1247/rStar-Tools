@@ -163,7 +163,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
                 CustomEditorUtility.SelectObject(dataOverview);
             }
 
-            if (GUILayout.Button("Close Window")) CloseWindow();
+            if (GUILayout.Button("Close Window (Esc)")) CloseWindow();
             var e = Event.current;
             switch (e.type)
             {
