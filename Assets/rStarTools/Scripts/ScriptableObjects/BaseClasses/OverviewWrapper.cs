@@ -15,7 +15,7 @@ namespace rStarTools.Scripts.ScriptableObjects.BaseClasses
         [ColoredBoxGroup(                                      "@labelText" , .43f , .96f , .64f , 1f ,
                                             BoldLabel = true , ShowIcon = true)]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
-        private object currentData;
+        private IUniqueId currentData;
 
         [ShowInInspector]
         [PropertySpace(SpaceBefore = 15)]
