@@ -32,10 +32,12 @@ namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
         protected override string GetElementBoxText(int index)
         {
             var elementBoxText = base.GetElementBoxText(index);
-            var itemData       = GetAllData()[index];
+            var itemData       = GetDataByIndex(index);
             var text           = $"{elementBoxText} - {itemData.DisplayName}";
             return text;
         }
+
+
 
     #endregion
     }

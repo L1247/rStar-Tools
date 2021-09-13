@@ -15,8 +15,8 @@ namespace rStarTools.Scripts.StringList
 
         int FindIndex(string id);
 
-        public List<IUniqueId> GetAllData();
-        IUniqueId              GetData(int index);
+        public List<IUniqueId> GetAllUniqueId();
+        IUniqueId              GetUniqueIdByIndex(int index);
         IEnumerable            GetNames();
         bool                   Validate(string    id);
         bool                   ValidateAll(string id);

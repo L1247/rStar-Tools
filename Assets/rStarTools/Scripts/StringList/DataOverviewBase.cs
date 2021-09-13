@@ -41,7 +41,7 @@ namespace rStarTools.Scripts.StringList
 
         public D FindData<D>(string id) where D : class , IUniqueId
         {
-            var data = GetAllData().Find(_ => _.DataId == id) as D;
+            var data = GetAllUniqueId().Find(_ => _.DataId == id) as D;
             return data;
         }
 
@@ -67,16 +67,11 @@ namespace rStarTools.Scripts.StringList
             return ids.Find(uniqueId => uniqueId.DataId == id);
         }
 
-        public List<IUniqueId> GetAllData()
+        public List<U> GetAllData() => ids;
+
+        public List<IUniqueId> GetAllUniqueId()
         {
             return ids.Cast<IUniqueId>().ToList();
-        }
-
-        public IUniqueId GetData(int index)
-        {
-            if (index >= ids.Count) return null;
-            var uniqueId = ids[index];
-            return uniqueId;
         }
 
         public virtual IEnumerable GetNames()
@@ -91,6 +86,13 @@ namespace rStarTools.Scripts.StringList
                                          Value = element.DataId
                                      });
             return valueDropdownItems;
+        }
+
+        public IUniqueId GetUniqueIdByIndex(int index)
+        {
+            if (index >= ids.Count) return null;
+            var uniqueId = ids[index];
+            return uniqueId;
         }
 
         public virtual bool Validate(string id)
@@ -128,6 +130,13 @@ namespace rStarTools.Scripts.StringList
             return true;
         }
 
+
+        protected U GetDataByIndex(int index)
+        {
+            if (index >= ids.Count) return default;
+            return ids[index];
+        }
+
         protected virtual string GetElementBoxText(int index)
         {
             var text = $"Index: {index}";
@@ -146,7 +155,7 @@ namespace rStarTools.Scripts.StringList
         [GUIColor(1f , 1f , 0f)]
         [PropertyOrder(-1)]
         [ShowIf("IsDataScriptableObject")]
-        protected virtual void UpdateData()
+        public virtual void UpdateData()
         {
             ids = GetUniqueIds();
         }

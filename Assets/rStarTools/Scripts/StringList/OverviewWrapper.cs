@@ -54,7 +54,7 @@ namespace rStarTools.Scripts.StringList
             if (IsCurrentDataExist())
             {
                 var index = dataOverview.FindIndex(id);
-                var data  = dataOverview.GetData(index);
+                var data  = dataOverview.GetUniqueIdByIndex(index);
                 currentData = data;
                 var displayName = data.DisplayName;
                 labelText = $"Current Select Data - [{index}] {displayName}";
