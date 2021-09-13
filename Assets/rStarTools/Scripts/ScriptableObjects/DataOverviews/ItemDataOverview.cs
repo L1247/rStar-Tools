@@ -37,8 +37,6 @@ namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
             return text;
         }
 
-
-
     #endregion
     }
 }

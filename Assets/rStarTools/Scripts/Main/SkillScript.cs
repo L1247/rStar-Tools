@@ -1,11 +1,29 @@
+#region
+
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
+
+#endregion
 
 namespace rStarTools.Scripts.Main
 {
     public class SkillScript : MonoBehaviour
     {
+    #region Private Variables
+
+        // [Dropdown("SkillNames")]
+        // [InlineButton("ShowStringValue")]
+        // // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
+        // [LabelWidth(120)]
+        // public string NaughtyStringValue;
+
+        private static readonly string[] SkillNames =
+        {
+            "sd" ,
+            "nfvn"
+        };
+
         [SerializeField]
         [ValueDropdown("@NameListSo.SkillNames")]
         // [ValueDropdown("SkillNames")]
@@ -14,17 +32,14 @@ namespace rStarTools.Scripts.Main
         // [Sirenix.OdinInspector.ValidateInput("ValueValidation" ,"Value No Exists")]
         private string skillName;
 
-        // [Dropdown("SkillNames")]
-        // [InlineButton("ShowStringValue")]
-        // // [Sirenix.OdinInspector.ValidateInput("ValueValidation" , ContinuousValidationCheck = true)]
-        // [LabelWidth(120)]
-        // public string NaughtyStringValue;
+    #endregion
 
-        private static string[] SkillNames = new string[]
+    #region Private Methods
+
+        private void ShowSkillName()
         {
-            "sd" ,
-            "nfvn" ,
-        };
+            Debug.Log($"skillName {skillName}");
+        }
 
         private bool ValueValidation(string value)
         {
@@ -38,10 +53,7 @@ namespace rStarTools.Scripts.Main
             return contains;
         }
 
-        private void ShowSkillName()
-        {
-            Debug.Log($"skillName {skillName}");
-        }
+    #endregion
 
         // private void ShowStringValue()
         // {

@@ -11,14 +11,15 @@ namespace rStarTools.Scripts.StringList
     {
     #region Public Methods
 
-        public string          GetDataPath();
         bool                   ContainsId(string id);
+        int                    FindIndex(string  id);
         public List<IUniqueId> GetAllUniqueId();
-        int                    FindIndex(string       id);
-        IUniqueId              GetUniqueIdByIndex(int index);
-        IEnumerable            GetNames();
-        bool                   Validate(string    id);
-        bool                   ValidateAll(string id);
+
+        public string GetDataPath();
+        IEnumerable   GetNames();
+        IUniqueId     GetUniqueIdByIndex(int index);
+        bool          Validate(string        id);
+        bool          ValidateAll(string     id);
 
     #endregion
     }

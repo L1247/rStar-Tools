@@ -28,6 +28,16 @@ namespace rStarTools.Scripts.StringList
 
     #region Public Methods
 
+        public void SetDataId(string id)
+        {
+            uniqueId.SetDataId(id);
+        }
+
+        public void SetDisplayName(string newDisplayName)
+        {
+            uniqueId.SetDisplayName(newDisplayName);
+        }
+
         public void SetErrorMessage(string message)
         {
             uniqueId.SetErrorMessage(message);

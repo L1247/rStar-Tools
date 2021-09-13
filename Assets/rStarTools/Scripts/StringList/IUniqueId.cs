@@ -11,6 +11,9 @@ namespace rStarTools.Scripts.StringList
 
     #region Public Methods
 
+        public void SetDataId(string      id);
+        public void SetDisplayName(string newDisplayName);
+
         public void SetErrorMessage(string message);
 
     #endregion

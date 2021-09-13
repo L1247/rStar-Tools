@@ -31,6 +31,8 @@ namespace rStarTools.Scripts.StringList
 
     #endregion
 
+    #region Private Variables
+
         [SerializeField]
         [UsedImplicitly]
         [LabelWidth(90)]
@@ -45,10 +47,7 @@ namespace rStarTools.Scripts.StringList
         [ShowIf("@useDataPath")]
         private string dataPath;
 
-        public string GetDataPath()
-        {
-            return dataPath;
-        }
+    #endregion
 
     #region Public Methods
 
@@ -86,11 +85,19 @@ namespace rStarTools.Scripts.StringList
             return ids.Find(uniqueId => uniqueId.DataId == id);
         }
 
-        public List<U> GetAllData() => ids;
+        public List<U> GetAllData()
+        {
+            return ids;
+        }
 
         public List<IUniqueId> GetAllUniqueId()
         {
             return ids.Cast<IUniqueId>().ToList();
+        }
+
+        public string GetDataPath()
+        {
+            return dataPath;
         }
 
         public virtual IEnumerable GetNames()
@@ -112,6 +119,16 @@ namespace rStarTools.Scripts.StringList
             if (index >= ids.Count) return null;
             var uniqueId = ids[index];
             return uniqueId;
+        }
+
+        [Button]
+        [GUIColor(1f , 1f , 0f)]
+        [PropertyOrder(-1)]
+        [BoxGroup("DataPath")]
+        [ShowIf("IsDataScriptableObject")]
+        public virtual void UpdateData()
+        {
+            ids = GetUniqueIds();
         }
 
         public virtual bool Validate(string id)
@@ -169,16 +186,6 @@ namespace rStarTools.Scripts.StringList
             var scriptableObjects = CustomEditorUtility.GetScriptableObjects(typeOfU , path);
             var uniqueIds         = scriptableObjects.Cast<U>().ToList();
             return uniqueIds;
-        }
-
-        [Button]
-        [GUIColor(1f , 1f , 0f)]
-        [PropertyOrder(-1)]
-        [BoxGroup("DataPath")]
-        [ShowIf("IsDataScriptableObject")]
-        public virtual void UpdateData()
-        {
-            ids = GetUniqueIds();
         }
 
     #endregion

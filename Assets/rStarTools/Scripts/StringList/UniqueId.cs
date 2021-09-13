@@ -2,7 +2,6 @@
 
 using System;
 using JetBrains.Annotations;
-using rStarTools.Scripts.StringList;
 using rStarTools.Scripts.StringList.Custom_Attributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -59,6 +58,16 @@ namespace rStarTools.Scripts.StringList
     #endregion
 
     #region Public Methods
+
+        public void SetDataId(string id)
+        {
+            dataId = id;
+        }
+
+        public void SetDisplayName(string newDisplayName)
+        {
+            displayName = newDisplayName;
+        }
 
         public void SetErrorMessage(string errorMessage)
         {

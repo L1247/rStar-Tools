@@ -148,7 +148,7 @@ namespace rStarTools.Scripts.StringList
 
         private bool IsWindowExist()
         {
-            bool windowExist = false;
+            var windowExist = false;
         #if UNITY_EDITOR
             windowExist = window != null;
         #endif
