@@ -1,10 +1,10 @@
 #region
 
-using Sirenix.OdinInspector.Editor;
-using Sirenix.OdinInspector.Editor.ValueResolvers;
 using UnityEngine;
 #if UNITY_EDITOR
 #if ODIN_INSPECTOR_3
+using Sirenix.OdinInspector.Editor;
+using Sirenix.OdinInspector.Editor.ValueResolvers;
 using Sirenix.Utilities.Editor;
 #endif
 

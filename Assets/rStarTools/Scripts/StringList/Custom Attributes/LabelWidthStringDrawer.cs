@@ -1,9 +1,9 @@
 #region
 
-using Sirenix.OdinInspector.Editor.ValueResolvers;
-using Sirenix.Utilities.Editor;
 using UnityEngine;
 #if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor.ValueResolvers;
+using Sirenix.Utilities.Editor;
 using Sirenix.OdinInspector.Editor;
 #endif
 
