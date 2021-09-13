@@ -51,6 +51,11 @@ namespace rStarTools.Scripts.StringList
 
     #region Public Methods
 
+        public void AddNewData(U data)
+        {
+            ids.Add(data);
+        }
+
         public bool ContainsId(string id)
         {
             var containsId = FindUniqueId(id) != null;
@@ -136,7 +141,7 @@ namespace rStarTools.Scripts.StringList
             return ContainsId(id);
         }
 
-        public bool ValidateAll(string id)
+        public virtual bool ValidateAll(string id)
         {
             var uniqueId = FindUniqueId(id);
             if (uniqueId == null) return false;
