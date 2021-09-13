@@ -3,7 +3,6 @@
 using System;
 using System.Collections;
 using JetBrains.Annotations;
-using rStarTools.Scripts.StringList;
 using rStarTools.Scripts.StringList.Custom_Attributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -62,6 +61,7 @@ namespace rStarTools.Scripts.StringList
         private OdinEditorWindow window;
     #endif
 
+        [UsedImplicitly]
         private readonly string errorMessage = "此筆資料不存在於資料陣列內";
 
         private Rect lastRect;
