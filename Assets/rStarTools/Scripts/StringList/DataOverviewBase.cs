@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EditorUtilities;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -131,6 +132,33 @@ namespace rStarTools.Scripts.StringList
         {
             var text = $"Index: {index}";
             return text;
+        }
+
+        protected List<U> GetUniqueIds()
+        {
+            var typeOfU           = typeof(U);
+            var scriptableObjects = CustomEditorUtility.GetScriptableObjects(typeOfU);
+            var uniqueIds         = scriptableObjects.Cast<U>().ToList();
+            return uniqueIds;
+        }
+
+        [Button]
+        [GUIColor(1f , 1f , 0f)]
+        [PropertyOrder(-1)]
+        [ShowIf("IsDataScriptableObject")]
+        protected virtual void UpdateData()
+        {
+            ids = GetUniqueIds();
+        }
+
+    #endregion
+
+    #region Private Methods
+
+        private bool IsDataScriptableObject()
+        {
+            var isSubclassOfRawGeneric = Utility.IsSubclassOfRawGeneric(typeof(ScriptableObject) , typeof(U));
+            return isSubclassOfRawGeneric;
         }
 
     #endregion
