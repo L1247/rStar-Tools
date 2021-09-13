@@ -14,6 +14,7 @@ namespace rStarTools.Scripts.ScriptableObjects.DataOverviews
     #region Private Methods
 
         [Button]
+        [GUIColor(1f , 1f , 0f)]
         [PropertyOrder(-1)]
         private void UpdateData()
         {
