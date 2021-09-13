@@ -38,11 +38,6 @@ namespace rStarTools.Scripts.StringList
             uniqueId.SetDisplayName(newDisplayName);
         }
 
-        public void SetErrorMessage(string message)
-        {
-            uniqueId.SetErrorMessage(message);
-        }
-
     #endregion
     }
 }

@@ -14,8 +14,6 @@ namespace rStarTools.Scripts.StringList
         public void SetDataId(string      id);
         public void SetDisplayName(string newDisplayName);
 
-        public void SetErrorMessage(string message);
-
     #endregion
     }
 }

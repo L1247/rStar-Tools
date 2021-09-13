@@ -141,14 +141,20 @@ namespace rStarTools.Scripts.StringList
             return ContainsId(id);
         }
 
-        public virtual bool ValidateAll(string id)
+        public virtual bool ValidateAll(string id , out string errorMessage)
         {
+            errorMessage = string.Empty;
             var uniqueId = FindUniqueId(id);
-            if (uniqueId == null) return false;
+            if (uniqueId == null)
+            {
+                errorMessage = $"不存在於Overview內，Overview [{this}]";
+                return false;
+            }
+
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {
-                uniqueId.SetErrorMessage("顯示名稱不能為空");
+                errorMessage = "顯示名稱不能為空";
                 return false;
             }
 
@@ -158,7 +164,7 @@ namespace rStarTools.Scripts.StringList
                 var sameDisplayName = _.DisplayName == displayName;
                 return sameDisplayName;
             }).Count < 2;
-            if (isDisplayNameSame == false) uniqueId.SetErrorMessage($"檢查到有相同顯示名稱: {displayName}");
+            if (isDisplayNameSame == false) errorMessage = $"檢查到有相同顯示名稱: {displayName}";
             return isDisplayNameSame;
         }
 

@@ -19,7 +19,7 @@ namespace rStarTools.Scripts.StringList
         IEnumerable   GetNames();
         IUniqueId     GetUniqueIdByIndex(int index);
         bool          Validate(string        id);
-        bool          ValidateAll(string     id);
+        bool          ValidateAll(string     id , out string errorMessage);
 
     #endregion
     }
