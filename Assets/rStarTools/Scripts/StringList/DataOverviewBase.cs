@@ -38,6 +38,7 @@ namespace rStarTools.Scripts.StringList
         [LabelWidth(90)]
         [BoxGroup("DataPath")]
         [PropertyOrder(-2)]
+        [ShowIf("IsDataScriptableObject")]
         private bool useDataPath;
 
         [SerializeField]
@@ -197,6 +198,7 @@ namespace rStarTools.Scripts.StringList
 
     #region Private Methods
 
+        [UsedImplicitly]
         private bool IsDataScriptableObject()
         {
             var isSubclassOfRawGeneric = Utility.IsSubclassOfRawGeneric(typeof(ScriptableObject) , typeof(U));

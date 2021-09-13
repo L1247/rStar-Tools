@@ -83,9 +83,19 @@ namespace rStarTools.Scripts.StringList
 
         protected virtual bool ValidateAll()
         {
-            var dataOverview = Utility.GetDataOverview<DO>();
+            var dataOverview = GetDataOverview();
             var validateAll  = dataOverview.ValidateAll(dataId);
             return validateAll;
+        }
+
+    #endregion
+
+    #region Private Methods
+
+        private IDataOverview GetDataOverview()
+        {
+            var dataOverview = Utility.GetDataOverview<DO>();
+            return dataOverview;
         }
 
     #endregion
