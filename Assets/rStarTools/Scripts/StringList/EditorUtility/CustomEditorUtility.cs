@@ -157,14 +157,22 @@ namespace EditorUtilities
             return ts;
         }
 
-        public static List<ScriptableObject> GetScriptableObjects(Type type)
+        public static List<ScriptableObject> GetScriptableObjects(Type type , string path)
         {
             var ts = new List<ScriptableObject>();
         #if UNITY_EDITOR
-            var guids2 = AssetDatabase.FindAssets($"t:{type}");
+            var guids2       = AssetDatabase.FindAssets($"t:{type}");
+            var pathNotEmpty = string.IsNullOrEmpty(path) == false;
             foreach (var guid2 in guids2)
             {
                 var assetPath = AssetDatabase.GUIDToAssetPath(guid2);
+                // path check
+                if (pathNotEmpty)
+                {
+                    var notContainsPath = assetPath.Contains(path) == false;
+                    if (notContainsPath) continue;
+                }
+
                 ts.Add(AssetDatabase.LoadAssetAtPath(assetPath , type) as ScriptableObject);
             }
         #endif

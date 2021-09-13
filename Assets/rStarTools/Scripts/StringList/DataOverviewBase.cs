@@ -31,6 +31,25 @@ namespace rStarTools.Scripts.StringList
 
     #endregion
 
+        [SerializeField]
+        [UsedImplicitly]
+        [LabelWidth(90)]
+        [BoxGroup("DataPath")]
+        [PropertyOrder(-2)]
+        private bool useDataPath;
+
+        [SerializeField]
+        [FolderPath]
+        [LabelWidth(90)]
+        [BoxGroup("DataPath")]
+        [ShowIf("@useDataPath")]
+        private string dataPath;
+
+        public string GetDataPath()
+        {
+            return dataPath;
+        }
+
     #region Public Methods
 
         public bool ContainsId(string id)
@@ -145,8 +164,9 @@ namespace rStarTools.Scripts.StringList
 
         protected List<U> GetUniqueIds()
         {
+            var path              = useDataPath ? dataPath : "";
             var typeOfU           = typeof(U);
-            var scriptableObjects = CustomEditorUtility.GetScriptableObjects(typeOfU);
+            var scriptableObjects = CustomEditorUtility.GetScriptableObjects(typeOfU , path);
             var uniqueIds         = scriptableObjects.Cast<U>().ToList();
             return uniqueIds;
         }
@@ -154,6 +174,7 @@ namespace rStarTools.Scripts.StringList
         [Button]
         [GUIColor(1f , 1f , 0f)]
         [PropertyOrder(-1)]
+        [BoxGroup("DataPath")]
         [ShowIf("IsDataScriptableObject")]
         public virtual void UpdateData()
         {

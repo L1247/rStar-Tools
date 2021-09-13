@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa3740e223cd4d86bf06520a37538267, type: 3}
-  m_Name: SkillDataOverview
+  m_Script: {fileID: 11500000, guid: 79b0191417f645628c0a3f721a5370c2, type: 3}
+  m_Name: new item data
   m_EditorClassIdentifier: 
-  ids:
-  - {fileID: 11400000, guid: 8fc7c8aea828364408ed33a26a47aada, type: 2}
-  - {fileID: 11400000, guid: 759ee19fc30665c4293b454ae7f97542, type: 2}
-  useDataPath: 0
-  dataPath: 
+  uniqueId:
+    dataId: 4d44e7ba-3ddd-49c6-a1bd-613da6f29082
+    displayName: qweq
+  Deactivate: 0
+  SellPrice: 213
