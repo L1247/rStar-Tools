@@ -16,7 +16,7 @@ namespace rStarTools.Scripts.ScriptableObjects.Datas
         [LabelText("是否棄用:")]
         [LabelWidth(55)]
         [PropertyOrder(-1)]
-        [TableColumnWidth(5)]
+        [TableColumnWidth(80 , false)]
         public bool Deactivate;
 
         [LabelText("賣出價格:")]
