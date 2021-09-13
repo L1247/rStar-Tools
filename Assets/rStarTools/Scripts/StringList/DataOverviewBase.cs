@@ -129,7 +129,6 @@ namespace rStarTools.Scripts.StringList
 
         [Button]
         [GUIColor(1f , 1f , 0f)]
-        [PropertyOrder(-1)]
         [BoxGroup("DataPath")]
         [ShowIf("IsDataScriptableObject")]
         public virtual void UpdateData()
