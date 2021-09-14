@@ -23,7 +23,7 @@ namespace rStarTools.Scripts.StringList
     #region Protected Variables
 
         [SerializeField]
-        [LabelText("資料陣列")]
+        [LabelText("@StringListDescription.DataList")]
         [TableList(ShowIndexLabels = true)]
         [Searchable]
         [ListDrawerSettings(OnBeginListElementGUI = "BeginListElementGUI" , OnEndListElementGUI = "EndListElementGUI")]
@@ -147,14 +147,14 @@ namespace rStarTools.Scripts.StringList
             var uniqueId = FindUniqueId(id);
             if (uniqueId == null)
             {
-                errorMessage = $"不存在於Overview內，Overview [{this}]";
+                errorMessage = $"{StringListDescription.ErrorMessageCantFind} , Overview {this}";
                 return false;
             }
 
             var displayName = uniqueId.DisplayName;
             if (string.IsNullOrEmpty(displayName))
             {
-                errorMessage = "顯示名稱不能為空";
+                errorMessage = StringListDescription.DisplayNameIsEmpty;
                 return false;
             }
 
@@ -164,7 +164,7 @@ namespace rStarTools.Scripts.StringList
                 var sameDisplayName = _.DisplayName == displayName;
                 return sameDisplayName;
             }).Count < 2;
-            if (isDisplayNameSame == false) errorMessage = $"檢查到有相同顯示名稱: {displayName}";
+            if (isDisplayNameSame == false) errorMessage = $"{StringListDescription.SameDisplayName}: {displayName}";
             return isDisplayNameSame;
         }
 

@@ -61,16 +61,14 @@ namespace rStarTools.Scripts.StringList
         private OdinEditorWindow window;
     #endif
 
-        [UsedImplicitly]
-        private readonly string errorMessage = "此筆資料不存在於資料陣列內";
-
         private Rect lastRect;
 
         [SerializeField]
         [LabelWidthString("@LabelWidth")]
         [LabelText("@LabelText")]
         [ValueDropdown("@GetNames()")]
-        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true , DefaultMessage = "@errorMessage")]
+        [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true ,
+                       DefaultMessage = "@StringListDescription.DoesNotContainInOverview")]
         [OnInspectorGUI("IdGUIBefore" , "IdGUIAfter")]
         [OnValueChanged("OnIdChanged")]
         private string id;

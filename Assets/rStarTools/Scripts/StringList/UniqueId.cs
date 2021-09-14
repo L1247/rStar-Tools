@@ -28,7 +28,7 @@ namespace rStarTools.Scripts.StringList
         [UsedImplicitly]
         protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
 
-        protected virtual string LabelText => "顯示名稱:";
+        protected virtual string LabelText => $"{StringListDescription.DisplayName}:";
 
     #endregion
 
