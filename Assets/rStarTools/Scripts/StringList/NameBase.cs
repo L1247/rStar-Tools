@@ -68,7 +68,7 @@ namespace rStarTools.Scripts.StringList
         [LabelText("@LabelText")]
         [ValueDropdown("@GetNames()")]
         [ValidateInput("@ValidateId(Id)" , ContinuousValidationCheck = true ,
-                       DefaultMessage = "@StringListDescription.DoesNotContainInOverview")]
+                       DefaultMessage = "@StringListDescription.DoesNotContainInDataList")]
         [OnInspectorGUI("IdGUIBefore" , "IdGUIAfter")]
         [OnValueChanged("OnIdChanged")]
         private string id;

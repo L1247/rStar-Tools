@@ -147,7 +147,7 @@ namespace rStarTools.Scripts.StringList
             var uniqueId = FindUniqueId(id);
             if (uniqueId == null)
             {
-                errorMessage = $"{StringListDescription.ErrorMessageCantFind} , Overview {this}";
+                errorMessage = $"{StringListDescription.CantFindInOverview} , Overview {this}";
                 return false;
             }
 
