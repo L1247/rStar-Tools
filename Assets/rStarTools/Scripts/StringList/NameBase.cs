@@ -5,6 +5,7 @@ using System.Collections;
 using JetBrains.Annotations;
 using rStarTools.Scripts.StringList.Custom_Attributes;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
 #if UNITY_EDITOR
@@ -20,6 +21,23 @@ namespace rStarTools.Scripts.StringList
     public class NameBase<D> where D : ScriptableObject , IDataOverview
     {
     #region Public Variables
+
+        public static GUIStyle ToolbarButton
+        {
+            get
+            {
+                if (toolbarButton == null)
+                    toolbarButton = new GUIStyle(EditorStyles.toolbarButton)
+                    {
+                        fixedHeight   = 20 ,
+                        fixedWidth    = 30 ,
+                        alignment     = TextAnchor.MiddleCenter ,
+                        stretchHeight = true ,
+                        stretchWidth  = false
+                    };
+                return toolbarButton;
+            }
+        }
 
         public string Id => id;
 
@@ -54,6 +72,8 @@ namespace rStarTools.Scripts.StringList
         #endregion
         }
     #endif
+
+        private static GUIStyle toolbarButton;
 
         private OverviewWrapper overviewWrapper;
 
@@ -115,7 +135,7 @@ namespace rStarTools.Scripts.StringList
 
             var icon = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
 
-            if (GUILayout.Button(icon.Raw , GUILayout.Width(25) , GUILayout.Height(20)))
+            if (GUILayout.Button(icon.Raw , ToolbarButton))
             {
                 if (windowExist) CloseWindow();
                 else OpenNewWindow();
