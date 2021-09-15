@@ -27,6 +27,8 @@ namespace rStarTools.Scripts.StringList
             get
             {
                 if (toolbarButton == null)
+                {
+                #if UNITY_EDITOR
                     toolbarButton = new GUIStyle(EditorStyles.toolbarButton)
                     {
                         fixedHeight   = 20 ,
@@ -35,6 +37,9 @@ namespace rStarTools.Scripts.StringList
                         stretchHeight = true ,
                         stretchWidth  = false
                     };
+                #endif
+                }
+
                 return toolbarButton;
             }
         }
