@@ -57,6 +57,12 @@ namespace rStarTools.Scripts.StringList
             ids.Add(data);
         }
 
+        public bool ContainDisplayName(string displayName)
+        {
+            var uniqueId = ids.Find(id => id.DisplayName == displayName);
+            return uniqueId != null;
+        }
+
         public bool ContainsId(string id)
         {
             var containsId = FindUniqueId(id) != null;
@@ -104,6 +110,18 @@ namespace rStarTools.Scripts.StringList
         public string GetDataPath()
         {
             return dataPath;
+        }
+
+        /// <summary>
+        ///     if uniqueId is null , return empty.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public string GetDisplayName(string id)
+        {
+            var uniqueId = FindUniqueId(id);
+            if (uniqueId == null) return string.Empty;
+            return uniqueId.DisplayName;
         }
 
         public virtual IEnumerable GetNames()
