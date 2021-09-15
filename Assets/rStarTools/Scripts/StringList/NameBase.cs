@@ -114,11 +114,13 @@ namespace rStarTools.Scripts.StringList
             }
 
             var icon = windowExist ? EditorIcons.Stop : EditorIcons.Stretch;
-            if (SirenixEditorGUI.ToolbarButton(icon , windowExist))
+
+            if (GUILayout.Button(icon.Raw , GUILayout.Width(25) , GUILayout.Height(20)))
             {
                 if (windowExist) CloseWindow();
                 else OpenNewWindow();
             }
+
         #endif
         }
 
