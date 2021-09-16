@@ -100,6 +100,12 @@ namespace rStarTools.Scripts.StringList
 
     #endregion
 
+    #region Public Methods
+
+        public void SetId(string id) => this.id = id;
+
+    #endregion
+
     #region Protected Methods
 
         protected virtual D GetDataOverview()
