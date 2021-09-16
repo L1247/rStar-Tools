@@ -5,10 +5,10 @@ using System.Collections;
 using JetBrains.Annotations;
 using rStarTools.Scripts.StringList.Custom_Attributes;
 using Sirenix.OdinInspector;
-using UnityEditor;
 using UnityEngine;
 using CustomEditorUtility = EditorUtilities.CustomEditorUtility;
 #if UNITY_EDITOR
+using UnityEditor;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
 #endif
