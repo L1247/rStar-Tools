@@ -6,6 +6,8 @@ Requirement: Odin Inspector & Odin Validator
 
 若開啟專案遇到Error，需Import Odin插件，個人授權原因，故此專案不提供
 
+[YT Playlist](https://www.youtube.com/playlist?list=PLGkS8CzB8N0G-x7s0450cFymEGmEpcQCL)
+
 ## Overview Wrapper Demo
 ![Alt Text](https://i.imgur.com/HYwoQYF.gif)
 
