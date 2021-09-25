@@ -156,6 +156,7 @@ MonoBehaviour:
   A: 
   B: 
   C: 
+  iconForBox2: {fileID: 2800000, guid: a78bffbeb81b48ae9ec71ad7969613e5, type: 3}
 --- !u!4 &2092086250
 Transform:
   m_ObjectHideFlags: 0

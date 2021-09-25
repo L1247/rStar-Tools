@@ -18,6 +18,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         public float R = 1 , G = 1 , B = 1 , A = 1;
 
         public string Color;
+        public string Icon;
         public int    MarginBottom { get; set; }
         public int    MarginTop    { get; set; }
 

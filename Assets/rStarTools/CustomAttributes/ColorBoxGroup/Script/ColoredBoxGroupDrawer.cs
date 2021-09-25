@@ -41,10 +41,14 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                 if (string.IsNullOrEmpty(headerLabel)) headerLabel = "";
             }
 
-            var groupColor = Color.white;
+            // color resolve
+            Color groupColor;
             if (string.IsNullOrEmpty(Attribute.Color))
                 groupColor  = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
             else groupColor = colorResolver.GetValue();
+
+            // icon resolve
+            var icon = iconResolver.GetValue();
 
             GUIHelper.PushColor(groupColor);
             SirenixEditorGUI.BeginBox();
@@ -53,7 +57,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                 if (Attribute.ShowLabel)
                 {
                     if (Attribute.ShowIcon)
-                        GUILayout.Label(EditorIcons.Tag.Raw , GUILayout.Width(20) , GUILayout.MaxHeight(20));
+                        GUILayout.Label(icon , GUILayout.Width(20) , GUILayout.MaxHeight(20));
 
                     if (Attribute.CenterLabel)
                         SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Center , false);
@@ -75,8 +79,9 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
     #endregion
 
     #if ODIN_INSPECTOR_3
-        private ValueResolver<string> labelGetter;
-        private ValueResolver<Color>  colorResolver;
+        private ValueResolver<string>    labelGetter;
+        private ValueResolver<Color>     colorResolver;
+        private ValueResolver<Texture2D> iconResolver;
 
         /// <summary>
         ///     initialize values for colors, labels, etc
@@ -85,6 +90,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         {
             labelGetter   = ValueResolver.GetForString(Property , Attribute.LabelText ?? Attribute.GroupName);
             colorResolver = ValueResolver.Get(Property , Attribute.Color , Color.white);
+            iconResolver  = ValueResolver.Get(Property , Attribute.Icon ,  EditorIcons.Tag.Raw);
         }
     #endif
     }
