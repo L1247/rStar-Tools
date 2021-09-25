@@ -26,6 +26,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         protected override void DrawPropertyLayout(GUIContent label)
         {
             ValueResolver.DrawErrors(colorResolver);
+            var useColorText = Attribute.ColorText;
             GUILayout.Space(Attribute.MarginTop);
 
             var headerLabel = Attribute.LabelText;
@@ -40,18 +41,15 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                 if (string.IsNullOrEmpty(headerLabel)) headerLabel = "";
             }
 
-            var groupColor = Color.white;
+            Color groupColor;
             if (string.IsNullOrEmpty(Attribute.Color))
                 groupColor  = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
             else groupColor = colorResolver.GetValue();
 
             GUIHelper.PushColor(groupColor);
-            // GUI.contentColor    = groupColor;
-            // GUI.backgroundColor = groupColor;
             SirenixEditorGUI.BeginBox();
             SirenixEditorGUI.BeginBoxHeader();
             {
-                // GUIHelper.PopColor();
                 if (Attribute.ShowLabel)
                 {
                     if (Attribute.ShowIcon)
@@ -63,15 +61,13 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                         SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Left , false);
                 }
             }
-            // GUI.contentColor    = Color.white;
-            // GUI.backgroundColor = Color.white;
             SirenixEditorGUI.EndBoxHeader();
-            if (Attribute.ColorText == false) GUIHelper.PopColor();
+            if (useColorText == false) GUIHelper.PopColor();
 
             for (var i = 0 ; i < Property.Children.Count ; i++) Property.Children[i].Draw();
 
             SirenixEditorGUI.EndBox();
-            if (Attribute.ColorText) GUIHelper.PopColor();
+            if (useColorText) GUIHelper.PopColor();
 
             GUILayout.Space(Attribute.MarginBottom);
         }
