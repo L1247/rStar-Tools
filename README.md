@@ -12,6 +12,9 @@ Requirement: Odin Inspector & Odin Validator
 ![Alt Text](https://i.imgur.com/HYwoQYF.gif)
 
 ## Box Color Group Demo
+# Customization
+> Color、Icon、Auto LowSaturation Color、Color Text
+
 ![Alt Text](https://i.imgur.com/1PLfmFL.gif)
 ![Alt Text](https://i.imgur.com/m5NIPyF.png)
 
