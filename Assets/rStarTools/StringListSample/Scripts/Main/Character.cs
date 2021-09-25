@@ -34,6 +34,7 @@ namespace rStarTools.Scripts.Main
         private ActorTypeName actorTypeName;
 
         [SerializeField]
+        [LabelText("asd")]
         private ItemName itemName;
 
     #endregion

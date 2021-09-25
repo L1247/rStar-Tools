@@ -71,7 +71,19 @@ namespace rStarTools.Scripts.StringList
 
             protected override void DrawPropertyLayout(GUIContent label)
             {
-                Property.Children[0].Draw();
+                var parentTextAttribute = Property.GetAttribute<LabelTextAttribute>();
+                var parentHasLabelText  = parentTextAttribute != null;
+                if (Property.Children.Count == 0) return;
+                var idField            = Property.Children[0];
+                var labelTextAttribute = idField.GetAttribute<LabelTextAttribute>();
+                var hasLabelText       = labelTextAttribute != null;
+                if (hasLabelText)
+                {
+                    if (parentHasLabelText) labelTextAttribute.Text = parentTextAttribute.Text;
+                    else labelTextAttribute.Text                    = "@LabelText";
+                }
+
+                idField.Draw();
             }
 
         #endregion
