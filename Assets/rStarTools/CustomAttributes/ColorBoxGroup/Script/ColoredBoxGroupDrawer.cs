@@ -46,6 +46,13 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
             if (string.IsNullOrEmpty(Attribute.Color))
                 groupColor  = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
             else groupColor = colorResolver.GetValue();
+            if (Attribute.UseLowSaturation)
+            {
+                Color.RGBToHSV(groupColor , out var h , out var s , out var v);
+                s = 0.45f;
+                var hsvToRGB = Color.HSVToRGB(h , s , v);
+                groupColor = hsvToRGB;
+            }
 
             // icon resolve
             var icon = iconResolver.GetValue();

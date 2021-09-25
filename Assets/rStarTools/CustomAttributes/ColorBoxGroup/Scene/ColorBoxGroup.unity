@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712f97410fb041efbd82e7d377af4548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  group2Color: {r: 0.98027104, g: 1, b: 0.514151, a: 1}
+  group2Color: {r: 1, g: 0.77660096, b: 0, a: 1}
   A: 
   B: 
   C: 

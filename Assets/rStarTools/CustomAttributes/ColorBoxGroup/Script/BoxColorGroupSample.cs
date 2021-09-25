@@ -28,8 +28,8 @@ namespace rStarTools.Scripts.CustomAttributes
         [ColoredBoxGroup("Box1")]
         public string B;
 
-        [ColoredBoxGroup("Box2" , Color = "@group2Color" , ShowIcon = true , ColorText = true ,
-                         Icon = "@iconForBox2")]
+        [ColoredBoxGroup( "Box2" , Color = "@group2Color" , ShowIcon = true , ColorText = true ,
+                                                 Icon = "@iconForBox2" , UseLowSaturation = true)]
         [PropertyOrder(-1)]
         public string C;
 
