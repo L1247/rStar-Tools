@@ -102,7 +102,10 @@ namespace rStarTools.Scripts.StringList
 
     #region Public Methods
 
-        public void SetId(string id) => this.id = id;
+        public void SetId(string id)
+        {
+            this.id = id;
+        }
 
     #endregion
 
