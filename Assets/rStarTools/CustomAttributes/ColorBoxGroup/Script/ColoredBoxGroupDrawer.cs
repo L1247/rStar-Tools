@@ -41,7 +41,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                 if (string.IsNullOrEmpty(headerLabel)) headerLabel = "";
             }
 
-            Color groupColor;
+            var groupColor = Color.white;
             if (string.IsNullOrEmpty(Attribute.Color))
                 groupColor  = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
             else groupColor = colorResolver.GetValue();

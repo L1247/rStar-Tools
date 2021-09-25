@@ -15,7 +15,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         public bool ColorText = true;
 
         public bool  ShowIcon;
-        public float R , G , B , A;
+        public float R = 1 , G = 1 , B = 1 , A = 1;
 
         public string Color;
         public int    MarginBottom { get; set; }
