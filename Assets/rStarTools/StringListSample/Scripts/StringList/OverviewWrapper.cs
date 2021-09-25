@@ -13,8 +13,8 @@ namespace rStarTools.Scripts.StringList
     #region Private Variables
 
         [ShowInInspector]
-        [ColoredBoxGroup(                                      "@labelText" , .43f , .96f , .64f , 1f ,
-                                            BoldLabel = true , ShowIcon = true)]
+        [ColoredBoxGroup(                                    "@labelText" , .43f , .96f , .64f , 1f ,
+                                           ShowIcon = true , ColorText = false)]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
         private IUniqueId currentData;
 
