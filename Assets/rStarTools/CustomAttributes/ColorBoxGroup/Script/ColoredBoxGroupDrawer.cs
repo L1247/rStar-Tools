@@ -25,6 +25,7 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         /// <param name="label">Label string</param>
         protected override void DrawPropertyLayout(GUIContent label)
         {
+            ValueResolver.DrawErrors(colorResolver);
             GUILayout.Space(Attribute.MarginTop);
 
             var headerLabel = Attribute.LabelText;
@@ -39,10 +40,14 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                 if (string.IsNullOrEmpty(headerLabel)) headerLabel = "";
             }
 
-            var color = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
+            var groupColor = Color.white;
+            if (string.IsNullOrEmpty(Attribute.Color))
+                groupColor  = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
+            else groupColor = colorResolver.GetValue();
+
             // GUIHelper.PushColor(color);
-            GUI.contentColor    = color;
-            GUI.backgroundColor = color;
+            GUI.contentColor    = groupColor;
+            GUI.backgroundColor = groupColor;
             SirenixEditorGUI.BeginBox();
             SirenixEditorGUI.BeginBoxHeader();
             {
@@ -73,13 +78,15 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
 
     #if ODIN_INSPECTOR_3
         private ValueResolver<string> labelGetter;
+        private ValueResolver<Color>  colorResolver;
 
         /// <summary>
         ///     initialize values for colors, labels, etc
         /// </summary>
         protected override void Initialize()
         {
-            labelGetter = ValueResolver.GetForString(Property , Attribute.LabelText ?? Attribute.GroupName);
+            labelGetter   = ValueResolver.GetForString(Property , Attribute.LabelText ?? Attribute.GroupName);
+            colorResolver = ValueResolver.Get(Property , Attribute.Color , Color.white);
         }
     #endif
     }

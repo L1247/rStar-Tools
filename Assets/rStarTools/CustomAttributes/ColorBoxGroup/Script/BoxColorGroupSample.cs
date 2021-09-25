@@ -11,12 +11,19 @@ namespace rStarTools.Scripts.CustomAttributes
     {
     #region Public Variables
 
-        [ColoredBoxGroup("Box" , .43f , .96f , .64f , 1f ,
+        [ColoredBoxGroup("Box2" , "@group2Color")]
+        public Color group2Color = Color.green;
+
+        [ColoredBoxGroup("Box1" , .43f , .96f , .64f , 1f ,
                          ShowIcon = true)]
         public string A;
 
-        [ColoredBoxGroup("Box" , .43f , .96f , .64f , 1f)]
+        [ColoredBoxGroup("Box1" , .43f , .96f , .64f , 1f)]
         public string B;
+
+
+        [ColoredBoxGroup("Box2" , "@group2Color" , ShowIcon = true)]
+        public string C;
 
     #endregion
     }

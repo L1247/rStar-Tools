@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   A: 
   B: 
+  C: 
+  group2Color: {r: 0.99367726, g: 1, b: 0.43867922, a: 1}
 --- !u!4 &2092086250
 Transform:
   m_ObjectHideFlags: 0

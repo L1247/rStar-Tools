@@ -38,9 +38,10 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         public ColoredBoxGroupAttribute(
             string group ,
             string color ,
-            float  order = 0 , bool showIcon = false) : base(group , true , false , order)
+            float  order = 0) : base(group , true , false , order)
         {
-            Color = color;
+            Color     = color;
+            ShowLabel = true;
         }
 
     #endregion
