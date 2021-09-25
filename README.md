@@ -11,6 +11,10 @@ Requirement: Odin Inspector & Odin Validator
 ## Overview Wrapper Demo
 ![Alt Text](https://i.imgur.com/HYwoQYF.gif)
 
+## Box Color Group Demo
+![Alt Text](https://i.imgur.com/1PLfmFL.gif)
+![Alt Text](https://i.imgur.com/m5NIPyF.png)
+
 ## Three data types support
 String、Class、SO
 
