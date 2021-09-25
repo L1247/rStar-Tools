@@ -53,9 +53,9 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                         GUILayout.Label(EditorIcons.Tag.Raw , GUILayout.Width(20) , GUILayout.MaxHeight(20));
 
                     if (Attribute.CenterLabel)
-                        SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Center , false , Attribute.BoldLabel);
+                        SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Center , false);
                     else
-                        SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Left , false , Attribute.BoldLabel);
+                        SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Left , false);
                 }
             }
             GUI.contentColor    = Color.white;

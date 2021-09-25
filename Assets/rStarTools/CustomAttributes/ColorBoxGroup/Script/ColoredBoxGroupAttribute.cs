@@ -12,11 +12,12 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
     {
     #region Public Variables
 
-        public bool  BoldLabel;
+        public bool  ShowIcon;
         public float R , G , B , A;
-        public bool  ShowIcon     { get; set; }
-        public int   MarginBottom { get; set; }
-        public int   MarginTop    { get; set; }
+
+        public string Color;
+        public int    MarginBottom { get; set; }
+        public int    MarginTop    { get; set; }
 
     #endregion
 
@@ -25,18 +26,21 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
         public ColoredBoxGroupAttribute(
             string group ,
             float  r , float g , float b , float a ,
-            bool   showLabel   = true ,
-            bool   centerLabel = false ,
-            bool   boldLabel   = false ,
-            float  order       = 0 , bool showIcon = false) : base(group , showLabel , centerLabel , order)
+            float  order = 0) : base(group , true , false , order)
         {
-            ShowIcon = showIcon;
-            R        = r;
-            G        = g;
-            B        = b;
-            A        = a;
+            R         = r;
+            G         = g;
+            B         = b;
+            A         = a;
+            ShowLabel = true;
+        }
 
-            BoldLabel = boldLabel;
+        public ColoredBoxGroupAttribute(
+            string group ,
+            string color ,
+            float  order = 0 , bool showIcon = false) : base(group , true , false , order)
+        {
+            Color = color;
         }
 
     #endregion
