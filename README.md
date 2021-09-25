@@ -8,11 +8,11 @@ Requirement: Odin Inspector & Odin Validator
 
 [YT Playlist](https://www.youtube.com/playlist?list=PLGkS8CzB8N0G-x7s0450cFymEGmEpcQCL)
 
-## Overview Wrapper Demo
+# Overview Wrapper Demo
 ![Alt Text](https://i.imgur.com/HYwoQYF.gif)
 
-## Box Color Group Demo
-# Customization
+# Box Color Group Demo
+## Customization
 > Color、Icon、Auto LowSaturation Color、Color Text
 
 ![Alt Text](https://i.imgur.com/1PLfmFL.gif)
