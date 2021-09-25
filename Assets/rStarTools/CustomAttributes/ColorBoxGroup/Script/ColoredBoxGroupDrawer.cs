@@ -45,9 +45,9 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                 groupColor  = new Color(Attribute.R , Attribute.G , Attribute.B , Attribute.A);
             else groupColor = colorResolver.GetValue();
 
-            // GUIHelper.PushColor(color);
-            GUI.contentColor    = groupColor;
-            GUI.backgroundColor = groupColor;
+            GUIHelper.PushColor(groupColor);
+            // GUI.contentColor    = groupColor;
+            // GUI.backgroundColor = groupColor;
             SirenixEditorGUI.BeginBox();
             SirenixEditorGUI.BeginBoxHeader();
             {
@@ -63,13 +63,15 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
                         SirenixEditorGUI.Title(headerLabel , null , TextAlignment.Left , false);
                 }
             }
-            GUI.contentColor    = Color.white;
-            GUI.backgroundColor = Color.white;
+            // GUI.contentColor    = Color.white;
+            // GUI.backgroundColor = Color.white;
             SirenixEditorGUI.EndBoxHeader();
+            if (Attribute.ColorText == false) GUIHelper.PopColor();
 
             for (var i = 0 ; i < Property.Children.Count ; i++) Property.Children[i].Draw();
 
             SirenixEditorGUI.EndBox();
+            if (Attribute.ColorText) GUIHelper.PopColor();
 
             GUILayout.Space(Attribute.MarginBottom);
         }

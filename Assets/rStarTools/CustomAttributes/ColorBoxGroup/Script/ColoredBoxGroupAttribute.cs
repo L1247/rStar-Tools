@@ -12,6 +12,8 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
     {
     #region Public Variables
 
+        public bool ColorText = true;
+
         public bool  ShowIcon;
         public float R , G , B , A;
 
@@ -37,10 +39,8 @@ namespace rStarTools.Scripts.StringList.Custom_Attributes
 
         public ColoredBoxGroupAttribute(
             string group ,
-            string color ,
             float  order = 0) : base(group , true , false , order)
         {
-            Color     = color;
             ShowLabel = true;
         }
 
