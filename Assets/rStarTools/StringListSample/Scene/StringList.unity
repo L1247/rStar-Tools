@@ -177,7 +177,7 @@ MonoBehaviour:
   - id: dc66728f-85f5-4aae-8f94-fb6a2f3d53ae
   - id: ab18e296-3b17-400f-81f0-f12168936e36
   actorTypeName:
-    id: 568ca112-e9e7-4add-8390-787b272c67db
+    id: 30d30eba-9f6a-44a4-ac61-d802d33be58d
   itemName:
     id: 89b39165-f329-4dd8-aeee-96d3df345a34
 --- !u!114 &392911735
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 518826974}
   - component: {fileID: 518826973}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
