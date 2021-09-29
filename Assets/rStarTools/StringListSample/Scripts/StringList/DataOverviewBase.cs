@@ -159,33 +159,6 @@ namespace rStarTools.Scripts.StringList
             return ContainsId(id);
         }
 
-        public virtual bool ValidateAll(string id , out string errorMessage)
-        {
-            errorMessage = string.Empty;
-            var uniqueId = FindUniqueId(id);
-            if (uniqueId == null)
-            {
-                errorMessage = $"{StringListDescription.CantFindInOverview} , Overview {this}";
-                return false;
-            }
-
-            var displayName = uniqueId.DisplayName;
-            if (string.IsNullOrEmpty(displayName))
-            {
-                errorMessage = StringListDescription.DisplayNameIsEmpty;
-                return false;
-            }
-
-            var isDisplayNameSame = ids.FindAll(_ =>
-            {
-                if (_ == null) return false;
-                var sameDisplayName = _.DisplayName == displayName;
-                return sameDisplayName;
-            }).Count < 2;
-            if (isDisplayNameSame == false) errorMessage = $"{StringListDescription.SameDisplayName}: {displayName}";
-            return isDisplayNameSame;
-        }
-
     #endregion
 
     #region Protected Methods

@@ -6,5 +6,5 @@ using rStarTools.Scripts.StringList;
 
 namespace Main.GameDataStructure
 {
-    public class ActorTypeDataOverview : DataOverviewBase<ActorTypeDataOverview , UniqueId<ActorTypeDataOverview>> { }
+    public class ActorTypeDataOverview : DataOverviewBase<ActorTypeDataOverview , DataBase<ActorTypeDataOverview>> { }
 }

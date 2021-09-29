@@ -2,7 +2,9 @@
 
 using rStarTools.Scripts.StringList.Custom_Attributes;
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
+#endif
 using UnityEngine;
 
 #endregion
@@ -15,7 +17,17 @@ namespace rStarTools.Scripts.CustomAttributes
 
         [ShowInInspector]
         [ColoredBoxGroup("Box1")]
-        public Texture2D iconForBox1 => EditorIcons.Tag.Raw;
+        public Texture2D iconForBox1
+        {
+            get
+            {
+            #if UNITY_EDITOR
+                return EditorIcons.Tag.Raw;
+            #else
+                return null;
+            #endif
+            }
+        }
 
         [ColoredBoxGroup("Box2")]
         public Color group2Color = Color.green;

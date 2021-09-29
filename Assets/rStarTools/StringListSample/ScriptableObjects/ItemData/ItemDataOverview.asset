@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d87b1e4d2b758714ca146a7009f4f62c, type: 2}
   - {fileID: 11400000, guid: f68fb1999ed94f34283cec379ba31af0, type: 2}
   useDataPath: 1
-  dataPath: Assets/rStarTools/ScriptableObjects/ItemData
+  dataPath: Assets/rStarTools/StringListSample/ScriptableObjects/ItemData

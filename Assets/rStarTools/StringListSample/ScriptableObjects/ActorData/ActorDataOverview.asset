@@ -23,3 +23,5 @@ MonoBehaviour:
       displayName: "\u4F0A\u5E03"
     Deactivate: 0
     HP: 82
+  useDataPath: 0
+  dataPath: 
