@@ -7,10 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 #if UNITY_EDITOR
+using UnityEditor;
 using UnityEditor.Animations;
 
 #endif
@@ -356,5 +356,14 @@ namespace EditorUtilities
         }
 
     #endregion
+
+        #if UNITY_EDITOR
+        public static GUID GUIDFromAssetPath(string assetPath)
+        {
+            GUID guid = new GUID(null);
+             guid = AssetDatabase.GUIDFromAssetPath(assetPath);
+            return guid;
+        }
+        #endif
     }
 }
