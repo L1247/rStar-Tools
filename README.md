@@ -10,7 +10,8 @@ Requirement: Odin Inspector & Odin Validator
 
 # Overview Wrapper Demo
 ![Alt Text](https://i.imgur.com/HYwoQYF.gif)
-按照DisplayName排序顯示DropDown
+
+> 按照DisplayName排序顯示DropDown
 ![Alt Text](https://i.imgur.com/NVGCD1m.gif)
 
 # Box Color Group Demo
