@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: ItemDataOverview
   m_EditorClassIdentifier: 
   ids:
-  - {fileID: 11400000, guid: d87b1e4d2b758714ca146a7009f4f62c, type: 2}
+  - {fileID: 11400000, guid: 8050bfcc8496f07459869e2b3d43f85a, type: 2}
+  - {fileID: 11400000, guid: 443725ed687424240ab28e32cc3c6f97, type: 2}
   - {fileID: 11400000, guid: f68fb1999ed94f34283cec379ba31af0, type: 2}
+  - {fileID: 11400000, guid: d87b1e4d2b758714ca146a7009f4f62c, type: 2}
   useDataPath: 1
   dataPath: Assets/rStarTools/StringListSample/ScriptableObjects/ItemData
+  sortingByDisplayName: 1

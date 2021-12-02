@@ -14,10 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ids:
   - uniqueId:
-      dataId: 30d30eba-9f6a-44a4-ac61-d802d33be58d
-      displayName: "\u6211\u65B9"
+      dataId: dfa46daa-4737-4039-b91a-6ddf82589427
+      displayName: 12AC
+  - uniqueId:
+      dataId: 36b76746-9040-414c-8ff4-e62aa9d6a410
+      displayName: 12aB
   - uniqueId:
       dataId: 47eca29a-475f-4798-a2e3-61c0ed9427a6
       displayName: "\u6575\u65B9"
+  - uniqueId:
+      dataId: f15106dc-ecf0-4e8b-a0e0-d002099e4ef5
+      displayName: 12AB
+  - uniqueId:
+      dataId: 7a4a2565-81c8-483c-bc6c-d6aead7c25ce
+      displayName: 11
+  - uniqueId:
+      dataId: e0f6353c-0f2c-4aca-a8e5-afdbe495a0f2
+      displayName: 12Ab
+  - uniqueId:
+      dataId: 30d30eba-9f6a-44a4-ac61-d802d33be58d
+      displayName: "\u6211\u65B9"
+  - uniqueId:
+      dataId: 4e98cf0e-bbd8-4a80-a540-42f6f8d8d483
+      displayName: 1
+  - uniqueId:
+      dataId: 556e4c8a-12d9-4070-b46f-c27cb703fb94
+      displayName: "\u6211\u65B9A?"
   useDataPath: 0
   dataPath: 
+  sortingByDisplayName: 1

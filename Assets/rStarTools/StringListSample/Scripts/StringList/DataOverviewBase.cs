@@ -48,6 +48,12 @@ namespace rStarTools.Scripts.StringList
         [ShowIf("@useDataPath")]
         private string dataPath;
 
+        [SerializeField]
+        [LabelText("是否按DisplayName字母排序")]
+        [LabelWidth(200)]
+        [PropertyOrder(-5)]
+        private bool sortingByDisplayName;
+
     #endregion
 
     #region Public Methods
@@ -124,12 +130,20 @@ namespace rStarTools.Scripts.StringList
             return uniqueId.DisplayName;
         }
 
+
         public virtual IEnumerable GetNames()
         {
-            var valueDropdownItems = ids
+            var list = ids;
+            if (sortingByDisplayName)
+            {
+                list = ids.ToList();
+                list.Sort((x , y) => string.CompareOrdinal(x.DisplayName , y.DisplayName));
+            }
+
+            var valueDropdownItems = list
                                      .Where(id => id != null)
                                      .Where(id => string.IsNullOrEmpty(id.DisplayName) == false)
-                                     .Where(data => ExtraCondition(data))
+                                     .Where(ExtraCondition)
                                      .Select(element => new ValueDropdownItem
                                      {
                                          Text  = element.DisplayName ,
