@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 759ee19fc30665c4293b454ae7f97542, type: 2}
   useDataPath: 0
   dataPath: 
+  sortingByDisplayName: 0
