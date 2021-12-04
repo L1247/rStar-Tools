@@ -42,32 +42,55 @@ namespace LoadDataFromGoogleSheet
     {
     #region Public Variables
 
+        public int UUID => uuid;
+
+        public string Accuracy => accuracy;
+
+        public string Description => description;
+
+        public string Name => name;
+
+        public string Power => power;
+
+        public string PP => pp;
+
+    #endregion
+
+    #region Private Variables
+
         [PropertyOrder(1)]
         [TableColumnWidth(30 , false)]
-        public int UUID;
+        [SerializeField]
+        private int uuid;
 
         [PropertyOrder(5)]
         [TableColumnWidth(60 , false)]
-        public string Accuracy;
+        [SerializeField]
+        private string accuracy;
 
         [PropertyOrder(7)]
-        public string Description;
+        [SerializeField]
+        private string description;
 
         [PropertyOrder(2)]
         [TableColumnWidth(100 , false)]
-        public string Name;
+        [SerializeField]
+        private string name;
 
         [PropertyOrder(4)]
         [TableColumnWidth(40 , false)]
-        public string Power;
+        [SerializeField]
+        private string power;
 
         [PropertyOrder(6)]
         [TableColumnWidth(40 , false)]
-        public string PP;
+        [SerializeField]
+        private string pp;
 
         [PropertyOrder(3)]
         [TableColumnWidth(60 , false)]
-        public string Type;
+        [SerializeField]
+        private string type;
 
     #endregion
     }
