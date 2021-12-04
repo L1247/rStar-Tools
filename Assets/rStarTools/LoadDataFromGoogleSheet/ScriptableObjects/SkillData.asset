@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c87b959022896547a9ae4abb5462914, type: 3}
+  m_Name: SkillData
+  m_EditorClassIdentifier: 
+  url: https://opensheet.vercel.app/1Ps7_MYYRiIKxwqS3pkpwE4owEVOrybrHMsuY7RW6svI/Skill
+  skillInfos:
+  - UUID: 1
+    Name: "\u62CD\u64CA"
+    Type: "\u4E00\u822C"
+    Power: 40
+    Accuracy: 100
+    PP: 35
+    Description: 
+  - UUID: 2
+    Name: "\u7A7A\u624B\u5288"
+    Type: "\u683C\u9B25"
+    Power: 50
+    Accuracy: 100
+    PP: 25
+    Description: 
+  - UUID: 3
+    Name: "\u9023\u74B0\u5DF4\u638C"
+    Type: "\u4E00\u822C"
+    Power: 15
+    Accuracy: 85
+    PP: 10
+    Description: 
+  - UUID: 4
+    Name: "\u9023\u7E8C\u62F3"
+    Type: "\u4E00\u822C"
+    Power: 18
+    Accuracy: 85
+    PP: 15
+    Description: 
+  - UUID: 5
+    Name: "\u767E\u842C\u5678\u91CD\u62F3"
+    Type: "\u4E00\u822C"
+    Power: 80
+    Accuracy: 85
+    PP: 20
+    Description: 
+  - UUID: 6
+    Name: "\u805A\u5BF6\u529F"
+    Type: "\u4E00\u822C"
+    Power: 40
+    Accuracy: 100
+    PP: 20
+    Description: 
+  - UUID: 7
+    Name: "\u706B\u7130\u62F3"
+    Type: "\u706B"
+    Power: 75
+    Accuracy: 100
+    PP: 15
+    Description: 
+  - UUID: 8
+    Name: "\u51B0\u51CD\u62F3"
+    Type: "\u51B0"
+    Power: 75
+    Accuracy: 100
+    PP: 15
+    Description: 
+  - UUID: 9
+    Name: "\u96F7\u96FB\u62F3"
+    Type: "\u96FB"
+    Power: 75
+    Accuracy: 100
+    PP: 15
+    Description: 
+  - UUID: 10
+    Name: "\u6293"
+    Type: "\u4E00\u822C"
+    Power: 40
+    Accuracy: 100
+    PP: 35
+    Description: 
+  - UUID: 11
+    Name: "\u593E\u4F4F"
+    Type: "\u4E00\u822C"
+    Power: 55
+    Accuracy: 100
+    PP: 30
+    Description: 
+  - UUID: 12
+    Name: "\u65B7\u982D\u9257"
+    Type: "\u4E00\u822C"
+    Power: 40
+    Accuracy: 50
+    PP: 5
+    Description: 
+  - UUID: 13
+    Name: "\u65CB\u98A8\u5200"
+    Type: "\u4E00\u822C"
+    Power: 80
+    Accuracy: 100
+    PP: 10
+    Description: 
+  - UUID: 14
+    Name: "\u528D\u821E"
+    Type: "\u4E00\u822C"
+    Power: 55
+    Accuracy: 70
+    PP: 20
+    Description: 
+  - UUID: 15
+    Name: "\u5C45\u5408\u65AC"
+    Type: "\u4E00\u822C"
+    Power: 50
+    Accuracy: 95
+    PP: 30
+    Description: 
+  - UUID: 16
+    Name: "\u8D77\u98A8"
+    Type: "\u98DB\u884C"
+    Power: 40
+    Accuracy: 100
+    PP: 35
+    Description: 
+  - UUID: 17
+    Name: "\u7FC5\u8180\u653B\u64CA"
+    Type: "\u98DB\u884C"
+    Power: 60
+    Accuracy: 100
+    PP: 35
+    Description: 

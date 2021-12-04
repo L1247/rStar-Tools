@@ -1,0 +1,16 @@
+{
+  "name": "LoadDataFromGoogleSheet",
+  "rootNamespace": "",
+  "references": [
+    "GUID:80f5a80f2e1792c4cb0a59f1c0d79b06"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
