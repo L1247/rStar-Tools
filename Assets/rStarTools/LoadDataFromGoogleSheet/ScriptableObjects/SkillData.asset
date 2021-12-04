@@ -20,116 +20,116 @@ MonoBehaviour:
     Power: 40
     Accuracy: 100
     PP: 35
-    Description: 
+    Description: "\u4F7F\u7528\u9577\u9577\u7684\u5C3E\u5DF4\u6216\u624B\u7B49\u62CD\u6253\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002"
   - UUID: 2
     Name: "\u7A7A\u624B\u5288"
     Type: "\u683C\u9B25"
     Power: 50
     Accuracy: 100
     PP: 25
-    Description: 
+    Description: "\u7528\u92D2\u5229\u7684\u624B\u5200\u5288\u5411\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002\u5BB9\u6613\u64CA\u4E2D\u8981\u5BB3\u3002"
   - UUID: 3
     Name: "\u9023\u74B0\u5DF4\u638C"
     Type: "\u4E00\u822C"
     Power: 15
     Accuracy: 85
     PP: 10
-    Description: 
+    Description: "\u7528\u9023\u74B0\u5DF4\u638C\u62CD\u6253\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002\u6703\u9023\u7E8C\u653B\u64CA\uFF12\uFF5E\uFF15\u6B21\u3002"
   - UUID: 4
     Name: "\u9023\u7E8C\u62F3"
     Type: "\u4E00\u822C"
     Power: 18
     Accuracy: 85
     PP: 15
-    Description: 
+    Description: "\u7528\u6012\u6FE4\u822C\u7684\u62F3\u982D\u6BC6\u6253\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002\u9023\u7E8C\u653B\u64CA\uFF12\uFF5E\uFF15\u6B21\u3002"
   - UUID: 5
     Name: "\u767E\u842C\u5678\u91CD\u62F3"
     Type: "\u4E00\u822C"
     Power: 80
     Accuracy: 85
     PP: 20
-    Description: 
+    Description: "\u7528\u5E36\u6709\u5F37\u5927\u529B\u91CF\u7684\u62F3\u982D\u653B\u64CA\u5C0D\u624B\u3002"
   - UUID: 6
     Name: "\u805A\u5BF6\u529F"
     Type: "\u4E00\u822C"
     Power: 40
     Accuracy: 100
     PP: 20
-    Description: 
+    Description: "\u5F80\u5C0D\u624B\u8EAB\u4E0A\u6295\u64F2\u91D1\u5E63\u9032\u884C\u653B\u64CA\u3002\u6230\u9B25\u5F8C\u53EF\u4EE5\u5F97\u5230\u9322\u3002"
   - UUID: 7
     Name: "\u706B\u7130\u62F3"
     Type: "\u706B"
     Power: 75
     Accuracy: 100
     PP: 15
-    Description: 
+    Description: "\u7528\u5E36\u6709\u706B\u7130\u7684\u62F3\u982D\u653B\u64CA\u5C0D\u624B\u3002\u6709\u6642\u6703\u8B93\u5C0D\u624B\u9677\u5165\u707C\u50B7\u72C0\u614B\u3002"
   - UUID: 8
     Name: "\u51B0\u51CD\u62F3"
     Type: "\u51B0"
     Power: 75
     Accuracy: 100
     PP: 15
-    Description: 
+    Description: "\u7528\u5E36\u6709\u5BD2\u6C23\u7684\u62F3\u982D\u653B\u64CA\u5C0D\u624B\u3002\u6709\u6642\u6703\u8B93\u5C0D\u624B\u9677\u5165\u51B0\u51CD\u72C0\u614B\u3002"
   - UUID: 9
     Name: "\u96F7\u96FB\u62F3"
     Type: "\u96FB"
     Power: 75
     Accuracy: 100
     PP: 15
-    Description: 
+    Description: "\u7528\u5E36\u6709\u96FB\u6D41\u7684\u62F3\u982D\u653B\u64CA\u5C0D\u624B\u3002\u6709\u6642\u6703\u8B93\u5C0D\u624B\u9677\u5165\u9EBB\u75FA\u72C0\u614B\u3002"
   - UUID: 10
     Name: "\u6293"
     Type: "\u4E00\u822C"
     Power: 40
     Accuracy: 100
     PP: 35
-    Description: 
+    Description: "\u7528\u5805\u786C\u4E14\u7121\u6BD4\u92D2\u5229\u7684\u722A\u5B50\u6293\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002"
   - UUID: 11
     Name: "\u593E\u4F4F"
     Type: "\u4E00\u822C"
     Power: 55
     Accuracy: 100
     PP: 30
-    Description: 
+    Description: "\u5F9E\u5169\u5074\u593E\u4F4F\u5C0D\u624B\uFF0C\u7D66\u4E88\u50B7\u5BB3\u3002"
   - UUID: 12
     Name: "\u65B7\u982D\u9257"
     Type: "\u4E00\u822C"
     Power: 40
     Accuracy: 50
     PP: 5
-    Description: 
+    Description: "\u7528\u5DE8\u5927\u7684\u9257\u5B50\u6216\u526A\u5200\u7B49\u6495\u88C2\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002\u53EA\u8981\u547D\u4E2D\u5C31\u6703\u4E00\u64CA\u7015\u6B7B\u3002"
   - UUID: 13
     Name: "\u65CB\u98A8\u5200"
     Type: "\u4E00\u822C"
     Power: 80
     Accuracy: 100
     PP: 10
-    Description: 
+    Description: "\u88FD\u9020\u51FA\u98A8\u4E4B\u5203\uFF0C\u5728\u4E0B\u4E00\u56DE\u5408\u653B\u64CA\u5C0D\u624B\u3002\u5BB9\u6613\u64CA\u4E2D\u8981\u5BB3\u3002"
   - UUID: 14
     Name: "\u528D\u821E"
     Type: "\u4E00\u822C"
     Power: 55
     Accuracy: 70
     PP: 20
-    Description: 
+    Description: "\u6FC0\u70C8\u5730\u8DF3\u8D77\u6230\u821E\u63D0\u5347\u6C23\u52E2\u3002\u5927\u5E45\u63D0\u9AD8\u81EA\u5DF1\u7684\u653B\u64CA\u3002"
   - UUID: 15
     Name: "\u5C45\u5408\u65AC"
     Type: "\u4E00\u822C"
     Power: 50
     Accuracy: 95
     PP: 30
-    Description: 
+    Description: "\u7528\u942E\u5200\u6216\u722A\u5B50\u7B49\u65AC\u5207\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002"
   - UUID: 16
     Name: "\u8D77\u98A8"
     Type: "\u98DB\u884C"
     Power: 40
     Accuracy: 100
     PP: 35
-    Description: 
+    Description: "\u7528\u7FC5\u8180\u522E\u8D77\u72C2\u98A8\uFF0C\u5439\u5411\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002"
   - UUID: 17
     Name: "\u7FC5\u8180\u653B\u64CA"
     Type: "\u98DB\u884C"
     Power: 60
     Accuracy: 100
     PP: 35
-    Description: 
+    Description: "\u7528\u5927\u5927\u4F38\u5C55\u958B\u4F86\u7684\u7F8E\u9E97\u7FC5\u8180\uFF0C\u649E\u5411\u5C0D\u624B\u9032\u884C\u653B\u64CA\u3002"

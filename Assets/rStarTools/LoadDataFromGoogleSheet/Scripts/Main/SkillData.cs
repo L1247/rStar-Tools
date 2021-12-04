@@ -42,12 +42,31 @@ namespace LoadDataFromGoogleSheet
     {
     #region Public Variables
 
-        public int    UUID;
+        [PropertyOrder(1)]
+        [TableColumnWidth(30 , false)]
+        public int UUID;
+
+        [PropertyOrder(5)]
+        [TableColumnWidth(60 , false)]
         public string Accuracy;
+
+        [PropertyOrder(7)]
         public string Description;
+
+        [PropertyOrder(2)]
+        [TableColumnWidth(100 , false)]
         public string Name;
+
+        [PropertyOrder(4)]
+        [TableColumnWidth(40 , false)]
         public string Power;
+
+        [PropertyOrder(6)]
+        [TableColumnWidth(40 , false)]
         public string PP;
+
+        [PropertyOrder(3)]
+        [TableColumnWidth(60 , false)]
         public string Type;
 
     #endregion
