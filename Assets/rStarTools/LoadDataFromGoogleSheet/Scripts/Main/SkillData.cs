@@ -1,5 +1,7 @@
 #region
 
+using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Utilities;
@@ -21,6 +23,15 @@ namespace LoadDataFromGoogleSheet
         [SerializeField]
         [TableList]
         private SkillInfo[] skillInfos;
+
+    #endregion
+
+    #region Public Methods
+
+        public List<SkillInfo> GetAllSkillInfo()
+        {
+            return skillInfos.ToList();
+        }
 
     #endregion
 
