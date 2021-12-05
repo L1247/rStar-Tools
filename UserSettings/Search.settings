@@ -13,6 +13,9 @@ scopes = {
 	"last_search.785D90A9" = "over"
 	"InspectorPreview.785D90A9" = "1"
 	"currentGroup.785D90A9" = "asset"
+	"last_search.38000002" = "skillda"
+	"InspectorPreview.38000002" = "0"
+	"currentGroup.38000002" = "find"
 }
 providers = {
 	asset = {
@@ -77,6 +80,7 @@ providers = {
 	}
 }
 recentSearches = [
+	"skillda"
 	"over"
 	"dat"
 	"bal"
