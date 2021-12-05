@@ -26,3 +26,6 @@ String、Class、SO
 
 ## More info in Miro
 https://miro.com/app/board/o9J_lcQaNSk=/?moveToWidget=3074457363139411467&cot=14
+
+## Load Data From Google Sheet
+[![Watch the video](https://i.imgur.com/WaVZtGK.png)](https://youtu.be/aA0bWBo4y2s)
