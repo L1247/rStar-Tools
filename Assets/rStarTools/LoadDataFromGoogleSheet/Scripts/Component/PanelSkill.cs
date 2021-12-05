@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 #endregion
 
-namespace LoadDataFromGoogleSheet
+namespace LoadDataFromGoogleSheet.Scripts.Component
 {
     public class PanelSkill : MonoBehaviour
     {

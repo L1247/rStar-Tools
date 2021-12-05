@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using AutoBot.Utilities;
+using LoadDataFromGoogleSheet.Scripts.Component;
 using UniRx;
 using Zenject;
 

@@ -9,7 +9,7 @@ using UnityEngine;
 namespace LoadDataFromGoogleSheet
 {
     [Serializable]
-    public class SkillInfo : ISkillInfo
+    public class SkillInfo
     {
     #region Public Variables
 
