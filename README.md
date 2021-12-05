@@ -28,4 +28,4 @@ String、Class、SO
 https://miro.com/app/board/o9J_lcQaNSk=/?moveToWidget=3074457363139411467&cot=14
 
 ## Load Data From Google Sheet
-[![Watch the video](https://i.imgur.com/WaVZtGK.png)](https://youtu.be/aA0bWBo4y2s)
+[![Watch the video](https://img.youtube.com/vi/aA0bWBo4y2s/0.jpg)](https://www.youtube.com/watch?v=aA0bWBo4y2s)
