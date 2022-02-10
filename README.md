@@ -29,7 +29,7 @@ https://miro.com/app/board/o9J_lcQaNSk=/?moveToWidget=3074457363139411467&cot=14
 ![Alt Text](https://i.imgur.com/m5NIPyF.png)
 
 # MethodInvoker
-![Alt Text](https://i.imgur.com/YKRaMGr.mp4)
+![Alt Text](https://github.com/L1247/rStar-Tools/blob/develop/ScreenShots/MethodInvoker.gif?raw=true)
 
 ## Load Data From Google Sheet
 [![Watch the video](https://img.youtube.com/vi/aA0bWBo4y2s/0.jpg)](https://www.youtube.com/watch?v=aA0bWBo4y2s)
