@@ -1,8 +1,10 @@
 #region
 
+using UnityEngine;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
-using UnityEngine;
+#endif
 
 #endregion
 

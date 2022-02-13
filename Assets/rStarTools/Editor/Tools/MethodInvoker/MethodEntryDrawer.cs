@@ -2,11 +2,13 @@
 
 using System;
 using System.Linq;
+using UnityEngine;
+using Object = UnityEngine.Object;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
-using UnityEngine;
-using Object = UnityEngine.Object;
+#endif
 
 #endregion
 
