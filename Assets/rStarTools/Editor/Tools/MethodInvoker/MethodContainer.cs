@@ -29,31 +29,32 @@ namespace rStarTools.MethodInvoker
         public MethodContainer(GameObject target)
         {
             targetGameObject = target;
-            if (targetGameObject == null)
-            {
-                methodEntries.Clear();
-            }
-            else
-            {
-                if (target != null)
+            RefreshEntries();
+        }
+
+    #endregion
+
+    #region Public Methods
+
+        public void RefreshEntries()
+        {
+            methodEntries.Clear();
+            if (targetGameObject == null) return;
+            var monoBehaviours = targetGameObject.GetComponents<MonoBehaviour>();
+            if (monoBehaviours.Length > 0)
+                foreach (var monoBehaviour in monoBehaviours)
                 {
-                    var monoBehaviours = target.GetComponents<MonoBehaviour>();
-                    if (monoBehaviours.Length > 0)
-                        foreach (var monoBehaviour in monoBehaviours)
-                        {
-                            var type        = monoBehaviour.GetType();
-                            var methodInfos = type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-                            foreach (var methodInfo in methodInfos)
-                            {
-                                if (methodInfo.ReturnType != typeof(void))
-                                    continue;
-                                var info        = new DelegateInfo { Method = methodInfo , Target = monoBehaviour };
-                                var newDelegate = CreateAndAssignNewDelegate(info);
-                                methodEntries.Add(new MethodEntry(newDelegate));
-                            }
-                        }
+                    var type        = monoBehaviour.GetType();
+                    var methodInfos = type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+                    foreach (var methodInfo in methodInfos)
+                    {
+                        if (methodInfo.ReturnType != typeof(void))
+                            continue;
+                        var info        = new DelegateInfo { Method = methodInfo , Target = monoBehaviour };
+                        var newDelegate = CreateAndAssignNewDelegate(info);
+                        methodEntries.Add(new MethodEntry(newDelegate));
+                    }
                 }
-            }
         }
 
     #endregion
