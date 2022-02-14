@@ -114,6 +114,13 @@ namespace rStarTools.Scripts.StringList
 
     #region Public Methods
 
+        public override bool Equals(object obj)
+        {
+            var nameBase = obj as NameBase<D>;
+            if (nameBase == null) return base.Equals(obj);
+            return Id.Equals(nameBase.Id);
+        }
+
         public void SetId(string id)
         {
             this.id = id;
