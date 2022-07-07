@@ -65,7 +65,7 @@ namespace rStarTools.Scripts.StringList
 
         public bool ContainDisplayName(string displayName)
         {
-            var uniqueId = ids.Find(id => id.DisplayName == displayName);
+            var uniqueId = FindDataByDisplayName(displayName);
             return uniqueId != null;
         }
 
@@ -159,6 +159,12 @@ namespace rStarTools.Scripts.StringList
             return uniqueId;
         }
 
+        public void RemoveData(string id)
+        {
+            var uniqueId = FindUniqueId(id);
+            RemoveData(uniqueId);
+        }
+
         [Button]
         [GUIColor(1f , 1f , 0f)]
         [BoxGroup("DataPath")]
@@ -208,11 +214,22 @@ namespace rStarTools.Scripts.StringList
 
     #region Private Methods
 
+        private U FindDataByDisplayName(string displayName)
+        {
+            var uniqueId = ids.Find(id => id.DisplayName == displayName);
+            return uniqueId;
+        }
+
         [UsedImplicitly]
         private bool IsDataScriptableObject()
         {
             var isSubclassOfRawGeneric = Utility.IsSubclassOfRawGeneric(typeof(ScriptableObject) , typeof(U));
             return isSubclassOfRawGeneric;
+        }
+
+        private void RemoveData(U uniqueId)
+        {
+            ids.Remove(uniqueId);
         }
 
     #endregion
