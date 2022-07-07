@@ -61,6 +61,7 @@ namespace rStarTools.Scripts.StringList
         public void AddNewData(U data)
         {
             ids.Add(data);
+            SetDirtyThis();
         }
 
         public bool ContainDisplayName(string displayName)
@@ -165,6 +166,12 @@ namespace rStarTools.Scripts.StringList
             RemoveData(uniqueId);
         }
 
+        public void RemoveData(U uniqueId)
+        {
+            ids.Remove(uniqueId);
+            SetDirtyThis();
+        }
+
         [Button]
         [GUIColor(1f , 1f , 0f)]
         [BoxGroup("DataPath")]
@@ -172,6 +179,7 @@ namespace rStarTools.Scripts.StringList
         public virtual void UpdateData()
         {
             ids = GetUniqueIds();
+            SetDirtyThis();
         }
 
         public virtual bool Validate(string id)
@@ -227,9 +235,9 @@ namespace rStarTools.Scripts.StringList
             return isSubclassOfRawGeneric;
         }
 
-        private void RemoveData(U uniqueId)
+        private void SetDirtyThis()
         {
-            ids.Remove(uniqueId);
+            CustomEditorUtility.SetDirty(this);
         }
 
     #endregion
