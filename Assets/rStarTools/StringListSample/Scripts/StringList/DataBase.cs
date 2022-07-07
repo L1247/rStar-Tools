@@ -31,7 +31,7 @@ namespace rStarTools.Scripts.StringList
         [HideLabel]
         [SerializeField]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
-        private UniqueId<DO> uniqueId;
+        private UniqueId<DO> uniqueId = new UniqueId<DO>();
 
     #endregion
 
