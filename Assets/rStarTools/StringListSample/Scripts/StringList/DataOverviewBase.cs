@@ -18,7 +18,7 @@ namespace rStarTools.Scripts.StringList
     [Searchable]
     public class DataOverviewBase<DO , U> : SingletonScriptableObject<DO> , IDataOverview
     where DO : ScriptableObject , IDataOverview
-    where U : IUniqueId
+    where U : class , IUniqueId
     {
     #region Protected Variables
 
@@ -57,6 +57,12 @@ namespace rStarTools.Scripts.StringList
     #endregion
 
     #region Public Methods
+
+        public void AddData(IUniqueId uniqueId)
+        {
+            var data = uniqueId as U;
+            AddNewData(data);
+        }
 
         public void AddNewData(U data)
         {

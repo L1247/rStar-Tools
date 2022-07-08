@@ -11,6 +11,8 @@ namespace rStarTools.Scripts.StringList
     {
     #region Public Methods
 
+        void AddData(IUniqueId uniqueId);
+
         bool                   ContainsId(string id);
         int                    FindIndex(string  id);
         public List<IUniqueId> GetAllUniqueId();
