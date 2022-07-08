@@ -16,6 +16,8 @@ namespace rStarTools.Scripts.StringList
         [ColoredBoxGroup(    "@labelText" ,    Color = "@Color.yellow"
                            , ShowIcon = true , UseLowSaturation = true , ColorText = false)]
         [InlineEditor(InlineEditorObjectFieldModes.CompletelyHidden)]
+        [HideReferenceObjectPicker]
+        [HideLabel]
         private IUniqueId currentData;
 
         [ShowInInspector]
