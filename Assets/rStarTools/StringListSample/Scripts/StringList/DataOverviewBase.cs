@@ -172,6 +172,11 @@ namespace rStarTools.Scripts.StringList
             SetDirtyThis();
         }
 
+        public void SetDirtyThis()
+        {
+            CustomEditorUtility.SetDirty(this);
+        }
+
         [Button]
         [GUIColor(1f , 1f , 0f)]
         [BoxGroup("DataPath")]
@@ -233,11 +238,6 @@ namespace rStarTools.Scripts.StringList
         {
             var isSubclassOfRawGeneric = Utility.IsSubclassOfRawGeneric(typeof(ScriptableObject) , typeof(U));
             return isSubclassOfRawGeneric;
-        }
-
-        private void SetDirtyThis()
-        {
-            CustomEditorUtility.SetDirty(this);
         }
 
     #endregion
