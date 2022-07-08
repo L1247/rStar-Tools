@@ -61,7 +61,7 @@ namespace rStarTools.Scripts.StringList
         public void AddNewData(U data)
         {
             ids.Add(data);
-            SetDirtyThis();
+            SetThisDirty();
         }
 
         public bool ContainDisplayName(string displayName)
@@ -169,10 +169,10 @@ namespace rStarTools.Scripts.StringList
         public void RemoveData(U uniqueId)
         {
             ids.Remove(uniqueId);
-            SetDirtyThis();
+            SetThisDirty();
         }
 
-        public void SetDirtyThis()
+        public void SetThisDirty()
         {
             CustomEditorUtility.SetDirty(this);
         }
@@ -184,7 +184,7 @@ namespace rStarTools.Scripts.StringList
         public virtual void UpdateData()
         {
             ids = GetUniqueIds();
-            SetDirtyThis();
+            SetThisDirty();
         }
 
         public virtual bool Validate(string id)
