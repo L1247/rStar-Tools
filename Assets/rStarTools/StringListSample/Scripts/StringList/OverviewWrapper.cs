@@ -23,6 +23,7 @@ namespace rStarTools.Scripts.StringList
         [ShowInInspector]
         [PropertySpace(SpaceBefore = 15)]
         [InlineEditor(InlineEditorObjectFieldModes.Hidden)]
+        [HideReferenceObjectPicker]
         private IDataOverview dataOverview;
 
         private string labelText;

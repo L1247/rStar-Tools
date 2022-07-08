@@ -31,6 +31,7 @@ namespace rStarTools.Scripts.StringList
         [HideLabel]
         [SerializeField]
         [ValidateInput("@ValidateAll()" , DefaultMessage = "@validateErrorMessage" , ContinuousValidationCheck = true)]
+        [PropertyOrder(-1)]
         [HideReferenceObjectPicker]
         private UniqueId<DO> uniqueId = new UniqueId<DO>();
 

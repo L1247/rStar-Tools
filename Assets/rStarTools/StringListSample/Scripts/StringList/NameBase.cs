@@ -51,7 +51,7 @@ namespace rStarTools.Scripts.StringList
     #region Protected Variables
 
         [UsedImplicitly]
-        protected virtual float LabelWidth => Utility.GetFlexibleWidth(LabelText);
+        protected virtual float LabelWidth => /*Utility.GetFlexibleWidth(LabelText)*/0;
 
         protected virtual int overviewHeight => 400;
 
