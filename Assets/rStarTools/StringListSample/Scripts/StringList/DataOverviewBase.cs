@@ -26,7 +26,8 @@ namespace rStarTools.Scripts.StringList
         [LabelText("@StringListDescription.DataList")]
         [TableList(ShowIndexLabels = true)]
         [Searchable]
-        [ListDrawerSettings(OnBeginListElementGUI = "BeginListElementGUI" , OnEndListElementGUI = "EndListElementGUI")]
+        [ListDrawerSettings(OnBeginListElementGUI = "BeginListElementGUI" , OnEndListElementGUI = "EndListElementGUI" ,
+                            Expanded = true)]
         protected List<U> ids = new List<U>();
 
     #endregion
