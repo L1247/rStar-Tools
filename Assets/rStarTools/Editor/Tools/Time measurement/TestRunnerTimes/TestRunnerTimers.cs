@@ -24,21 +24,24 @@ public sealed class TestRunnerTimers /*: EditorSingleton<TestRunnerTimers>*/
 
         public void OnError(string message)
         {
-            Debug.Log(message);
+            Debug.LogError($"There has Error: {message}");
         }
 
         public void RunFinished(ITestResultAdaptor result)
         {
             runTestTime = DateTime.Now.Ticks - runStart;
-            var compilation = new TimeSpan(runTestTime);
-            Debug.Log($"Test run time: {compilation.TotalSeconds:F3}s ," +
-                      $"Test duration: {result.Duration}s");
+            var totalTestTime    = new TimeSpan(runTestTime);
+            var failCountMessage = result.FailCount > 0 ? $"<color=red>{result.FailCount}</color>." : result.FailCount.ToString();
+            var failMessage      = $"Failed test count: {failCountMessage}";
+            Debug.Log($"Test duration: <color=#00afb9>{result.Duration}(s)</color> , "
+                    + $"Total time: <color=#5995ed>{totalTestTime.TotalSeconds:F3}(s)</color>.\n"
+                    + $"               Pass test count: <color=#0BAB33>{result.PassCount}</color> ,       "
+                    + failMessage);
             runTestTime = 0;
         }
 
         public void RunStarted(ITestAdaptor testsToRun)
         {
-            // Debug.Log("Tests started");
             runStart = DateTime.Now.Ticks;
         }
 
@@ -56,9 +59,6 @@ public sealed class TestRunnerTimers /*: EditorSingleton<TestRunnerTimers>*/
     [InitializeOnLoadMethod]
     private static void OnLoad()
     {
-        // Initialize();
-
-        // Find the existing instance or creates a new one.
         var instances     = Resources.FindObjectsOfTypeAll<TestRunnerApi>();
         var testRunnerApi = instances[0];
         testRunnerApi.RegisterCallbacks(new TestCallbacks());

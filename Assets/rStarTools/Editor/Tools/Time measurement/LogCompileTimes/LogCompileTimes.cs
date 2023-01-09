@@ -37,9 +37,9 @@ namespace Hextant.Editor
 
             var compilation = new TimeSpan(_compilationTime);
             var reload      = new TimeSpan(DateTime.Now.Ticks - _reloadStart);
-            Debug.Log($"Script compilation: {compilation.TotalSeconds:F3}s, " +
-                      $"Domain reload: {reload.TotalSeconds:F3}s, "           +
-                      $"Total: {(compilation + reload).TotalSeconds:F3}s ");
+            Debug.Log($"Script compilation: {compilation.TotalSeconds:F3}s, "
+                    + $"Domain reload: {reload.TotalSeconds:F3}s, "
+                    + $"Total: {(compilation + reload).TotalSeconds:F3}s ");
             _compilationTime = 0;
         }
 
