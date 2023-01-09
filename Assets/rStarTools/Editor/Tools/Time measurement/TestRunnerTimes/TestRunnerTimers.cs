@@ -35,7 +35,7 @@ public sealed class TestRunnerTimers /*: EditorSingleton<TestRunnerTimers>*/
             var failMessage      = $"Failed test count: {failCountMessage}";
             Debug.Log($"Test duration: <color=#00afb9>{result.Duration}(s)</color> , "
                     + $"Total time: <color=#5995ed>{totalTestTime.TotalSeconds:F3}(s)</color>.\n"
-                    + $"               Passed test count: <color=#0BAB33>{result.PassCount}</color> ,       "
+                    + $"Passed test count: <color=#0BAB33>{result.PassCount}</color> , "
                     + failMessage);
             runTestTime = 0;
         }
